@@ -1,0 +1,214 @@
+@use "../../styles/base/variables" as *;
+
+.hero {
+    min-height: calc(100vh - 80px);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem 2rem;
+    position: relative;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(32px);
+    animation: heroReveal 0.9s ease forwards;
+    animation-delay: 0.2s;
+
+    &__container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    &__intro {
+        color: $primary;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+    }
+
+    &__name {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+    }
+
+    &__tagline {
+        font-size: 2rem;
+        color: $text-muted;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+
+        span {
+            color: $primary;
+        }
+    }
+
+    &__description {
+        max-width: 620px;
+        margin: 0 auto 2rem;
+        color: $text-muted;
+        line-height: 1.7;
+        font-size: 1rem;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 180px;
+        padding: 1rem 1.6rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        border: 1px solid transparent;
+        transition:
+            background 0.3s ease,
+            color 0.3s ease,
+            border-color 0.3s ease,
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    &__button--primary {
+        background: $primary;
+        color: #0a0a0a;
+        border-color: $primary;
+
+        &:hover {
+            background: $text;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(250, 204, 21, 0.25);
+        }
+    }
+
+    &__button--cv {
+        background: transparent;
+        color: $primary;
+        border-color: $primary;
+
+        &:hover {
+            background: $text;
+            color: #0a0a0a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(250, 204, 21, 0.25);
+        }
+    }
+
+    &__socials {
+        position: absolute;
+        left: 2rem;
+        bottom: 8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        &::after {
+            content: "";
+            width: 1px;
+            height: 90px;
+            background: $text-muted;
+            margin-top: 0.5rem;
+            opacity: 0.6;
+        }
+
+        a {
+            color: $text-muted;
+            transition: color 0.3s ease, transform 0.3s ease;
+
+            &:hover {
+                color: $primary;
+                transform: translateY(-3px);
+            }
+        }
+
+        svg {
+            width: 26px;
+            height: 26px;
+            display: block;
+        }
+    }
+
+    &__scroll {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: $text-muted;
+        animation: bounce 1.8s infinite;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $primary;
+        }
+
+        svg {
+            width: 30px;
+            height: 30px;
+            display: block;
+        }
+    }
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero__socials {
+        left: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 3rem 2rem 1rem 2rem;
+
+        &__name {
+            font-size: 2.8rem;
+        }
+
+        &__tagline {
+            font-size: 1.5rem;
+        }
+
+        &__socials {
+            display: none;
+        }
+
+        &__scroll {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,229 @@
+@use "../../styles/base/variables" as *;
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #0f0f0f inset !important;
+    box-shadow: 0 0 0px 1000px #0f0f0f inset !important;
+
+    -webkit-text-fill-color: $text !important;
+    caret-color: $text;
+
+    border: 1px solid $border;
+
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+.contact {
+    padding: 6rem 2rem;
+    border-top: 1px solid $border;
+
+    &__container {
+        max-width: 700px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    &__intro {
+        color: $text-muted;
+        line-height: 1.8;
+        max-width: 520px;
+    }
+
+    &__form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+        margin-top: 1rem;
+        text-align: left;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+
+        label {
+            font-size: 0.9rem;
+            color: $text-muted;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 8px;
+            border: 1px solid $border;
+            background: #0f0f0f;
+            color: $text;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+            &::placeholder {
+                color: rgba(229, 229, 229, 0.35);
+            }
+
+            &:focus {
+                border-color: $primary;
+                box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.15);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        input:invalid:not(:placeholder-shown),
+        textarea:invalid:not(:placeholder-shown) {
+            border-color: #b91c1c;
+        }
+    }
+
+    &__error {
+        color: #f87171;
+        font-size: 0.85rem;
+        margin-top: 0.2rem;
+    }
+
+    &__cta {
+        margin-top: 0.5rem;
+        padding: 0.95rem 1.4rem;
+        border-radius: 8px;
+        border: 1px solid $primary;
+        background: $primary;
+        color: #0a0a0a;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+
+        &:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(250, 204, 21, 0.25);
+        }
+
+        &:disabled {
+            opacity: 0.8;
+            cursor: not-allowed;
+        }
+    }
+
+    &__cta--sending {
+        animation: pulseSend 1s ease-in-out infinite;
+    }
+
+    &__success {
+        width: 100%;
+        padding: 1.5rem;
+        border: 1px solid rgba(250, 204, 21, 0.35);
+        border-radius: 16px;
+        background: rgba(250, 204, 21, 0.05);
+        text-align: center;
+
+        h3 {
+            color: $text;
+            margin-bottom: 0.6rem;
+            font-size: 1.2rem;
+        }
+
+        p {
+            color: $text-muted;
+            line-height: 1.7;
+        }
+    }
+
+    &__sent-badge {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        background: $primary;
+        color: #0a0a0a;
+        font-weight: 700;
+        animation: sentPop 0.45s ease;
+    }
+
+    &__infos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.5rem;
+        justify-content: center;
+    }
+
+    &__info {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        border: 1px solid $border;
+        color: $text-muted;
+        text-decoration: none;
+        transition:
+            border-color 0.3s ease,
+            color 0.3s ease,
+            transform 0.3s ease,
+            background 0.3s ease;
+
+        &:hover {
+            border-color: $primary;
+            color: $primary;
+            background: rgba(250, 204, 21, 0.05);
+            transform: translateY(-2px);
+        }
+    }
+}
+
+@keyframes pulseSend {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 0 0 rgba(250, 204, 21, 0);
+    }
+
+    50% {
+        transform: translateY(-1px);
+        box-shadow: 0 0 18px rgba(250, 204, 21, 0.18);
+    }
+}
+
+@keyframes sentPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 3rem 2rem;
+
+        &__container {
+            gap: 1.5rem;
+            margin: 0 10px;
+            max-width: 600px;
+            ;
+        }
+
+        &__intro {
+            font-size: 0.95rem;
+        }
+    }
+}

@@ -1,0 +1,102 @@
+@use "../../styles/base/variables" as *;
+
+.about {
+    padding: 6rem 2rem;
+    border-top: 1px solid $border;
+
+    &__container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    &__cta {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        border: 1px solid $primary;
+        color: $primary;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: 0.3s;
+
+        &:hover {
+            background: $primary;
+            color: black;
+        }
+    }
+
+    &__image-wrapper {
+        position: relative;
+        width: 260px;
+        height: 380px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
+
+
+            transform: rotate(5deg);
+            transition: 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid $primary;
+            border-radius: 25px;
+            z-index: 1;
+            transition: 0.3s ease;
+        }
+
+        &:hover img {
+            transform: rotate(0deg) translate(-5px, -5px);
+        }
+
+        &:hover::before {
+            transform: translate(5px, 5px);
+        }
+    }
+
+    p {
+        color: $text-muted;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+
+        strong {
+            color: $primary;
+        }
+    }
+
+    &__image {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 3rem 2rem;
+
+        &__container {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            text-align: center;
+        }
+
+        &__image {
+            margin-top: 2rem;
+        }
+    }
+}
