@@ -1,17 +1,11 @@
 import { useState } from 'react'
 import './Header.scss'
 import { Menu, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import ScrollToTop from '../ScrollToTop/ScrollToTop'
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false)
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        })
-        setIsOpen(false)
-    }
 
     const closeMenu = () => setIsOpen(false)
 
@@ -19,7 +13,7 @@ function Header() {
         <header className="header">
             <div className="header__container">
 
-                <div className="header__logo" onClick={scrollToTop} role="button" tabIndex={0} aria-label="Scroll to top">
+                <div className="header__logo" onClick={ScrollToTop} role="button" tabIndex={0} aria-label="Scroll to top">
                     &lt;dev /&gt;
                 </div>
 
@@ -28,6 +22,7 @@ function Header() {
                     <a href="#skills">Skills</a>
                     <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
+                    <Link to="/resume">Resume</Link>
                 </nav>
 
                 <button
@@ -46,6 +41,9 @@ function Header() {
                 <a href="#skills" onClick={closeMenu}>Skills</a>
                 <a href="#projects" onClick={closeMenu}>Projects</a>
                 <a href="#contact" onClick={closeMenu}>Contact</a>
+                <Link to="/resume" onClick={closeMenu}>
+                    Resume
+                </Link>
             </nav>
         </header>
     )

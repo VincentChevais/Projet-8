@@ -1,28 +1,15 @@
-import Header from './components/Header/Header'
-import Hero from './components/Hero/Hero'
-import Footer from './components/Footer/Footer'
-import { lazy, Suspense } from 'react'
-
-const About = lazy(() => import('./components/About/About'))
-const Skills = lazy(() => import('./components/Skills/Skills'))
-const Projects = lazy(() => import('./components/Projects/Projects'))
-const Contact = lazy(() => import('./components/Contact/Contact'))
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home/Home'
+import Resume from './pages/Resume/Resume'
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Suspense fallback={null}>
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </Suspense>
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/resume" element={<Resume />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

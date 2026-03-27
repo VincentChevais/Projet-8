@@ -10,8 +10,7 @@
     z-index: 1000;
 
     &__container {
-        max-width: 1200px;
-        margin: 0 auto;
+        margin: 0 40px;
         padding: 1.5rem 2rem;
         display: flex;
         justify-content: space-between;
@@ -21,7 +20,7 @@
     &__logo {
         color: $primary;
         font-weight: 700;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         letter-spacing: 0.05em;
         background: none;
         border: none;

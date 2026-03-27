@@ -55,7 +55,7 @@ function Hero() {
                     <a
                         href="/cv.pdf"
                         className="hero__button hero__button--cv"
-                        download="CV-Prenom-Nom.pdf"
+                        download="CV-Vincent-Chevais.pdf"
                     >
                         Download CV
                     </a>
