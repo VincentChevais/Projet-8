@@ -1,9 +1,8 @@
 import { lazy, Suspense } from 'react'
 import Header from '../../components/Header/Header'
-import Hero from '../../components/Hero/Hero'
+import Wrapper from '../../components/Wrapper/Wrapper'
 import Footer from '../../components/Footer/Footer'
 
-const About = lazy(() => import('../../components/About/About'))
 const Skills = lazy(() => import('../../components/Skills/Skills'))
 const Projects = lazy(() => import('../../components/Projects/Projects'))
 const Contact = lazy(() => import('../../components/Contact/Contact'))
@@ -13,10 +12,9 @@ function Home() {
         <>
             <Header />
             <main>
-                <Hero />
+                <Wrapper />
 
                 <Suspense fallback={null}>
-                    <About />
                     <Skills />
                     <Projects />
                     <Contact />

@@ -1,6 +1,6 @@
 import './Contact.scss'
 import Reveal from '../Reveal/Reveal'
-import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaEnvelope, FaInstagram } from 'react-icons/fa'
 import { useForm, ValidationError } from '@formspree/react'
 
 function Contact() {
@@ -109,7 +109,7 @@ function Contact() {
                     </a>
 
                     <a
-                        href="https://www.linkedin.com/in/ton-profil"
+                        href="https://www.linkedin.com/in/vincent-chevais/"
                         target="_blank"
                         rel="noreferrer"
                         className="contact__info"
@@ -119,13 +119,23 @@ function Contact() {
                     </a>
 
                     <a
-                        href="https://github.com/ton-profil"
+                        href="https://github.com/VincentChevais"
                         target="_blank"
                         rel="noreferrer"
                         className="contact__info"
                     >
                         <FaGithub />
                         <span>GitHub</span>
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/xevi.deneb/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="contact__info"
+                    >
+                        <FaInstagram />
+                        <span>Instagram</span>
                     </a>
                 </div>
             </Reveal>

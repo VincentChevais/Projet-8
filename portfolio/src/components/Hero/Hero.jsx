@@ -2,9 +2,9 @@ import './Hero.scss'
 import { ArrowDown } from 'lucide-react'
 import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 
-function Hero() {
+function Hero({ inWrapper = false }) {
     return (
-        <section className="hero" id="hero">
+        <section className={`hero ${inWrapper ? 'hero--wrapper' : ''}`} id="hero">
             <div className="hero__socials">
                 <a
                     href="https://www.linkedin.com/in/vincent-chevais/"

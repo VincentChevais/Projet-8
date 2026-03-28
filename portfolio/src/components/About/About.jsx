@@ -1,10 +1,9 @@
 import './About.scss'
-import profileImg from '../../assets/profile.webp'
 import Reveal from '../Reveal/Reveal'
 
-function About() {
+function About({ inWrapper = false }) {
     return (
-        <section className="about" id="about">
+        <section className={`about ${inWrapper ? 'about--wrapper' : ''}`} id="about">
             <Reveal className="about__container">
 
                 <div className="about__content">
@@ -35,16 +34,7 @@ function About() {
                     <a href="#contact" className="about__cta">
                         Let’s Talk
                     </a>
-
                 </div>
-
-
-                <div className="about__image">
-                    <div className="about__image-wrapper">
-                        <img src={profileImg} alt="Photo de profil" />
-                    </div>
-                </div>
-
             </Reveal>
         </section>
     )

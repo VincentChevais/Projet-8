@@ -1,43 +1,32 @@
 @use "../../styles/base/variables" as *;
 
 .hero {
-    min-height: calc(100vh - 80px);
-    margin-top: 20px;
+    min-height: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 2rem 2rem;
-    position: relative;
+    padding: 1rem 2rem 2rem 8rem;
     text-align: center;
-
-    opacity: 0;
-    transform: translateY(32px);
-    animation: heroReveal 0.9s ease forwards;
-    animation-delay: 0.2s;
-
-    &__container {
-        max-width: 900px;
-        margin: 0 auto;
-    }
+    animation: hero-reveal 0.9s ease 0.2s forwards;
 
     &__intro {
-        color: $primary;
         margin-bottom: 1rem;
+        color: $primary;
         font-size: 0.95rem;
         letter-spacing: 0.08em;
     }
 
     &__name {
+        margin-bottom: 1rem;
         font-size: 4rem;
         font-weight: 700;
-        margin-bottom: 1rem;
         line-height: 1.1;
     }
 
     &__tagline {
-        font-size: 2rem;
-        color: $text-muted;
         margin-bottom: 1.5rem;
+        color: $text-muted;
+        font-size: 2rem;
         line-height: 1.2;
 
         span {
@@ -47,18 +36,17 @@
 
     &__description {
         max-width: 620px;
-        margin: 0 auto 2rem;
+        margin: 0 auto 3rem;
         color: $text-muted;
         line-height: 1.7;
-        font-size: 1rem;
     }
 
     &__actions {
         display: flex;
-        justify-content: center;
         align-items: center;
-        gap: 1rem;
+        justify-content: center;
         flex-wrap: wrap;
+        gap: 1.5rem;
     }
 
     &__button {
@@ -67,47 +55,48 @@
         justify-content: center;
         min-width: 180px;
         padding: 1rem 1.6rem;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1rem;
         border: 1px solid transparent;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
         transition:
             background 0.3s ease,
             color 0.3s ease,
             border-color 0.3s ease,
             transform 0.3s ease,
             box-shadow 0.3s ease;
-    }
-
-    &__button--primary {
-        background: $primary;
-        color: #0a0a0a;
-        border-color: $primary;
 
         &:hover {
-            background: $text;
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(250, 204, 21, 0.25);
         }
-    }
 
-    &__button--cv {
-        background: transparent;
-        color: $primary;
-        border-color: $primary;
-
-        &:hover {
-            background: $text;
+        &--primary {
+            background: $primary;
             color: #0a0a0a;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(250, 204, 21, 0.25);
+            border-color: $primary;
+
+            &:hover {
+                background: $text;
+            }
+        }
+
+        &--cv {
+            background: transparent;
+            color: $primary;
+            border-color: $primary;
+
+            &:hover {
+                background: $text;
+                color: #0a0a0a;
+            }
         }
     }
 
     &__socials {
         position: absolute;
-        left: 2rem;
+        left: 1rem;
         bottom: 8rem;
         display: flex;
         flex-direction: column;
@@ -118,8 +107,8 @@
             content: "";
             width: 1px;
             height: 90px;
-            background: $text-muted;
             margin-top: 0.5rem;
+            background: $text-muted;
             opacity: 0.6;
         }
 
@@ -134,16 +123,16 @@
         }
 
         svg {
+            display: block;
             width: 26px;
             height: 26px;
-            display: block;
         }
     }
 
     &__scroll {
         position: absolute;
         bottom: 40px;
-        left: 50%;
+        left: 55%;
         transform: translateX(-50%);
         color: $text-muted;
         animation: bounce 1.8s infinite;
@@ -154,14 +143,43 @@
         }
 
         svg {
+            display: block;
             width: 30px;
             height: 30px;
-            display: block;
         }
     }
+
+    // &--wrapper {
+    //     justify-content: flex-start;
+    //     text-align: left;
+    //     padding: 0 4rem 2rem 6rem;
+
+    //     .hero__container {
+    //         max-width: 680px;
+    //         margin: 0;
+    //     }
+
+    //     .hero__description {
+    //         margin: 0 0 2rem;
+    //     }
+
+    //     .hero__actions {
+    //         justify-content: flex-start;
+    //     }
+
+    //     .hero__socials {
+    //         left: 0.75rem;
+    //         bottom: 7.5rem;
+    //     }
+
+    //     .hero__scroll {
+    //         left: 50%;
+    //         transform: translateX(-50%);
+    //     }
+    // }
 }
 
-@keyframes heroReveal {
+@keyframes hero-reveal {
     from {
         opacity: 0;
         transform: translateY(32px);
@@ -186,14 +204,56 @@
 }
 
 @media (max-width: 1024px) {
-    .hero__socials {
-        left: 1rem;
+    .hero {
+        &__socials {
+            left: 0.75rem;
+        }
+
+        &--wrapper {
+            padding: 0 2rem 2rem 4.5rem;
+
+            .hero__container {
+                max-width: 600px;
+            }
+
+            .hero__socials {
+                left: 0.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .hero {
+        &--wrapper {
+            justify-content: center;
+            text-align: center;
+            padding: 0 1.5rem 2rem;
+
+            .hero__container {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+
+            .hero__description {
+                margin: 0 auto 2rem;
+            }
+
+            .hero__actions {
+                justify-content: center;
+            }
+
+            .hero__scroll {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
     }
 }
 
 @media (max-width: 768px) {
     .hero {
-        padding: 3rem 2rem 1rem 2rem;
+        padding: 3rem 2rem 1rem;
 
         &__name {
             font-size: 2.8rem;
@@ -203,12 +263,53 @@
             font-size: 1.5rem;
         }
 
-        &__socials {
+        &__socials,
+        &__scroll {
             display: none;
         }
 
-        &__scroll {
-            display: none;
+        &--wrapper {
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+
+            .hero__container {
+                margin: 0 auto;
+            }
+
+            .hero__description {
+                margin: 0 auto 2rem;
+            }
+
+            .hero__actions {
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2.5rem 1.25rem 1rem;
+
+        &__name {
+            font-size: 2.2rem;
+        }
+
+        &__tagline {
+            font-size: 1.2rem;
+        }
+
+        &__description {
+            font-size: 0.95rem;
+        }
+
+        &__button {
+            width: 100%;
+            min-width: 0;
+        }
+
+        &--wrapper {
+            padding: 2.5rem 1.25rem 1rem;
         }
     }
 }

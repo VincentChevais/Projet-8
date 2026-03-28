@@ -1,0 +1,22 @@
+.language-switcher {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+        border: 1px solid #ccc;
+        background: transparent;
+        padding: 0.5rem 0.75rem;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: 0.2s ease;
+
+        &.active {
+            border-color: #000;
+            font-weight: 700;
+        }
+
+        &:hover {
+            transform: translateY(-1px);
+        }
+    }
+}
