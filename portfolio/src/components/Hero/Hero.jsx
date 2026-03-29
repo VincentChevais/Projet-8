@@ -1,10 +1,18 @@
 import './Hero.scss'
 import { ArrowDown } from 'lucide-react'
 import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
+import profilePhoto from '../../assets/profile.webp'
 
+/*
+  Le composant Hero reçoit une prop "inWrapper".
+  Permet d’ajouter une classe conditionnelle si Hero est utilisé
+  à l’intérieur d’un wrapper particulier.
+  - false → si aucune prop n’est envoyée, le Hero fonctionne normalement
+*/
 function Hero({ inWrapper = false }) {
     return (
         <section className={`hero ${inWrapper ? 'hero--wrapper' : ''}`} id="hero">
+            {/* Réseaux sociaux */}
             <div className="hero__socials">
                 <a
                     href="https://www.linkedin.com/in/vincent-chevais/"
@@ -34,6 +42,7 @@ function Hero({ inWrapper = false }) {
                 </a>
             </div>
 
+            {/* Contenu principal du Hero */}
             <div className="hero__container">
                 <p className="hero__intro">Hi, my name is</p>
 
@@ -51,6 +60,18 @@ function Hero({ inWrapper = false }) {
                     Based in Dax, Nouvelle-Aquitaine, France.
                 </p>
 
+                {/*Version mobile de la photo.*/}
+                <div className="hero__mobile-photo" aria-hidden="true">
+                    <div className="hero__mobile-photo-wrapper">
+                        <img
+                            src={profilePhoto}
+                            alt=""
+                            className="hero__mobile-photo-img"
+                        />
+                    </div>
+                </div>
+
+                {/* Appels à l’action */}
                 <div className="hero__actions">
                     <a
                         href="/cv.pdf"
@@ -65,6 +86,7 @@ function Hero({ inWrapper = false }) {
                 </div>
             </div>
 
+            {/*Scroll vers About */}
             <a href="#about" className="hero__scroll" aria-label="Scroll to About section">
                 <ArrowDown />
             </a>
@@ -73,5 +95,3 @@ function Hero({ inWrapper = false }) {
 }
 
 export default Hero
-
-

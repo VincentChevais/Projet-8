@@ -10,20 +10,25 @@
     }
 
     &__visual-inner {
-        position: sticky;
-        top: 80px;
-        height: 800px;
+        position: relative;
+        top: 100px;
+        height: 1200px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
+        padding-bottom: 100px;
+    }
+
+    &__photo-shell {
+        position: sticky;
+        top: 100px;
     }
 
     &__line {
         position: absolute;
-        top: -40px;
-        bottom: -60px;
+        height: 1450px;
+        top: -100px;
         left: 50%;
-        transform: translateX(-50%);
         width: 2px;
         background: linear-gradient(to bottom,
                 rgba(250, 204, 21, 0.15),
@@ -34,6 +39,7 @@
 
     &__photo-wrapper {
         position: relative;
+        top: 100px;
         width: 280px;
         height: 360px;
 
@@ -82,7 +88,7 @@
 
         &__photo-wrapper {
             width: 230px;
-            height: 230px;
+            height: 280px;
         }
     }
 }

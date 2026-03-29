@@ -1,7 +1,7 @@
 @use "../../styles/base/variables" as *;
 
 .skills {
-    padding: 6rem 2rem;
+    padding: 6rem 3rem;
     border-top: 1px solid $border;
     background-color: #161616;
 
@@ -10,7 +10,7 @@
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        gap: 5rem;
         align-items: start;
     }
 
@@ -29,6 +29,7 @@
     &__group {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;
         padding: 1.5rem;
         border: 1px solid $border;
         border-radius: 16px;

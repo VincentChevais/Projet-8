@@ -1,6 +1,6 @@
 import booksellerImg from '../assets/resume/bookseller.webp'
 import journalistImg from '../assets/resume/journalist.webp'
-import developerImg from '../assets/resume/developer.webp'
+import writerImg from '../assets/resume/writer.webp'
 // import { Languages } from 'lucide-react'
 
 export const characters = [
@@ -15,9 +15,9 @@ export const characters = [
         image: journalistImg,
     },
     {
-        id: 'developer',
-        label: 'The Developer',
-        image: developerImg,
+        id: 'writer',
+        label: 'The Writer',
+        image: writerImg,
     },
 ]
 
@@ -28,14 +28,16 @@ export const timelineEvents = [
         title: 'Born in 1993',
         side: 'left',
         description:
-            'The story begins in Bordeaux, France, where the character was born, setting the stage for a journey of growth and discovery.',
+            'The journey begins in Bordeaux, France. I grew up surrounded by music, a constant influence that has stayed with me ever since.',
         tags: [
             { label: 'April 6th, 1993', category: 'misc' },
             { label: 'French', category: 'misc' },
+            { label: 'Music', category: 'hobby' },
         ],
         updates: {
             birthdate: 'April 6th, 93',
             languages: ['French'],
+            hobbies: ['Music'],
         },
     },
     {
@@ -44,15 +46,14 @@ export const timelineEvents = [
         title: 'Baccalaureate',
         side: 'right',
         description:
-            'The baccalaureate diploma was obtained in 2011, with a very good mention and mathematics as a specialty. I already love computer science, IT and video games. A strong passion grows on the side : Music !',
+            'The baccalaureate diploma was obtained in 2011, with high honors and mathematics as a specialty. At that time, computers and video games were already shaping a strong curiosity for both creativity and logic.',
         tags: [
             { label: 'Baccalaureate', category: 'diploma' },
-            { label: 'Music', category: 'hobby' },
             { label: 'Computer Science', category: 'hobby' },
         ],
         updates: {
             diplomas: ['Baccalaureate'],
-            hobbies: ['Music', 'Computer Science'],
+            hobbies: ['Computer Science'],
         },
     },
     {
@@ -64,7 +65,7 @@ export const timelineEvents = [
             'Hypokhâgne/Khâgne. Two years of intensive preparation for competitive exams in literature, philosophy, history and languages. The hard way to develop resilience, discipline and a strong work ethic.',
         tags: [
             { label: 'English', category: 'misc' },
-            { label: 'Writing', category: 'skill' },
+
             { label: 'Critical Thinking', category: 'skill' },
             { label: 'Resilience', category: 'skill' },
             { label: 'Discipline', category: 'skill' },
@@ -73,7 +74,7 @@ export const timelineEvents = [
         updates: {
             languages: ['English'],
             softSkills: ['Resilience', 'Discipline', 'Work Ethic'],
-            hardSkills: ['Writing', 'Critical Thinking'],
+            hardSkills: ['Critical Thinking'],
         },
     },
     {
@@ -86,11 +87,12 @@ export const timelineEvents = [
         tags: [
             { label: 'Literature', category: 'hobby' },
             { label: "Bachelor's Degree in Literature", category: 'diploma' },
-
+            { label: 'Writing', category: 'skill' },
         ],
         updates: {
             diplomas: ["Bachelor's Degree in Literature"],
             hobbies: ['Literature'],
+            hardSkills: ['Writing'],
         },
     },
     {
@@ -99,18 +101,18 @@ export const timelineEvents = [
         title: "Master's Degree in Journalism",
         side: 'left',
         description:
-            'I looked up from the books and described the world around me. This step sharpened communication, synthesis and storytelling abilities. Learnt a lot about photography and editing.',
+            'I looked up from the books and described the world around me. This step sharpened communication, synthesis and storytelling abilities. Learned a lot about photography and editing.',
         tags: [
             { label: "Master's Degree in Journalism", category: 'diploma' },
             { label: 'Photography', category: 'hobby' },
-            { label: 'Storytelling', category: 'skill' },
+            { label: 'Editing', category: 'skill' },
             { label: 'Synthesis', category: 'skill' },
             { label: 'Curiosity', category: 'skill' },
         ],
         updates: {
             hobbies: ['Photography'],
             diplomas: ["Master's Degree in Journalism"],
-            hardSkills: ['Storytelling', 'Synthesis'],
+            hardSkills: ['Editing', 'Synthesis'],
             softSkills: ['Curiosity'],
         },
     },
@@ -120,10 +122,11 @@ export const timelineEvents = [
         title: "Writer and Journalist",
         side: 'right',
         description:
-            'I made a living by my writing, telling stories. A received prices like The Young Writer Prize, worked for medias, theaters, production companys.',
+            'Writing became both craft and profession: articles, scripts, editorial work and collaborations with media, theatres and production companies. Awards helped confirm a strong taste for words, structure and storytelling.',
         tags: [
             { label: 'The Young Writer Prize 2020', category: 'diploma' },
             { label: 'Prix Varennes 2017', category: 'diploma' },
+            { label: 'Storytelling', category: 'skill' },
             { label: 'Creativity', category: 'skill' },
             { label: 'Communication', category: 'skill' },
             { label: 'Research', category: 'skill' },
@@ -131,8 +134,8 @@ export const timelineEvents = [
         ],
         updates: {
             diplomas: ['The Young Writer Prize 2020', 'Prix Varennes 2017'],
-            hardSkills: ['Creativity', 'Research'],
-            softSkills: ['Communication']
+            hardSkills: ['Research', 'Storytelling'],
+            softSkills: ['Communication', 'Creativity'],
         },
     },
     {
@@ -141,18 +144,54 @@ export const timelineEvents = [
         title: 'Bookseller Experience',
         side: 'left',
         description:
-            'Years in bookselling, as a manager, strengthened people skills, reliability, teamwork and empathy.',
+            'Bookselling brought operations into the story: team coordination, stock management, logistics, events and customer guidance. A practical role that strengthened reliability, organisation and teamwork.',
         tags: [
-            { label: 'Books', category: 'hobby' },
             { label: 'Management', category: 'skill' },
-            { label: 'Empathy', category: 'skill' },
+            { label: 'Data Handling', category: 'skill' },
             { label: 'Reliability', category: 'skill' },
             { label: 'Teamwork', category: 'skill' },
+            { label: 'Logistics', category: 'skill' },
         ],
         updates: {
-            hobbies: ['Reading', 'Literature'],
-            hardSkills: ['Management'],
-            softSkills: ['Empathy', 'Reliability', 'Teamwork'],
+            hardSkills: ['Management', 'Logistics', 'Data Handling'],
+            softSkills: ['Reliability', 'Teamwork'],
+        },
+    },
+    {
+        id: 'teaching-documentation',
+        year: '2024',
+        title: 'Teaching, Documentation and Transmission',
+        side: 'right',
+        description:
+            'A year teaching French and documentation through multidisciplinary projects. A role that strengthened pedagogy, structure, clarity and the ability to make complex ideas accessible.',
+        tags: [
+            { label: 'Pedagogy', category: 'skill' },
+            { label: 'Documentation', category: 'skill' },
+            { label: 'Communication', category: 'skill' },
+            { label: 'Project Work', category: 'skill' },
+        ],
+        updates: {
+            hardSkills: ['Documentation', 'Project Work'],
+            softSkills: ['Pedagogy', 'Communication'],
+        },
+    },
+    {
+        id: 'proud-dad',
+        year: '2024',
+        title: 'Proud Dad',
+        side: 'left',
+        description:
+            'The most important role of all. It came with patience and new perspective of the future.',
+        tags: [
+            { label: 'Proud Dad', category: 'hobby' },
+            { label: 'Night Management', category: 'skill' },
+            { label: 'Patience', category: 'skill' },
+            { label: 'Empathy', category: 'skill' },
+            { label: 'Multitasking', category: 'skill' },
+        ],
+        updates: {
+            hobbies: ['Proud Dad'],
+
         },
     },
     {
@@ -168,73 +207,42 @@ export const timelineEvents = [
             { label: 'CSS', category: 'skill' },
             { label: 'JavaScript', category: 'skill' },
             { label: 'React', category: 'skill' },
-            { label: 'Sass', category: 'skill' },
         ],
         updates: {
             diplomas: ['RNCP Web Developer Diploma'],
-            hardSkills: ['HTML', 'CSS', 'JavaScript', 'React', 'Sass'],
+            hardSkills: ['HTML', 'CSS', 'JavaScript', 'React'],
         },
     },
     {
-        id: 'sophie-bluel',
-        year: '2024',
-        title: "Sophie Bluel – Architecte d'intérieur",
+        id: 'hard-works',
+        year: '2026',
+        title: "Projects in the Wild",
         side: 'right',
         description:
-            'A dynamic JavaScript project with API integration and an admin interface, also completed with an Agile approach.',
+            'Projects helped turn knowledge into practice: portfolios, real estate app, book API, sport app... Each one deepened my technical skills while strengthening problem-solving, clean code habits and interest in UX.',
         tags: [
-            { label: 'JavaScript', category: 'skill' },
             { label: 'API Integration', category: 'skill' },
-            { label: 'Agile', category: 'skill' },
-        ],
-        updates: {
-            hardSkills: ['API Integration'],
-            softSkills: ['Agile Collaboration'],
-        },
-    },
-    {
-        id: 'kasa',
-        year: '2025',
-        title: 'Kasa',
-        side: 'left',
-        description:
-            'A React and Sass project focused on component architecture, routing and responsive design.',
-        tags: [
-            { label: 'React', category: 'skill' },
-            { label: 'Sass', category: 'skill' },
             { label: 'React Router', category: 'skill' },
+            { label: 'Agile', category: 'skill' },
             { label: 'Responsive Design', category: 'skill' },
+            { label: 'Design', category: 'hobby' },
+            { label: 'Back-end Basics', category: 'skill' },
+            { label: 'Security', category: 'skill' },
         ],
         updates: {
-            hardSkills: ['React Router', 'Responsive Design'],
-        },
-    },
-    {
-        id: 'grimoire',
-        year: '2025',
-        title: 'Mon Vieux Grimoire',
-        side: 'right',
-        description:
-            'A back-end project built with Node.js, Express and MongoDB, including authentication and secure data handling.',
-        tags: [
-            { label: 'Node.js', category: 'skill' },
-            { label: 'Express', category: 'skill' },
-            { label: 'MongoDB', category: 'skill' },
-            { label: 'Authentication', category: 'skill' },
-        ],
-        updates: {
-            hardSkills: ['Node.js', 'Express', 'MongoDB', 'Authentication'],
+            hardSkills: ['API Integration', 'React Router', 'Responsive Design', 'Back-end Basics', 'Security'],
+            softSkills: ['Agile'],
+            hobbies: ['Design'],
         },
     },
     {
         id: 'today',
         year: 'Today',
         title: 'Front-End Developer',
-        side: 'left',
+        side: 'right',
         description:
-            'The current version of the character: a developer blending technical skills, communication and creativity.',
+            'The current version of the character: a developer blending technical skills, communication and creativity. The transition is complete: web development is now my profession, with a strong focus on growing through real-world experience and continuous learning.',
         tags: [
-            { label: 'Front-End Developer', category: 'skill' },
             { label: 'Adaptability', category: 'skill' },
             { label: 'Problem Solving', category: 'skill' },
             { label: 'Dax, France', category: 'misc' },
@@ -242,7 +250,7 @@ export const timelineEvents = [
         updates: {
             location: 'Dax, France',
             softSkills: ['Adaptability', 'Problem Solving'],
-            hobbies: ['Design', 'UX', 'Continuous Learning'],
+            hobbies: ['Continuous Learning'],
         },
     },
 ]
