@@ -1,35 +1,47 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
+import './LanguageSwitcher.scss'
 
 const LanguageSwitcher = () => {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation('common')
 
-    const currentLanguage = i18n.resolvedLanguage || i18n.language;
+    const currentLanguage = i18n.resolvedLanguage || i18n.language
+    const isFrench = currentLanguage?.startsWith('fr')
 
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-    };
+    const handleToggle = (lng) => {
+        if (!currentLanguage?.startsWith(lng)) {
+            i18n.changeLanguage(lng)
+        }
+    }
 
     return (
-        <div className="language-switcher">
+        <div
+            className={`language-switcher ${isFrench ? 'is-fr' : 'is-en'}`}
+            role="group"
+            aria-label="Language switcher"
+        >
+            <span className="language-switcher__thumb" aria-hidden="true" />
+
             <button
                 type="button"
-                onClick={() => changeLanguage('fr')}
-                className={currentLanguage?.startsWith('fr') ? 'active' : ''}
-                aria-label="Passer le site en français"
+                className={`language-switcher__option ${isFrench ? 'active' : ''}`}
+                onClick={() => handleToggle('fr')}
+                aria-label={t('languageSwitcher.fr')}
+                aria-pressed={isFrench}
             >
-                🇫🇷 FR
+                <span className="language-switcher__flag">🇫🇷</span>
             </button>
 
             <button
                 type="button"
-                onClick={() => changeLanguage('en')}
-                className={currentLanguage?.startsWith('en') ? 'active' : ''}
-                aria-label="Switch site language to English"
+                className={`language-switcher__option ${!isFrench ? 'active' : ''}`}
+                onClick={() => handleToggle('en')}
+                aria-label={t('languageSwitcher.en')}
+                aria-pressed={!isFrench}
             >
-                🇬🇧 EN
+                <span className="language-switcher__flag">🇬🇧</span>
             </button>
         </div>
-    );
-};
+    )
+}
 
-export default LanguageSwitcher;
+export default LanguageSwitcher

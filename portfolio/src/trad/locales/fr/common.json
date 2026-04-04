@@ -1,0 +1,24 @@
+{
+  "header": {
+    "nav": {
+      "about": "À propos",
+      "skills": "Compétences",
+      "projects": "Projets",
+      "contact": "Contact",
+      "resume": "CV"
+    },
+    "aria": {
+      "scrollTop": "Remonter en haut de la page",
+      "openMenu": "Ouvrir le menu",
+      "closeMenu": "Fermer le menu"
+    }
+  },
+  "footer": {
+    "text": "Conçu et développé avec soin © {{year}}",
+    "repo": "Voir le dépôt du portfolio"
+  },
+  "languageSwitcher": {
+    "fr": "Passer le site en français",
+    "en": "Passer le site en anglais"
+  }
+}

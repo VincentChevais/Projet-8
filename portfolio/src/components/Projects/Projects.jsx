@@ -1,21 +1,24 @@
 import './Projects.scss'
 import Reveal from '../Reveal/Reveal'
 import { FaGithub } from 'react-icons/fa'
-import projectsData from '../../data/projectsData'
+import { getProjectsData } from '../../data/projectsData'
+import { useTranslation } from 'react-i18next'
 
 function Projects() {
+    const { t } = useTranslation(['home', 'projectsData'])
+    const projectsData = getProjectsData(t)
+
     return (
         <section className="projects" id="projects">
             <Reveal className="projects__container">
                 <div className="projects__header">
                     <h2 className="section-heading">
                         <span className="section-heading__number">03.</span>
-                        <span className="section-heading__text">Projects</span>
+                        <span className="section-heading__text">{t('projects.title', { ns: 'home' })}</span>
                     </h2>
 
                     <p className="projects__description">
-                        A selection of projects that helped me strengthen my front-end and
-                        back-end skills through concrete, hands-on development challenges.
+                        {t('projects.description', { ns: 'home' })}
                     </p>
                 </div>
 
@@ -25,7 +28,7 @@ function Projects() {
                             <div className="projects__image-wrapper">
                                 <img
                                     src={project.image}
-                                    alt={`Preview of ${project.title}`}
+                                    alt={project.aria.imgAlt}
                                     className="projects__image"
                                 />
                             </div>
@@ -39,7 +42,7 @@ function Projects() {
                                         target="_blank"
                                         rel="noreferrer"
                                         className="projects__github"
-                                        aria-label={`Open GitHub repository for ${project.title}`}
+                                        aria-label={project.aria.viewGithubCode}
                                     >
                                         <FaGithub />
                                     </a>

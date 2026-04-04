@@ -1,7 +1,15 @@
 import './CharacterCard.scss'
 import { useEffect, useRef, useState } from 'react'
+import { Download } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
-function CharacterCard({ character, fullName, profileData }) {
+function CharacterCard({
+    character,
+    fullName,
+    profileData,
+    isJourneyComplete = false,
+    showCompletionBanner = false,
+}) {
     const {
         birthdate,
         location,
@@ -15,6 +23,7 @@ function CharacterCard({ character, fullName, profileData }) {
 
     const [newTags, setNewTags] = useState([])
     const prevTagsRef = useRef([])
+    const { t } = useTranslation('resume')
 
     useEffect(() => {
         const currentTagIds = [
@@ -81,10 +90,36 @@ function CharacterCard({ character, fullName, profileData }) {
     }
 
     return (
-        <section className="character-card" aria-labelledby="character-card-title">
+        <section
+            className={`character-card ${isJourneyComplete ? 'character-card--completed' : ''
+                }`}
+            aria-labelledby="character-card-title"
+        >
+            {showCompletionBanner && (
+                <div className="character-card__completion-banner">
+                    <div className="character-card__completion-text">
+                        <p className="character-card__completion-eyebrow">
+                            {t('characterCard.completionBanner.eyebrow')}
+                        </p>
+                        <p className="character-card__completion-subtitle">
+                            {t('characterCard.completionBanner.subtitle')}
+                        </p>
+                    </div>
+
+                    <a
+                        href="/cv.pdf"
+                        className="character-card__completion-button"
+                        download="CV-Vincent-Chevais.pdf"
+                    >
+                        <Download size={16} />
+                        <span>{t('characterCard.completionBanner.download')}</span>
+                    </a>
+                </div>
+            )}
+
             <div className="character-card__grid">
                 <div className="character-card__panel character-card__panel--identity">
-                    <p className="character-card__eyebrow">Character selected</p>
+                    <p className="character-card__eyebrow">{t('characterCard.selected')}</p>
 
                     <div className="character-card__header">
                         <div className="character-card__avatar-wrapper">
@@ -99,21 +134,31 @@ function CharacterCard({ character, fullName, profileData }) {
                             <h1 id="character-card-title" className="character-card__name">
                                 {fullName}
                             </h1>
-                            <p className="character-card__class">{character.label}</p>
+
+                            <p
+                                className={`character-card__class ${isJourneyComplete
+                                    ? 'character-card__class--developer'
+                                    : 'character-card__class--initial'
+                                    }`}
+                            >
+                                {character.label}
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div className="character-card__panel">
-                    <h2 className="character-card__panel-title">Misc</h2>
+                    <h2 className="character-card__panel-title">{t('characterCard.misc')}</h2>
 
                     <div className="character-card__misc-grid">
                         <div className="character-card__misc-item">
-                            <span className="character-card__misc-label">Birthdate</span>
+                            <span className="character-card__misc-label">{t('characterCard.birthdate')}</span>
                             <div className="character-card__tags character-card__tags--misc">
                                 {birthdate ? (
                                     <span
-                                        className={`character-card__tag character-card__tag--misc character-card__tag--small ${newTags.includes(`misc-birthdate-${birthdate}`) ? 'character-card__tag--new' : ''
+                                        className={`character-card__tag character-card__tag--misc character-card__tag--small ${newTags.includes(`misc-birthdate-${birthdate}`)
+                                            ? 'character-card__tag--new'
+                                            : ''
                                             }`}
                                     >
                                         {birthdate}
@@ -125,11 +170,13 @@ function CharacterCard({ character, fullName, profileData }) {
                         </div>
 
                         <div className="character-card__misc-item">
-                            <span className="character-card__misc-label">Location</span>
+                            <span className="character-card__misc-label">{t('characterCard.location')}</span>
                             <div className="character-card__tags character-card__tags--misc">
                                 {location ? (
                                     <span
-                                        className={`character-card__tag character-card__tag--misc character-card__tag--small ${newTags.includes(`misc-location-${location}`) ? 'character-card__tag--new' : ''
+                                        className={`character-card__tag character-card__tag--misc character-card__tag--small ${newTags.includes(`misc-location-${location}`)
+                                            ? 'character-card__tag--new'
+                                            : ''
                                             }`}
                                     >
                                         {location}
@@ -141,11 +188,13 @@ function CharacterCard({ character, fullName, profileData }) {
                         </div>
 
                         <div className="character-card__misc-item">
-                            <span className="character-card__misc-label">Driving licence</span>
+                            <span className="character-card__misc-label">{t('characterCard.drivingLicence')}</span>
                             <div className="character-card__tags character-card__tags--misc">
                                 {drivingLicence ? (
                                     <span
-                                        className={`character-card__tag character-card__tag--misc character-card__tag--small ${newTags.includes(`misc-driving-${drivingLicence}`) ? 'character-card__tag--new' : ''
+                                        className={`character-card__tag character-card__tag--misc character-card__tag--small ${newTags.includes(`misc-driving-${drivingLicence}`)
+                                            ? 'character-card__tag--new'
+                                            : ''
                                             }`}
                                     >
                                         {drivingLicence}
@@ -157,39 +206,44 @@ function CharacterCard({ character, fullName, profileData }) {
                         </div>
 
                         <div className="character-card__misc-item">
-                            <span className="character-card__misc-label">Languages</span>
+                            <span className="character-card__misc-label">{t('characterCard.languages')}</span>
                             <div className="character-card__tags character-card__tags--misc">
-                                {renderTags(languages, '—', 'misc', 'character-card__tag--small')}
+                                {renderTags(
+                                    languages,
+                                    '—',
+                                    'misc',
+                                    'character-card__tag--small'
+                                )}
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="character-card__panel">
-                    <h2 className="character-card__panel-title">Diplomas</h2>
+                    <h2 className="character-card__panel-title">{t('characterCard.diplomas')}</h2>
                     <div className="character-card__tags">
-                        {renderTags(diplomas, 'No diploma unlocked yet', 'diploma')}
+                        {renderTags(diplomas, t('characterCard.emptyStates.diplomas'), 'diploma')}
                     </div>
                 </div>
 
                 <div className="character-card__panel">
-                    <h2 className="character-card__panel-title">Hobbies</h2>
+                    <h2 className="character-card__panel-title">{t('characterCard.hobbies')}</h2>
                     <div className="character-card__tags">
-                        {renderTags(hobbies, 'No hobby unlocked yet', 'hobby')}
+                        {renderTags(hobbies, t('characterCard.emptyStates.hobbies'), 'hobby')}
                     </div>
                 </div>
 
                 <div className="character-card__panel">
-                    <h2 className="character-card__panel-title">Hard skills</h2>
+                    <h2 className="character-card__panel-title">{t('characterCard.hardSkills')}</h2>
                     <div className="character-card__tags">
-                        {renderTags(hardSkills, 'No hard skill unlocked yet', 'skill')}
+                        {renderTags(hardSkills, t('characterCard.emptyStates.hardSkills'), 'skill')}
                     </div>
                 </div>
 
                 <div className="character-card__panel">
-                    <h2 className="character-card__panel-title">Soft skills</h2>
+                    <h2 className="character-card__panel-title">{t('characterCard.softSkills')}</h2>
                     <div className="character-card__tags">
-                        {renderTags(softSkills, 'No soft skill unlocked yet', 'skill')}
+                        {renderTags(softSkills, t('characterCard.emptyStates.softSkills'), 'skill')}
                     </div>
                 </div>
             </div>

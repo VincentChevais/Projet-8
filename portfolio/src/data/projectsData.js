@@ -2,34 +2,73 @@ import sophieImg from '../assets/projects/sophie-bluel.webp'
 import kasaImg from '../assets/projects/kasa.webp'
 import grimoireImg from '../assets/projects/mon-vieux-grimoire.webp'
 
-const projectsData = [
-    {
-        id: 'sophie-bluel',
-        title: "Sophie Bluel – Architecte d'intérieur",
-        image: sophieImg,
-        description:
-            "Development of a dynamic portfolio in JavaScript with API integration, project filtering, and an admin interface. This project also introduced me to Agile working methods.",
-        tags: ['JavaScript', 'API', 'Agile'],
-        github: 'https://github.com/VincentChevais/OC_Project_3',
-    },
-    {
-        id: 'kasa',
-        title: 'Kasa',
-        image: kasaImg,
-        description:
-            "Creation of a responsive real estate application with React and Sass, based on reusable components and a clean front-end architecture.",
-        tags: ['React', 'Sass', 'React Router'],
-        github: 'https://github.com/VincentChevais/kasa',
-    },
-    {
-        id: 'mon-vieux-grimoire',
-        title: 'Mon Vieux Grimoire',
-        image: grimoireImg,
-        description:
-            "Back-end development of a book rating API with Node.js, Express and MongoDB, including authentication, CRUD operations and secure data handling.",
-        tags: ['Node.js', 'Express', 'MongoDB'],
-        github: 'https://github.com/VincentChevais/P7-Dev-Web-livres-main',
-    },
-]
-
-export default projectsData
+export function getProjectsData(t) {
+    return [
+        {
+            id: 'sophie-bluel',
+            title: t('items.sophie-bluel.title', { ns: 'projectsData' }),
+            image: sophieImg,
+            description: t('items.sophie-bluel.description', { ns: 'projectsData' }),
+            tags: [
+                t('items.sophie-bluel.tags.javascript', { ns: 'projectsData' }),
+                t('items.sophie-bluel.tags.api', { ns: 'projectsData' }),
+                t('items.sophie-bluel.tags.agile', { ns: 'projectsData' }),
+            ],
+            github: 'https://github.com/VincentChevais/OC_Project_3',
+            aria: {
+                imgAlt: t('aria.imgAltProject', {
+                    ns: 'projectsData',
+                    title: t('items.sophie-bluel.title', { ns: 'projectsData' }),
+                }),
+                viewGithubCode: t('aria.viewGithubCode', {
+                    ns: 'projectsData',
+                    title: t('items.sophie-bluel.title', { ns: 'projectsData' }),
+                }),
+            },
+        },
+        {
+            id: 'kasa',
+            title: t('items.kasa.title', { ns: 'projectsData' }),
+            image: kasaImg,
+            description: t('items.kasa.description', { ns: 'projectsData' }),
+            tags: [
+                t('items.kasa.tags.react', { ns: 'projectsData' }),
+                t('items.kasa.tags.sass', { ns: 'projectsData' }),
+                t('items.kasa.tags.reactRouter', { ns: 'projectsData' }),
+            ],
+            github: 'https://github.com/VincentChevais/kasa',
+            aria: {
+                imgAlt: t('aria.imgAltProject', {
+                    ns: 'projectsData',
+                    title: t('items.kasa.title', { ns: 'projectsData' }),
+                }),
+                viewGithubCode: t('aria.viewGithubCode', {
+                    ns: 'projectsData',
+                    title: t('items.kasa.title', { ns: 'projectsData' }),
+                }),
+            },
+        },
+        {
+            id: 'mon-vieux-grimoire',
+            title: t('items.mon-vieux-grimoire.title', { ns: 'projectsData' }),
+            image: grimoireImg,
+            description: t('items.mon-vieux-grimoire.description', { ns: 'projectsData' }),
+            tags: [
+                t('items.mon-vieux-grimoire.tags.node', { ns: 'projectsData' }),
+                t('items.mon-vieux-grimoire.tags.express', { ns: 'projectsData' }),
+                t('items.mon-vieux-grimoire.tags.mongodb', { ns: 'projectsData' }),
+            ],
+            github: 'https://github.com/VincentChevais/P7-Dev-Web-livres-main',
+            aria: {
+                imgAlt: t('aria.imgAltProject', {
+                    ns: 'projectsData',
+                    title: t('items.mon-vieux-grimoire.title', { ns: 'projectsData' }),
+                }),
+                viewGithubCode: t('aria.viewGithubCode', {
+                    ns: 'projectsData',
+                    title: t('items.mon-vieux-grimoire.title', { ns: 'projectsData' }),
+                }),
+            },
+        },
+    ]
+}

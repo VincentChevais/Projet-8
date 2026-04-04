@@ -1,256 +1,299 @@
 import booksellerImg from '../assets/resume/bookseller.webp'
 import journalistImg from '../assets/resume/journalist.webp'
 import writerImg from '../assets/resume/writer.webp'
-// import { Languages } from 'lucide-react'
+import developerImg from '../assets/resume/developer.webp'
 
-export const characters = [
-    {
-        id: 'bookseller',
-        label: 'The Bookseller',
-        image: booksellerImg,
-    },
-    {
-        id: 'journalist',
-        label: 'The Journalist',
-        image: journalistImg,
-    },
-    {
-        id: 'writer',
-        label: 'The Writer',
-        image: writerImg,
-    },
-]
+export function getResumeData(t) {
+    const characters = [
+        {
+            id: 'bookseller',
+            label: t('characters.bookseller.label', { ns: 'resumeData' }),
+            image: booksellerImg,
+        },
+        {
+            id: 'journalist',
+            label: t('characters.journalist.label', { ns: 'resumeData' }),
+            image: journalistImg,
+        },
+        {
+            id: 'writer',
+            label: t('characters.writer.label', { ns: 'resumeData' }),
+            image: writerImg,
+        },
+    ]
 
-export const timelineEvents = [
-    {
-        id: 'birth',
-        year: '1993',
-        title: 'Born in 1993',
-        side: 'left',
-        description:
-            'The journey begins in Bordeaux, France. I grew up surrounded by music, a constant influence that has stayed with me ever since.',
-        tags: [
-            { label: 'April 6th, 1993', category: 'misc' },
-            { label: 'French', category: 'misc' },
-            { label: 'Music', category: 'hobby' },
-        ],
-        updates: {
-            birthdate: 'April 6th, 93',
-            languages: ['French'],
-            hobbies: ['Music'],
-        },
-    },
-    {
-        id: 'baccalaureate',
-        year: '2011',
-        title: 'Baccalaureate',
-        side: 'right',
-        description:
-            'The baccalaureate diploma was obtained in 2011, with high honors and mathematics as a specialty. At that time, computers and video games were already shaping a strong curiosity for both creativity and logic.',
-        tags: [
-            { label: 'Baccalaureate', category: 'diploma' },
-            { label: 'Computer Science', category: 'hobby' },
-        ],
-        updates: {
-            diplomas: ['Baccalaureate'],
-            hobbies: ['Computer Science'],
-        },
-    },
-    {
-        id: 'cpge',
-        year: '2013',
-        title: 'CPGE',
-        side: 'left',
-        description:
-            'Hypokhâgne/Khâgne. Two years of intensive preparation for competitive exams in literature, philosophy, history and languages. The hard way to develop resilience, discipline and a strong work ethic.',
-        tags: [
-            { label: 'English', category: 'misc' },
+    const finalCharacter = {
+        id: 'developer',
+        label: t('characters.developer.label', { ns: 'resumeData' }),
+        image: developerImg,
+    }
 
-            { label: 'Critical Thinking', category: 'skill' },
-            { label: 'Resilience', category: 'skill' },
-            { label: 'Discipline', category: 'skill' },
-            { label: 'Work Ethic', category: 'skill' },
-        ],
-        updates: {
-            languages: ['English'],
-            softSkills: ['Resilience', 'Discipline', 'Work Ethic'],
-            hardSkills: ['Critical Thinking'],
+    const timelineEvents = [
+        {
+            id: 'birth',
+            year: t('events.birth.year', { ns: 'resumeData' }),
+            title: t('events.birth.title', { ns: 'resumeData' }),
+            side: 'left',
+            description: t('events.birth.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.birth.tags.birthdate', { ns: 'resumeData' }), category: 'misc' },
+                { label: t('events.birth.tags.french', { ns: 'resumeData' }), category: 'misc' },
+                { label: t('events.birth.tags.music', { ns: 'resumeData' }), category: 'hobby' },
+            ],
+            updates: {
+                birthdate: t('events.birth.updates.birthdate', { ns: 'resumeData' }),
+                languages: [t('events.birth.updates.languages.french', { ns: 'resumeData' })],
+                hobbies: [t('events.birth.updates.hobbies.music', { ns: 'resumeData' })],
+            },
         },
-    },
-    {
-        id: 'literature-degree',
-        year: '2014',
-        title: "Bachelor's Degree in Literature",
-        side: 'right',
-        description:
-            'A year spent in Montreal, Canada. A year of intense reading and cultural immersion where I discovered world literature and narrative techniques.',
-        tags: [
-            { label: 'Literature', category: 'hobby' },
-            { label: "Bachelor's Degree in Literature", category: 'diploma' },
-            { label: 'Writing', category: 'skill' },
-        ],
-        updates: {
-            diplomas: ["Bachelor's Degree in Literature"],
-            hobbies: ['Literature'],
-            hardSkills: ['Writing'],
-        },
-    },
-    {
-        id: 'journalism-degree',
-        year: '2017',
-        title: "Master's Degree in Journalism",
-        side: 'left',
-        description:
-            'I looked up from the books and described the world around me. This step sharpened communication, synthesis and storytelling abilities. Learned a lot about photography and editing.',
-        tags: [
-            { label: "Master's Degree in Journalism", category: 'diploma' },
-            { label: 'Photography', category: 'hobby' },
-            { label: 'Editing', category: 'skill' },
-            { label: 'Synthesis', category: 'skill' },
-            { label: 'Curiosity', category: 'skill' },
-        ],
-        updates: {
-            hobbies: ['Photography'],
-            diplomas: ["Master's Degree in Journalism"],
-            hardSkills: ['Editing', 'Synthesis'],
-            softSkills: ['Curiosity'],
-        },
-    },
-    {
-        id: 'writerjournalist',
-        year: '2017',
-        title: "Writer and Journalist",
-        side: 'right',
-        description:
-            'Writing became both craft and profession: articles, scripts, editorial work and collaborations with media, theatres and production companies. Awards helped confirm a strong taste for words, structure and storytelling.',
-        tags: [
-            { label: 'The Young Writer Prize 2020', category: 'diploma' },
-            { label: 'Prix Varennes 2017', category: 'diploma' },
-            { label: 'Storytelling', category: 'skill' },
-            { label: 'Creativity', category: 'skill' },
-            { label: 'Communication', category: 'skill' },
-            { label: 'Research', category: 'skill' },
 
-        ],
-        updates: {
-            diplomas: ['The Young Writer Prize 2020', 'Prix Varennes 2017'],
-            hardSkills: ['Research', 'Storytelling'],
-            softSkills: ['Communication', 'Creativity'],
+        {
+            id: 'baccalaureate',
+            year: t('events.baccalaureate.year', { ns: 'resumeData' }),
+            title: t('events.baccalaureate.title', { ns: 'resumeData' }),
+            side: 'right',
+            description: t('events.baccalaureate.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.baccalaureate.tags.diploma', { ns: 'resumeData' }), category: 'diploma' },
+                { label: t('events.baccalaureate.tags.computerScience', { ns: 'resumeData' }), category: 'hobby' },
+                { label: t('events.baccalaureate.tags.drivingLicence', { ns: 'resumeData' }), category: 'misc' },
+            ],
+            updates: {
+                drivingLicence: t('events.baccalaureate.updates.drivingLicence', { ns: 'resumeData' }),
+                diplomas: [t('events.baccalaureate.updates.diplomas.baccalaureate', { ns: 'resumeData' })],
+                hobbies: [t('events.baccalaureate.updates.hobbies.computerScience', { ns: 'resumeData' })],
+            },
         },
-    },
-    {
-        id: 'bookseller-experience',
-        year: '2021',
-        title: 'Bookseller Experience',
-        side: 'left',
-        description:
-            'Bookselling brought operations into the story: team coordination, stock management, logistics, events and customer guidance. A practical role that strengthened reliability, organisation and teamwork.',
-        tags: [
-            { label: 'Management', category: 'skill' },
-            { label: 'Data Handling', category: 'skill' },
-            { label: 'Reliability', category: 'skill' },
-            { label: 'Teamwork', category: 'skill' },
-            { label: 'Logistics', category: 'skill' },
-        ],
-        updates: {
-            hardSkills: ['Management', 'Logistics', 'Data Handling'],
-            softSkills: ['Reliability', 'Teamwork'],
-        },
-    },
-    {
-        id: 'teaching-documentation',
-        year: '2024',
-        title: 'Teaching, Documentation and Transmission',
-        side: 'right',
-        description:
-            'A year teaching French and documentation through multidisciplinary projects. A role that strengthened pedagogy, structure, clarity and the ability to make complex ideas accessible.',
-        tags: [
-            { label: 'Pedagogy', category: 'skill' },
-            { label: 'Documentation', category: 'skill' },
-            { label: 'Communication', category: 'skill' },
-            { label: 'Project Work', category: 'skill' },
-        ],
-        updates: {
-            hardSkills: ['Documentation', 'Project Work'],
-            softSkills: ['Pedagogy', 'Communication'],
-        },
-    },
-    {
-        id: 'proud-dad',
-        year: '2024',
-        title: 'Proud Dad',
-        side: 'left',
-        description:
-            'The most important role of all. It came with patience and new perspective of the future.',
-        tags: [
-            { label: 'Proud Dad', category: 'hobby' },
-            { label: 'Night Management', category: 'skill' },
-            { label: 'Patience', category: 'skill' },
-            { label: 'Empathy', category: 'skill' },
-            { label: 'Multitasking', category: 'skill' },
-        ],
-        updates: {
-            hobbies: ['Proud Dad'],
 
+        {
+            id: 'cpge',
+            year: t('events.cpge.year', { ns: 'resumeData' }),
+            title: t('events.cpge.title', { ns: 'resumeData' }),
+            side: 'left',
+            description: t('events.cpge.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.cpge.tags.english', { ns: 'resumeData' }), category: 'misc' },
+                { label: t('events.cpge.tags.criticalThinking', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.cpge.tags.resilience', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.cpge.tags.discipline', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.cpge.tags.workEthic', { ns: 'resumeData' }), category: 'skill' },
+            ],
+            updates: {
+                languages: [t('events.cpge.updates.languages.english', { ns: 'resumeData' })],
+                softSkills: [
+                    t('events.cpge.updates.softSkills.resilience', { ns: 'resumeData' }),
+                    t('events.cpge.updates.softSkills.discipline', { ns: 'resumeData' }),
+                    t('events.cpge.updates.softSkills.workEthic', { ns: 'resumeData' }),
+                ],
+                hardSkills: [t('events.cpge.updates.hardSkills.criticalThinking', { ns: 'resumeData' })],
+            },
         },
-    },
-    {
-        id: 'openclassrooms',
-        year: '2025',
-        title: 'OpenClassrooms Web Developer Diploma',
-        side: 'left',
-        description:
-            'A turning point: web development became the new path, with strong technical foundations and project-based learning.',
-        tags: [
-            { label: 'RNCP Web Developer Diploma', category: 'diploma' },
-            { label: 'HTML', category: 'skill' },
-            { label: 'CSS', category: 'skill' },
-            { label: 'JavaScript', category: 'skill' },
-            { label: 'React', category: 'skill' },
-        ],
-        updates: {
-            diplomas: ['RNCP Web Developer Diploma'],
-            hardSkills: ['HTML', 'CSS', 'JavaScript', 'React'],
+
+        {
+            id: 'literature-degree',
+            year: t('events.literature-degree.year', { ns: 'resumeData' }),
+            title: t('events.literature-degree.title', { ns: 'resumeData' }),
+            side: 'right',
+            description: t('events.literature-degree.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.literature-degree.tags.literature', { ns: 'resumeData' }), category: 'hobby' },
+                { label: t('events.literature-degree.tags.degree', { ns: 'resumeData' }), category: 'diploma' },
+                { label: t('events.literature-degree.tags.writing', { ns: 'resumeData' }), category: 'skill' },
+            ],
+            updates: {
+                diplomas: [t('events.literature-degree.updates.diplomas.literatureDegree', { ns: 'resumeData' })],
+                hobbies: [t('events.literature-degree.updates.hobbies.literature', { ns: 'resumeData' })],
+                hardSkills: [t('events.literature-degree.updates.hardSkills.writing', { ns: 'resumeData' })],
+            },
         },
-    },
-    {
-        id: 'hard-works',
-        year: '2026',
-        title: "Projects in the Wild",
-        side: 'right',
-        description:
-            'Projects helped turn knowledge into practice: portfolios, real estate app, book API, sport app... Each one deepened my technical skills while strengthening problem-solving, clean code habits and interest in UX.',
-        tags: [
-            { label: 'API Integration', category: 'skill' },
-            { label: 'React Router', category: 'skill' },
-            { label: 'Agile', category: 'skill' },
-            { label: 'Responsive Design', category: 'skill' },
-            { label: 'Design', category: 'hobby' },
-            { label: 'Back-end Basics', category: 'skill' },
-            { label: 'Security', category: 'skill' },
-        ],
-        updates: {
-            hardSkills: ['API Integration', 'React Router', 'Responsive Design', 'Back-end Basics', 'Security'],
-            softSkills: ['Agile'],
-            hobbies: ['Design'],
+
+        {
+            id: 'journalism-degree',
+            year: t('events.journalism-degree.year', { ns: 'resumeData' }),
+            title: t('events.journalism-degree.title', { ns: 'resumeData' }),
+            side: 'left',
+            description: t('events.journalism-degree.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.journalism-degree.tags.degree', { ns: 'resumeData' }), category: 'diploma' },
+                { label: t('events.journalism-degree.tags.photography', { ns: 'resumeData' }), category: 'hobby' },
+                { label: t('events.journalism-degree.tags.editing', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.journalism-degree.tags.synthesis', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.journalism-degree.tags.curiosity', { ns: 'resumeData' }), category: 'skill' },
+            ],
+            updates: {
+                hobbies: [t('events.journalism-degree.updates.hobbies.photography', { ns: 'resumeData' })],
+                diplomas: [t('events.journalism-degree.updates.diplomas.journalismDegree', { ns: 'resumeData' })],
+                hardSkills: [
+                    t('events.journalism-degree.updates.hardSkills.editing', { ns: 'resumeData' }),
+                    t('events.journalism-degree.updates.hardSkills.synthesis', { ns: 'resumeData' }),
+                ],
+                softSkills: [t('events.journalism-degree.updates.softSkills.curiosity', { ns: 'resumeData' })],
+            },
         },
-    },
-    {
-        id: 'today',
-        year: 'Today',
-        title: 'Front-End Developer',
-        side: 'right',
-        description:
-            'The current version of the character: a developer blending technical skills, communication and creativity. The transition is complete: web development is now my profession, with a strong focus on growing through real-world experience and continuous learning.',
-        tags: [
-            { label: 'Adaptability', category: 'skill' },
-            { label: 'Problem Solving', category: 'skill' },
-            { label: 'Dax, France', category: 'misc' },
-        ],
-        updates: {
-            location: 'Dax, France',
-            softSkills: ['Adaptability', 'Problem Solving'],
-            hobbies: ['Continuous Learning'],
+
+        {
+            id: 'writerjournalist',
+            year: t('events.writerjournalist.year', { ns: 'resumeData' }),
+            title: t('events.writerjournalist.title', { ns: 'resumeData' }),
+            side: 'right',
+            description: t('events.writerjournalist.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.writerjournalist.tags.youngWriterPrize', { ns: 'resumeData' }), category: 'diploma' },
+                { label: t('events.writerjournalist.tags.prixVarennes', { ns: 'resumeData' }), category: 'diploma' },
+                { label: t('events.writerjournalist.tags.storytelling', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.writerjournalist.tags.creativity', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.writerjournalist.tags.communication', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.writerjournalist.tags.research', { ns: 'resumeData' }), category: 'skill' },
+            ],
+            updates: {
+                diplomas: [
+                    t('events.writerjournalist.updates.diplomas.youngWriterPrize', { ns: 'resumeData' }),
+                    t('events.writerjournalist.updates.diplomas.prixVarennes', { ns: 'resumeData' }),
+                ],
+                hardSkills: [t('events.writerjournalist.updates.hardSkills.storytelling', { ns: 'resumeData' })],
+                softSkills: [
+                    t('events.writerjournalist.updates.softSkills.research', { ns: 'resumeData' }),
+                    t('events.writerjournalist.updates.softSkills.communication', { ns: 'resumeData' }),
+                    t('events.writerjournalist.updates.softSkills.creativity', { ns: 'resumeData' }),
+                ],
+            },
         },
-    },
-]
+
+        {
+            id: 'bookseller-experience',
+            year: t('events.bookseller-experience.year', { ns: 'resumeData' }),
+            title: t('events.bookseller-experience.title', { ns: 'resumeData' }),
+            side: 'left',
+            description: t('events.bookseller-experience.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.bookseller-experience.tags.management', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.bookseller-experience.tags.reliability', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.bookseller-experience.tags.teamwork', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.bookseller-experience.tags.logistics', { ns: 'resumeData' }), category: 'skill' },
+            ],
+            updates: {
+                hardSkills: [
+                    t('events.bookseller-experience.updates.hardSkills.management', { ns: 'resumeData' }),
+                    t('events.bookseller-experience.updates.hardSkills.logistics', { ns: 'resumeData' }),
+                ],
+                softSkills: [
+                    t('events.bookseller-experience.updates.softSkills.reliability', { ns: 'resumeData' }),
+                    t('events.bookseller-experience.updates.softSkills.teamwork', { ns: 'resumeData' }),
+                ],
+            },
+        },
+
+        {
+            id: 'teaching-documentation',
+            year: t('events.teaching-documentation.year', { ns: 'resumeData' }),
+            title: t('events.teaching-documentation.title', { ns: 'resumeData' }),
+            side: 'right',
+            description: t('events.teaching-documentation.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.teaching-documentation.tags.pedagogy', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.teaching-documentation.tags.documentation', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.teaching-documentation.tags.communication', { ns: 'resumeData' }), category: 'skill' },
+            ],
+            updates: {
+                hardSkills: [t('events.teaching-documentation.updates.hardSkills.documentation', { ns: 'resumeData' })],
+                softSkills: [
+                    t('events.teaching-documentation.updates.softSkills.pedagogy', { ns: 'resumeData' }),
+                    t('events.teaching-documentation.updates.softSkills.communication', { ns: 'resumeData' }),
+                ],
+            },
+        },
+
+        {
+            id: 'proud-dad',
+            year: t('events.proud-dad.year', { ns: 'resumeData' }),
+            title: t('events.proud-dad.title', { ns: 'resumeData' }),
+            side: 'left',
+            description: t('events.proud-dad.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.proud-dad.tags.proudDad', { ns: 'resumeData' }), category: 'hobby' },
+                { label: t('events.proud-dad.tags.nightManagement', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.proud-dad.tags.patience', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.proud-dad.tags.empathy', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.proud-dad.tags.multitasking', { ns: 'resumeData' }), category: 'skill' },
+            ],
+            updates: {
+                hobbies: [t('events.proud-dad.updates.hobbies.proudDad', { ns: 'resumeData' })],
+            },
+        },
+
+        {
+            id: 'openclassrooms',
+            year: t('events.openclassrooms.year', { ns: 'resumeData' }),
+            title: t('events.openclassrooms.title', { ns: 'resumeData' }),
+            side: 'right',
+            description: t('events.openclassrooms.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.openclassrooms.tags.rncp', { ns: 'resumeData' }), category: 'diploma' },
+                { label: t('events.openclassrooms.tags.html', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.openclassrooms.tags.css', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.openclassrooms.tags.javascript', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.openclassrooms.tags.react', { ns: 'resumeData' }), category: 'skill' },
+            ],
+            updates: {
+                diplomas: [t('events.openclassrooms.updates.diplomas.rncp', { ns: 'resumeData' })],
+                hardSkills: [
+                    t('events.openclassrooms.updates.hardSkills.html', { ns: 'resumeData' }),
+                    t('events.openclassrooms.updates.hardSkills.css', { ns: 'resumeData' }),
+                    t('events.openclassrooms.updates.hardSkills.javascript', { ns: 'resumeData' }),
+                    t('events.openclassrooms.updates.hardSkills.react', { ns: 'resumeData' }),
+                ],
+            },
+        },
+
+        {
+            id: 'hard-works',
+            year: t('events.hard-works.year', { ns: 'resumeData' }),
+            title: t('events.hard-works.title', { ns: 'resumeData' }),
+            side: 'left',
+            description: t('events.hard-works.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.hard-works.tags.apiIntegration', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.hard-works.tags.agile', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.hard-works.tags.design', { ns: 'resumeData' }), category: 'hobby' },
+                { label: t('events.hard-works.tags.backendBasics', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.hard-works.tags.security', { ns: 'resumeData' }), category: 'skill' },
+            ],
+            updates: {
+                hardSkills: [
+                    t('events.hard-works.updates.hardSkills.apiIntegration', { ns: 'resumeData' }),
+                    t('events.hard-works.updates.hardSkills.backendBasics', { ns: 'resumeData' }),
+                    t('events.hard-works.updates.hardSkills.security', { ns: 'resumeData' }),
+                ],
+                softSkills: [t('events.hard-works.updates.softSkills.agile', { ns: 'resumeData' })],
+                hobbies: [t('events.hard-works.updates.hobbies.design', { ns: 'resumeData' })],
+            },
+        },
+
+        {
+            id: 'today',
+            year: t('events.today.year', { ns: 'resumeData' }),
+            title: t('events.today.title', { ns: 'resumeData' }),
+            side: 'right',
+            description: t('events.today.description', { ns: 'resumeData' }),
+            tags: [
+                { label: t('events.today.tags.adaptability', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.today.tags.problemSolving', { ns: 'resumeData' }), category: 'skill' },
+                { label: t('events.today.tags.location', { ns: 'resumeData' }), category: 'misc' },
+            ],
+            updates: {
+                location: t('events.today.updates.location', { ns: 'resumeData' }),
+                softSkills: [
+                    t('events.today.updates.softSkills.adaptability', { ns: 'resumeData' }),
+                    t('events.today.updates.softSkills.problemSolving', { ns: 'resumeData' }),
+                ],
+                hobbies: [t('events.today.updates.hobbies.continuousLearning', { ns: 'resumeData' })],
+            },
+        },
+    ]
+
+    return {
+        characters,
+        finalCharacter,
+        timelineEvents,
+    }
+}

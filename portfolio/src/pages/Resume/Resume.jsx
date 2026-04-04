@@ -1,43 +1,83 @@
 import './Resume.scss'
-import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
+import ScrollToTop from '../../components/ScrollToTop/ScrollToTop'
 import CharacterModal from '../../components/Resume/CharacterModal/CharacterModal'
 import CharacterCard from '../../components/Resume/CharacterCard/CharacterCard'
 import Timeline from '../../components/Resume/Timeline/Timeline'
+import CompletionModal from '../../components/Resume/CompletionModal/CompletionModal'
 import Footer from '../../components/Footer/Footer'
-import { characters, timelineEvents } from '../../data/resumeData'
-import ScrollToTop from '../../components/ScrollToTop/ScrollToTop'
+import { getResumeData } from '../../data/resumeData'
 
 function Resume() {
+    const { t } = useTranslation(['resume', 'resumeData'])
+
+    const { characters, timelineEvents, finalCharacter } = useMemo(
+        () => getResumeData(t),
+        [t]
+    )
+
     const [selectedCharacter, setSelectedCharacter] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(true)
-    const [activeEventId, setActiveEventId] = useState(timelineEvents[0].id)
+    const [activeEventId, setActiveEventId] = useState(timelineEvents[0]?.id || null)
     const [selectedEventIds, setSelectedEventIds] = useState([])
+    const [showCompletionBanner, setShowCompletionBanner] = useState(false)
+
+    const [isCompletionModalOpen, setIsCompletionModalOpen] = useState(false)
+    const [completionEvent, setCompletionEvent] = useState(null)
+
+    const sidebarRef = useRef(null)
+    const hasCompletedOnceRef = useRef(false)
 
     const handleCharacterSelect = (character) => {
         setSelectedCharacter(character)
         setIsModalOpen(false)
     }
 
+    const handleCloseCompletionModal = () => {
+        setIsCompletionModalOpen(false)
+    }
+
     const handleEventClick = (eventId) => {
         setActiveEventId(eventId)
 
-        setSelectedEventIds((prev) => {
-            if (prev.includes(eventId)) return prev
-            return [...prev, eventId]
-        })
+        const nextSelectedEventIds = selectedEventIds.includes(eventId)
+            ? selectedEventIds
+            : [...selectedEventIds, eventId]
+
+        setSelectedEventIds(nextSelectedEventIds)
+
+        const lastEvent = timelineEvents[timelineEvents.length - 1]
+        const isClickingLastEvent = eventId === lastEvent.id
+        const completesJourney = nextSelectedEventIds.length === timelineEvents.length
+
+        if (isClickingLastEvent && completesJourney) {
+            setCompletionEvent(lastEvent)
+            setIsCompletionModalOpen(true)
+        }
     }
 
-    const unlockedEvents = useMemo(
-        () => timelineEvents.filter((event) => selectedEventIds.includes(event.id)),
-        [selectedEventIds]
-    )
+    const isJourneyComplete = selectedEventIds.length === timelineEvents.length
 
-    const activeEvent = useMemo(
-        () => timelineEvents.find((event) => event.id === activeEventId) || timelineEvents[0],
-        [activeEventId]
-    )
+    useEffect(() => {
+        if (!isJourneyComplete || hasCompletedOnceRef.current) return
+
+        hasCompletedOnceRef.current = true
+
+        if (sidebarRef.current) {
+            sidebarRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            })
+        }
+
+        const bannerTimer = setTimeout(() => {
+            setShowCompletionBanner(true)
+        }, 250)
+
+        return () => clearTimeout(bannerTimer)
+    }, [isJourneyComplete])
 
     const profileData = useMemo(() => {
         const initialProfile = {
@@ -51,97 +91,86 @@ function Resume() {
             softSkills: [],
         }
 
-        const uniquePush = (array, values) => {
-            if (!Array.isArray(values)) return
-
-            values.forEach((value) => {
-                if (!array.includes(value)) {
-                    array.push(value)
+        const addUniqueItems = (targetArray, items) => {
+            items.forEach((item) => {
+                if (!targetArray.includes(item)) {
+                    targetArray.push(item)
                 }
             })
         }
 
-        return unlockedEvents.reduce((profile, event) => {
-            const updates = event.updates || {}
+        selectedEventIds.forEach((eventId) => {
+            const event = timelineEvents.find((item) => item.id === eventId)
+            if (!event?.updates) return
 
-            if (updates.birthdate) {
-                profile.birthdate = updates.birthdate
-            }
+            const updates = event.updates
 
-            if (updates.location) {
-                profile.location = updates.location
-            }
-
+            if (updates.birthdate) initialProfile.birthdate = updates.birthdate
+            if (updates.location) initialProfile.location = updates.location
             if (updates.drivingLicence) {
-                profile.drivingLicence = updates.drivingLicence
+                initialProfile.drivingLicence = updates.drivingLicence
             }
 
-            if (updates.languages) {
-                uniquePush(profile.languages, updates.languages)
-            }
+            if (updates.languages) addUniqueItems(initialProfile.languages, updates.languages)
+            if (updates.diplomas) addUniqueItems(initialProfile.diplomas, updates.diplomas)
+            if (updates.hobbies) addUniqueItems(initialProfile.hobbies, updates.hobbies)
+            if (updates.hardSkills) addUniqueItems(initialProfile.hardSkills, updates.hardSkills)
+            if (updates.softSkills) addUniqueItems(initialProfile.softSkills, updates.softSkills)
+        })
 
-            if (updates.diplomas) {
-                uniquePush(profile.diplomas, updates.diplomas)
-            }
+        return initialProfile
+    }, [selectedEventIds, timelineEvents])
 
-            if (updates.hobbies) {
-                uniquePush(profile.hobbies, updates.hobbies)
-            }
-
-            if (updates.hardSkills) {
-                uniquePush(profile.hardSkills, updates.hardSkills)
-            }
-
-            if (updates.softSkills) {
-                uniquePush(profile.softSkills, updates.softSkills)
-            }
-
-            return profile
-        }, initialProfile)
-    }, [unlockedEvents])
-
-    const currentCharacter = selectedCharacter || characters[2]
+    const displayedCharacter = isJourneyComplete
+        ? finalCharacter
+        : selectedCharacter
 
     return (
-        <>
+        <main className="resume-page">
             <ScrollToTop />
-            <main className="resume-page">
-                {isModalOpen && (
-                    <CharacterModal
-                        characters={characters}
-                        onSelectCharacter={handleCharacterSelect}
+
+            {isModalOpen && (
+                <CharacterModal
+                    characters={characters}
+                    onSelectCharacter={handleCharacterSelect}
+                />
+            )}
+
+            {!isModalOpen && selectedCharacter && (
+                <>
+                    <div className="resume-page__container">
+                        <aside className="resume-page__sidebar" ref={sidebarRef}>
+                            <CharacterCard
+                                character={displayedCharacter}
+                                fullName="Vincent Chevais"
+                                profileData={profileData}
+                                isJourneyComplete={isJourneyComplete}
+                                showCompletionBanner={showCompletionBanner}
+                            />
+                        </aside>
+
+                        <section className="resume-page__timeline">
+                            <Timeline
+                                events={timelineEvents}
+                                activeEventId={activeEventId}
+                                selectedEventIds={selectedEventIds}
+                                onEventClick={handleEventClick}
+                            />
+                        </section>
+                    </div>
+
+                    <CompletionModal
+                        isOpen={isCompletionModalOpen}
+                        onClose={handleCloseCompletionModal}
+                        character={selectedCharacter}
+                        finalCharacter={finalCharacter}
+                        event={completionEvent}
                     />
-                )}
 
-                <div className="resume-page__top-actions">
-                    <Link to="/" className="resume-page__back">
-                        Go back home
-                    </Link>
-                </div>
-
-                <div className="resume-page__container">
-                    <aside className="resume-page__sidebar">
-                        <CharacterCard
-                            character={currentCharacter}
-                            fullName="Vincent Chevais"
-                            profileData={profileData}
-                        />
-                    </aside>
-
-                    <section className="resume-page__content">
-                        <Timeline
-                            events={timelineEvents}
-                            activeEventId={activeEventId}
-                            selectedEventIds={selectedEventIds}
-                            activeEvent={activeEvent}
-                            onEventClick={handleEventClick}
-                        />
-                    </section>
-                </div>
-            </main>
-
-            <Footer />
-        </>
+                    <Footer />
+                </>
+            )}
+        </main>
     )
 }
 

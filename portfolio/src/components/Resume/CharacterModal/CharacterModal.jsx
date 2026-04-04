@@ -1,17 +1,20 @@
 import './CharacterModal.scss'
+import { useTranslation } from 'react-i18next'
 
 function CharacterModal({ characters, onSelectCharacter }) {
+    const { t } = useTranslation('resume')
+
     return (
         <div className="character-modal" role="dialog" aria-modal="true" aria-labelledby="character-modal-title">
             <div className="character-modal__overlay"></div>
 
             <div className="character-modal__content">
                 <h1 id="character-modal-title" className="character-modal__title">
-                    Select your character
+                    {t('characterModal.title')}
                 </h1>
 
                 <p className="character-modal__subtitle">
-                    Choose an avatar to begin the journey through my interactive resume.
+                    {t('characterModal.subtitle')}
                 </p>
 
                 <div className="character-modal__list">

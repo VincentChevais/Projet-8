@@ -2,6 +2,8 @@ import './Hero.scss'
 import { ArrowDown } from 'lucide-react'
 import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 import profilePhoto from '../../assets/profile.webp'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 /*
   Le composant Hero reçoit une prop "inWrapper".
@@ -10,6 +12,7 @@ import profilePhoto from '../../assets/profile.webp'
   - false → si aucune prop n’est envoyée, le Hero fonctionne normalement
 */
 function Hero({ inWrapper = false }) {
+    const { t } = useTranslation('home')
     return (
         <section className={`hero ${inWrapper ? 'hero--wrapper' : ''}`} id="hero">
             {/* Réseaux sociaux */}
@@ -44,20 +47,19 @@ function Hero({ inWrapper = false }) {
 
             {/* Contenu principal du Hero */}
             <div className="hero__container">
-                <p className="hero__intro">Hi, my name is</p>
+                <p className="hero__intro">{t('hero.title')}</p>
 
                 <h1 className="hero__name">Vincent Chevais</h1>
 
                 <h2 className="hero__tagline">
-                    I build things with <span>React & Sass</span>.
+                    {t('hero.tagline')}<span>React & Sass</span>.
                 </h2>
 
                 <p className="hero__description">
-                    Front-end developer passionate about clean design, scalable
-                    architectures, and crafting pixel-perfect interfaces.
+                    {t('hero.description1')}
                 </p>
                 <p className="hero__description">
-                    Based in Dax, Nouvelle-Aquitaine, France.
+                    {t('hero.description2')}
                 </p>
 
                 {/*Version mobile de la photo.*/}
@@ -65,7 +67,7 @@ function Hero({ inWrapper = false }) {
                     <div className="hero__mobile-photo-wrapper">
                         <img
                             src={profilePhoto}
-                            alt=""
+                            alt={t('hero.aria.image')}
                             className="hero__mobile-photo-img"
                         />
                     </div>
@@ -77,17 +79,23 @@ function Hero({ inWrapper = false }) {
                         href="/cv.pdf"
                         className="hero__button hero__button--cv"
                         download="CV-Vincent-Chevais.pdf"
+                        aria-label={t('hero.aria.downloadCv')}
                     >
-                        Download CV
+                        {t('hero.downloadCv')}
                     </a>
-                    <a href="#projects" className="hero__button hero__button--primary">
-                        View my work
-                    </a>
+
+                    <Link to="/resume"
+                        className="hero__button hero__button--primary"
+                        aria-label={t('hero.aria.viewWork')}
+                    >
+                        {t('hero.viewWork')}
+                    </Link>
+
                 </div>
             </div>
 
             {/*Scroll vers About */}
-            <a href="#about" className="hero__scroll" aria-label="Scroll to About section">
+            <a href="#about" className="hero__scroll" aria-label={t('hero.aria.scroll')}>
                 <ArrowDown />
             </a>
         </section>

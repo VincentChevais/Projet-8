@@ -1,6 +1,7 @@
 import './Timeline.scss'
 import { useEffect, useRef } from 'react'
 import TimelineEvent from '../TimelineEvent/TimelineEvent'
+import { useTranslation } from 'react-i18next'
 
 function Timeline({
     events,
@@ -9,6 +10,7 @@ function Timeline({
     onEventClick,
 }) {
     const eventRefs = useRef({})
+    const { t } = useTranslation('resume')
 
     useEffect(() => {
         const activeNode = eventRefs.current[activeEventId]
@@ -24,10 +26,10 @@ function Timeline({
         <section className="timeline" aria-labelledby="timeline-title">
             <div className="timeline__header">
                 <h2 id="timeline-title" className="timeline__title">
-                    Interactive Journey
+                    {t('timeline.title')}
                 </h2>
                 <p className="timeline__subtitle">
-                    Click through the milestones to unlock details and build the character sheet.
+                    {t('timeline.subtitle')}
                 </p>
             </div>
 

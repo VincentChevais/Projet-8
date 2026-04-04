@@ -2,59 +2,58 @@ import './Skills.scss'
 import Reveal from '../Reveal/Reveal'
 import {
     FaHtml5,
-    FaCss3Alt,
     FaJs,
     FaReact,
     FaGitAlt
 } from 'react-icons/fa'
 import { SiSass } from 'react-icons/si'
+import { useTranslation } from 'react-i18next'
 
-const skills = [
-    { name: 'HTML', level: '90%', icon: <FaHtml5 />, color: '#e34c26' },
-    { name: 'CSS / SCSS', level: '90%', icon: <SiSass />, color: '#cc6699' },
-    { name: 'JavaScript', level: '80%', icon: <FaJs />, color: '#f7df1e' },
-    { name: 'React', level: '75%', icon: <FaReact />, color: '#61dafb' },
-    { name: 'Git/GitHub', level: '80%', icon: <FaGitAlt />, color: '#f0f0f0' },
-    { name: 'Accessibility', level: '70%' },
-    { name: 'Responsive Design', level: '85%' },
-]
 
 function Skills() {
+    const { t } = useTranslation('home')
+    const skills = [
+        { name: t('skills.technical.items.html'), level: '90%', icon: <FaHtml5 />, color: '#e34c26' },
+        { name: t('skills.technical.items.css'), level: '90%', icon: <SiSass />, color: '#cc6699' },
+        { name: t('skills.technical.items.javascript'), level: '80%', icon: <FaJs />, color: '#f7df1e' },
+        { name: t('skills.technical.items.react'), level: '75%', icon: <FaReact />, color: '#61dafb' },
+        { name: t('skills.technical.items.git'), level: '80%', icon: <FaGitAlt />, color: '#f0f0f0' },
+        { name: t('skills.technical.items.accessibility'), level: '70%' },
+        { name: t('skills.technical.items.responsive'), level: '85%' },
+    ]
     return (
         <section className="skills" id="skills">
             <Reveal className="skills__container">
                 <div className="skills__content">
                     <h2 className="section-heading">
                         <span className="section-heading__number">02.</span>
-                        <span className="section-heading__text">Skills</span>
+                        <span className="section-heading__text">{t('skills.title')}</span>
                     </h2>
 
                     <p className="skills__description">
-                        Over the course of my training and personal projects, I’ve built a
-                        solid front-end foundation with a strong focus on clean code,
-                        reusable components, and user-friendly interfaces.
+                        {t('skills.description')}
                     </p>
 
                     <div className="skills__group">
-                        <h3 className="skills__group-title">Soft skills</h3>
-                        <p className="skills__group-subtitle">What I bring to the table beyond code</p>
+                        <h3 className="skills__group-title">{t('skills.soft.title')}</h3>
+                        <p className="skills__group-subtitle">{t('skills.soft.subtitle')}</p>
 
                         <div className="skills__tags">
-                            <span>Management</span>
-                            <span>English, French, Spanish</span>
-                            <span>Autonomy</span>
-                            <span>Problem Solving</span>
-                            <span>Teamwork</span>
-                            <span>Adaptability</span>
-                            <span>Reliability</span>
-                            <span>Empathy</span>
-                            <span>Curiosity</span>
+                            <span>{t('skills.soft.items.management')}</span>
+                            <span>{t('skills.soft.items.languages')}</span>
+                            <span>{t('skills.soft.items.autonomy')}</span>
+                            <span>{t('skills.soft.items.problemSolving')}</span>
+                            <span>{t('skills.soft.items.teamwork')}</span>
+                            <span>{t('skills.soft.items.adaptability')}</span>
+                            <span>{t('skills.soft.items.reliability')}</span>
+                            <span>{t('skills.soft.items.empathy')}</span>
+                            <span>{t('skills.soft.items.curiosity')}</span>
                         </div>
                     </div>
                 </div>
                 <div className="skills__group">
                     <div className="skills__bars">
-                        <h3 className="skills__group-title">Technical skills</h3>
+                        <h3 className="skills__group-title">{t('skills.technical.title')}</h3>
                         {skills.map((skill) => (
                             <div className="skills__item" key={skill.name}>
                                 <div className="skills__label">

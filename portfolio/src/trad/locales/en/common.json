@@ -1,0 +1,24 @@
+{
+  "header": {
+    "nav": {
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact",
+      "resume": "Resume"
+    },
+    "aria": {
+      "scrollTop": "Scroll to top",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    }
+  },
+  "footer": {
+    "text": "Designed and built with care © {{year}}",
+    "repo": "View portfolio repository"
+  },
+  "languageSwitcher": {
+    "fr": "Switch site language to French",
+    "en": "Switch site language to English"
+  }
+}

@@ -1,6 +1,9 @@
 @use "../../../styles/base/variables" as *;
 
 .character-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     padding: 0;
     border: 1px solid $border;
     border-radius: 24px;
@@ -218,6 +221,154 @@
         font-style: italic;
         line-height: 1.35;
     }
+
+    &--completed {
+        .character-card__panel--identity {
+            border-color: rgba(250, 204, 21, 0.32);
+            box-shadow:
+                0 0 0 1px rgba(250, 204, 21, 0.08),
+                0 0 28px rgba(250, 204, 21, 0.08);
+        }
+    }
+
+    &__completion-banner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.1rem;
+        border: 1px solid rgba(250, 204, 21, 0.22);
+        border-radius: 18px;
+        background:
+            linear-gradient(135deg,
+                rgba(250, 204, 21, 0.1),
+                rgba(250, 204, 21, 0.03)),
+            rgba(18, 18, 20, 0.9);
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.22),
+            0 0 20px rgba(250, 204, 21, 0.06);
+        animation: completion-banner-in 0.65s ease forwards;
+    }
+
+    &__completion-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    &__completion-eyebrow {
+        margin: 0;
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: $primary;
+    }
+
+    &__completion-subtitle {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.5;
+        font-size: 0.95rem;
+        max-width: 42ch;
+    }
+
+    &__completion-button {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.8rem 1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(250, 204, 21, 0.26);
+        background: rgba(250, 204, 21, 0.09);
+        color: $primary;
+        text-decoration: none;
+        font-weight: 600;
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            background 0.25s ease;
+    }
+
+    &__completion-button:hover {
+        transform: translateY(-2px);
+        background: rgba(250, 204, 21, 0.14);
+        box-shadow: 0 0 20px rgba(250, 204, 21, 0.12);
+    }
+
+    &__class {
+        transition:
+            opacity 0.35s ease,
+            transform 0.35s ease,
+            color 0.35s ease,
+            text-shadow 0.35s ease;
+
+        &--initial {
+            opacity: 0.92;
+        }
+
+        &--developer {
+            color: $primary;
+            letter-spacing: 0.02em;
+            text-shadow:
+                0 0 6px rgba(250, 204, 21, 0.32),
+                0 0 16px rgba(250, 204, 21, 0.16);
+            animation: developer-pulse 1.8s ease-in-out infinite;
+        }
+    }
+
+    &__tag--new {
+        animation: tag-pop 0.55s ease;
+    }
+}
+
+@keyframes completion-banner-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes developer-pulse {
+
+    0%,
+    100% {
+        opacity: 0.92;
+        transform: scale(1);
+        text-shadow:
+            0 0 6px rgba(250, 204, 21, 0.3),
+            0 0 16px rgba(250, 204, 21, 0.12);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+        text-shadow:
+            0 0 10px rgba(250, 204, 21, 0.48),
+            0 0 24px rgba(250, 204, 21, 0.22);
+    }
+}
+
+@keyframes tag-pop {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.3;
+    }
+
+    60% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes character-card-tag-pop {
@@ -249,11 +400,17 @@
 
 @media (max-width: 900px) {
     .character-card {
+        align-items: flex-start;
         max-height: none;
         overflow: visible;
 
         &__grid {
             grid-template-columns: 1fr;
+        }
+
+        &__completion-button {
+            width: 100%;
+            justify-content: center;
         }
 
         &__misc-grid {

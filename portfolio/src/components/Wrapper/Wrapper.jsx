@@ -2,8 +2,10 @@ import './Wrapper.scss'
 import Hero from '../Hero/Hero'
 import About from '../About/About'
 import profileImg from '../../assets/profile.webp'
+import { useTranslation } from 'react-i18next'
 
 function Wrapper() {
+    const { t } = useTranslation('home')
     return (
         <section className="wrapper">
             <div className="wrapper__layout">
@@ -20,7 +22,7 @@ function Wrapper() {
                             <div className="wrapper__photo-wrapper">
                                 <img
                                     src={profileImg}
-                                    alt="Portrait"
+                                    alt={t('hero.aria.image')}
                                     className="wrapper__photo"
                                 />
                             </div>

@@ -1,0 +1,88 @@
+{
+  "hero": {
+    "title": "Hi, my name is",
+    "tagline": "I build things with ",
+    "description1": "Front-end developer passionate about clean design, scalable architectures, and crafting pixel-perfect interfaces.",
+    "description2": "Based in Dax, Nouvelle-Aquitaine, France.",
+    "downloadCv": "Download CV",
+    "viewWork": "Interactive Resume",
+    "aria": {
+      "downloadCv": "Download Vincent Chevais' CV",
+      "viewWork": "View Vincent Chevais' interactive resume",
+      "scroll": "Scroll to About section",
+      "image": "Photo of Vincent Chevais"
+    }
+  },
+
+  "about": {
+    "title": "About Me",
+    "paragraph1": "I’m a front-end developer who loves turning complex problems into simple, elegant interfaces. My toolkit centers around React, Sass, modern JavaScript frameworks, and a deep appreciation for design systems.",
+    "paragraph2": "As a former bookseller, I discovered web development through an <strong><ocLink>OpenClassrooms course</ocLink></strong>, where I realized that my artistic eye and logical technique formed a powerful duo.",
+    "paragraph3": "When I’m not coding, you’ll find me exploring new design trends, contributing to open-source projects, or refining my workflow to stay sharp and efficient.",
+    "paragraph4": "My background in <0>literature and journalism</0> also shaped the way I work: with curiosity, attention to detail, and a strong focus on clarity and communication.",
+    "cta": "Let’s Talk",
+    "aria": {
+        "button": "Scroll to Contact section",
+        "link1": "OpenClassrooms course link"
+    }
+  },
+
+  "skills": {
+    "title": "Skills",
+    "description": "Over the course of my training and personal projects, I’ve built a solid front-end foundation with a strong focus on clean code, reusable components, and user-friendly interfaces.",
+    "soft": {
+        "title": "Soft skills",
+        "subtitle": "What I bring to the table beyond code",
+        "items": {
+            "management": "Management",
+            "languages": "English, French, Spanish",
+            "autonomy": "Autonomy",
+            "problemSolving": "Problem Solving",
+            "teamwork": "Teamwork",
+            "adaptability": "Adaptability",
+            "reliability": "Reliability",
+            "empathy": "Empathy",
+            "curiosity": "Curiosity"
+            }
+    },
+    "technical": {
+        "title": "Technical skills",
+        "items": {
+            "html": "HTML",
+            "css": "CSS / SCSS",
+            "javascript": "JavaScript",
+            "react": "React",
+            "git": "Git/GitHub",
+            "accessibility": "Accessibility",
+            "responsive": "Responsive Design"
+        }
+    }
+  },
+
+  "projects": {
+    "title": "Projects",
+    "description": "A selection of projects that helped me strengthen my front-end and back-end skills through concrete, hands-on development challenges."
+  },
+
+  "contact": {
+    "title": "Contact",
+    "intro": "Have a project in mind or an opportunity to discuss? Feel free to reach out.",
+    "form": {
+      "nameLabel": "Your full name",
+      "namePlaceholder": "John Doe",
+      "nameError": "Please enter a valid name.",
+      "emailLabel": "Your email",
+      "emailPlaceholder": "john@email.com",
+      "emailError": "Please enter a valid email address.",
+      "messageLabel": "Your message",
+      "messagePlaceholder": "Tell me about your project, your opportunity, or just say hello...",
+      "send": "Send message",
+      "sending": "Sending..."
+    },
+    "success": {
+      "badge": "Sent ✓",
+      "title": "Message sent",
+      "message": "Thanks for your message. I’ll get back to you as soon as possible."
+    }
+  }
+}

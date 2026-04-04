@@ -1,0 +1,88 @@
+{
+  "hero": {
+    "title": "Bonjour, je m'appelle",
+    "tagline": "Je conçois des expériences avec ",
+    "description1": "Développeur front-end passionné par le design soigné, les architectures évolutives et les interfaces au pixel près.",
+    "description2": "Basé à Dax, Nouvelle-Aquitaine.",
+    "downloadCv": "Télécharger le CV",
+    "viewWork": "CV interactif",
+    "aria": {
+      "downloadCv": "Télécharger le CV de Vincent Chevais",
+      "viewWork": "Voir le CV interactif de Vincent Chevais",
+      "scroll": "Aller à la section À propos",
+      "image": "Photo de Vincent Chevais"
+    }
+  },
+
+  "about": {
+    "title": "À propos",
+    "paragraph1": "Je suis développeur front-end et j’aime transformer des problèmes complexes en interfaces simples et élégantes. Mon socle repose sur React, Sass, JavaScript moderne et une attention particulière aux design systems.",
+    "paragraph2": "Ancien libraire, j’ai découvert le développement web grâce à une <strong><ocLink>formation OpenClassrooms</ocLink></strong>, où j’ai compris que mon regard artistique et ma logique technique formaient un duo puissant.",
+    "paragraph3": "Quand je ne code pas, je m’intéresse aux nouvelles tendances design, je contribue à des projets open source ou j’affine mes méthodes pour rester efficace et rigoureux.",
+    "paragraph4": "Mon parcours en <0>littérature et journalisme</0> influence aussi ma façon de travailler : avec curiosité, précision et un goût prononcé pour la clarté et la communication.",
+    "cta": "Discutons",
+    "aria": {
+      "button": "Aller à la section Contact",
+      "link1": "Lien vers la formation OpenClassrooms"
+    }
+  },
+
+  "skills": {
+    "title": "Compétences",
+    "description": "Au fil de ma formation et de mes projets, j’ai construit une base solide en front-end, avec une attention particulière au code propre, aux composants réutilisables et aux interfaces accessibles.",
+    "soft": {
+      "title": "Soft skills",
+      "subtitle": "Ce que j’apporte au-delà du code",
+      "items": {
+        "management": "Management",
+        "languages": "Anglais, Français, Espagnol",
+        "autonomy": "Autonomie",
+        "problemSolving": "Résolution de problèmes",
+        "teamwork": "Travail en équipe",
+        "adaptability": "Adaptabilité",
+        "reliability": "Fiabilité",
+        "empathy": "Empathie",
+        "curiosity": "Curiosité"
+      }
+    },
+    "technical": {
+      "title": "Compétences techniques",
+      "items": {
+        "html": "HTML",
+        "css": "CSS / SCSS",
+        "javascript": "JavaScript",
+        "react": "React",
+        "git": "Git/GitHub",
+        "accessibility": "Accessibilité",
+        "responsive": "Responsive Design"
+      }
+    }
+  },
+
+  "projects": {
+    "title": "Projets",
+    "description": "Une sélection de projets qui m’ont permis de renforcer mes compétences front-end et back-end à travers des réalisations concrètes."
+  },
+
+  "contact": {
+    "title": "Contact",
+    "intro": "Un projet en tête ou une opportunité à discuter ? N’hésitez pas à me contacter.",
+    "form": {
+      "nameLabel": "Votre nom complet",
+      "namePlaceholder": "Jean Dupont",
+      "nameError": "Veuillez entrer un nom valide.",
+      "emailLabel": "Votre email",
+      "emailPlaceholder": "jean@email.com",
+      "emailError": "Veuillez entrer une adresse email valide.",
+      "messageLabel": "Votre message",
+      "messagePlaceholder": "Parlez-moi de votre projet, d’une opportunité ou simplement pour échanger...",
+      "send": "Envoyer",
+      "sending": "Envoi..."
+    },
+    "success": {
+      "badge": "Envoyé ✓",
+      "title": "Message envoyé",
+      "message": "Merci pour votre message. Je vous répondrai dès que possible."
+    }
+  }
+}

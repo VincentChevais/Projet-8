@@ -1,7 +1,9 @@
 import './About.scss'
 import Reveal from '../Reveal/Reveal'
+import { useTranslation, Trans } from 'react-i18next'
 
 function About({ inWrapper = false }) {
+    const { t } = useTranslation('home')
     return (
         <section className={`about ${inWrapper ? 'about--wrapper' : ''}`} id="about">
             <Reveal className="about__container">
@@ -9,30 +11,41 @@ function About({ inWrapper = false }) {
                 <div className="about__content">
                     <h2 className="section-heading">
                         <span className="section-heading__number">01.</span>
-                        <span className="section-heading__text">About Me</span>
+                        <span className="section-heading__text">{t('about.title')}</span>
                     </h2>
 
                     <p>
-                        I’m a front-end developer who loves turning complex problems into simple,
-                        elegant interfaces. My toolkit centers around <strong>React</strong>, Sass,
-                        modern JavaScript frameworks, and a deep appreciation for design systems.
+                        {t('about.paragraph1')}
                     </p>
                     <p>
-                        As a former bookseller, I discovered web development through an <strong>OpenClassrooms course</strong>,
-                        where I realized that my artistic eye and logical technique formed a powerful duo.
+                        <Trans
+                            t={t}
+                            i18nKey="about.paragraph2"
+                            components={{
+                                strong: <strong />,
+                                ocLink: (
+                                    <a
+                                        href="https://www.openclassrooms.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={t('about.aria.link1')}
+                                    />
+                                ),
+                            }}
+                        />
                     </p>
                     <p>
-                        When I’m not coding, you’ll find me exploring new design trends,
-                        contributing to open-source projects, or refining my workflow
-                        to stay sharp and efficient.
+                        {t('about.paragraph3')}
                     </p>
                     <p>
-                        My background in <strong>literature and journalism</strong> also shaped the way I work:
-                        with curiosity, attention to detail, and a strong focus on clarity and
-                        communication.
+                        <Trans
+                            t={t}
+                            i18nKey="about.paragraph4"
+                            components={[<strong />]}
+                        />
                     </p>
-                    <a href="#contact" className="about__cta">
-                        Let’s Talk
+                    <a href="#contact" className="about__cta" aria-label={t('about.aria.button')}>
+                        {t('about.cta')}
                     </a>
                 </div>
             </Reveal>

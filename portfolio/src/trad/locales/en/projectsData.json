@@ -1,0 +1,37 @@
+{
+    "aria": {
+      "imgAltProject": "Screenshot of {{title}}",
+      "onClickProject": "View {{title}} project",
+      "viewGithubCode": "View {{title}} code on GitHub"
+    },
+    
+  "items": {
+    "sophie-bluel": {
+      "title": "Sophie Bluel – Interior Architect",
+      "description": "Development of a dynamic portfolio in JavaScript with API integration, project filtering, and an admin interface. This project also introduced me to Agile working methods.",
+      "tags": {
+        "javascript": "JavaScript",
+        "api": "API",
+        "agile": "Agile"
+      }
+    },
+    "kasa": {
+      "title": "Kasa",
+      "description": "Creation of a responsive real estate application with React and Sass, based on reusable components and a clean front-end architecture.",
+      "tags": {
+        "react": "React",
+        "sass": "Sass",
+        "reactRouter": "React Router"
+      }
+    },
+    "mon-vieux-grimoire": {
+      "title": "Mon Vieux Grimoire",
+      "description": "Back-end development of a book rating API with Node.js, Express and MongoDB, including authentication, CRUD operations and secure data handling.",
+      "tags": {
+        "node": "Node.js",
+        "express": "Express",
+        "mongodb": "MongoDB"
+      }
+    }
+  }
+}

@@ -1,12 +1,14 @@
 import './Footer.scss'
 import { FaGithub } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
 function Footer() {
+    const { t } = useTranslation('common')
     return (
         <footer className="footer">
             <div className="footer__container">
                 <p className="footer__text">
-                    Designed and built with care © {new Date().getFullYear()}
+                    {t('footer.text', { year: new Date().getFullYear() })}
                 </p>
 
                 <div className="footer__links">
@@ -17,7 +19,7 @@ function Footer() {
                         className="footer__link"
                     >
                         <FaGithub />
-                        <span>View portfolio repository</span>
+                        <span>{t('footer.repo')}</span>
                     </a>
                 </div>
             </div>

@@ -1,0 +1,44 @@
+{
+  "characterModal": {
+    "title": "Choisissez votre personnage",
+    "subtitle": "Sélectionnez un avatar pour commencer le parcours de mon CV interactif."
+  },
+  "timeline": {
+    "title": "Parcours interactif",
+    "subtitle": "Cliquez sur les étapes pour révéler les détails et construire la fiche du personnage."
+  },
+  "characterCard": {
+    "completionBanner": {
+      "eyebrow": "Vous avez terminé le parcours",
+      "subtitle": "À vous d’écrire la suite du chemin.",
+      "download": "Télécharger le CV PDF"
+    },
+    "selected": "Personnage sélectionné",
+    "misc": "Informations",
+    "birthdate": "Date de naissance",
+    "location": "Localisation",
+    "drivingLicence": "Permis de conduire",
+    "languages": "Langues",
+    "diplomas": "Diplômes",
+    "hobbies": "Centres d’intérêt",
+    "hardSkills": "Compétences techniques",
+    "softSkills": "Soft skills",
+    "empty": "—",
+    "emptyStates": {
+      "diplomas": "Aucun diplôme débloqué",
+      "hobbies": "Aucun centre d’intérêt débloqué",
+      "hardSkills": "Aucune compétence technique débloquée",
+      "softSkills": "Aucune soft skill débloquée"
+    }
+  },
+  "completionModal": {
+    "aria": {
+      "close": "Fermer la fenêtre de fin"
+    }
+  },
+  "timelineEvent": {
+    "aria": {
+      "openMilestone": "Ouvrir l’étape {{year}}"
+    }
+  }
+}

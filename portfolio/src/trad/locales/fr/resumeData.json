@@ -1,0 +1,293 @@
+{
+  "characters": {
+    "bookseller": {
+      "label": "Le Libraire"
+    },
+    "journalist": {
+      "label": "Le Journaliste"
+    },
+    "writer": {
+      "label": "L’Écrivain"
+    },
+    "developer": {
+      "label": "Le Développeur"
+    }
+  },
+
+  "events": {
+    "birth": {
+      "year": "1993",
+      "title": "Naissance en 1993",
+      "description": "Le parcours commence à Bordeaux. J’ai grandi entouré de musique, une influence constante qui m’accompagne encore aujourd’hui.",
+      "tags": {
+        "birthdate": "6 avril 1993",
+        "french": "Français",
+        "music": "Musique"
+      },
+      "updates": {
+        "birthdate": "6 avril 93",
+        "languages": {
+          "french": "Français"
+        },
+        "hobbies": {
+          "music": "Musique"
+        }
+      }
+    },
+
+    "baccalaureate": {
+      "year": "2011",
+      "title": "Baccalauréat",
+      "description": "Baccalauréat obtenu en 2011 avec mention très bien, spécialité mathématiques. Déjà à cette époque, l’informatique et les jeux vidéo nourrissaient une forte curiosité pour la logique et la création.",
+      "tags": {
+        "diploma": "Baccalauréat",
+        "computerScience": "Informatique",
+        "drivingLicence": "Permis de conduire"
+      },
+      "updates": {
+        "drivingLicence": "Obtenu",
+        "diplomas": {
+          "baccalaureate": "Baccalauréat"
+        },
+        "hobbies": {
+          "computerScience": "Informatique"
+        }
+      }
+    },
+
+    "cpge": {
+      "year": "2013",
+      "title": "CPGE",
+      "description": "Hypokhâgne / Khâgne. Deux années de préparation intensive aux concours en littérature, philosophie, histoire et langues. Une expérience exigeante qui forge rigueur, résilience et discipline.",
+      "tags": {
+        "english": "Anglais",
+        "criticalThinking": "Esprit critique",
+        "resilience": "Résilience",
+        "discipline": "Discipline",
+        "workEthic": "Rigueur"
+      },
+      "updates": {
+        "languages": {
+          "english": "Anglais"
+        },
+        "softSkills": {
+          "resilience": "Résilience",
+          "discipline": "Discipline",
+          "workEthic": "Rigueur"
+        },
+        "hardSkills": {
+          "criticalThinking": "Esprit critique"
+        }
+      }
+    },
+
+    "literature-degree": {
+      "year": "2014",
+      "title": "Licence de Lettres",
+      "description": "Une année à Montréal, au Canada. Une immersion culturelle et littéraire intense, marquée par la découverte des grands récits et des techniques narratives.",
+      "tags": {
+        "literature": "Littérature",
+        "degree": "Licence de Lettres",
+        "writing": "Écriture"
+      },
+      "updates": {
+        "diplomas": {
+          "literatureDegree": "Licence de Lettres"
+        },
+        "hobbies": {
+          "literature": "Littérature"
+        },
+        "hardSkills": {
+          "writing": "Écriture"
+        }
+      }
+    },
+
+    "journalism-degree": {
+      "year": "2017",
+      "title": "Master de Journalisme",
+      "description": "Je relève les yeux des livres pour raconter le monde. Cette étape affine mes capacités de synthèse, d’analyse et de narration. J’y développe aussi des compétences en photographie et en montage.",
+      "tags": {
+        "degree": "Master de Journalisme",
+        "photography": "Photographie",
+        "editing": "Montage",
+        "synthesis": "Synthèse",
+        "curiosity": "Curiosité"
+      },
+      "updates": {
+        "hobbies": {
+          "photography": "Photographie"
+        },
+        "diplomas": {
+          "journalismDegree": "Master de Journalisme"
+        },
+        "hardSkills": {
+          "editing": "Montage",
+          "synthesis": "Synthèse"
+        },
+        "softSkills": {
+          "curiosity": "Curiosité"
+        }
+      }
+    },
+
+    "writerjournalist": {
+      "year": "2017",
+      "title": "Écrivain et Journaliste",
+      "description": "L’écriture devient à la fois métier et terrain d’expression : articles, scénarios, travaux éditoriaux et collaborations avec médias et institutions culturelles. Des distinctions viennent confirmer ce goût pour le récit et la structure.",
+      "tags": {
+        "youngWriterPrize": "Prix du Jeune Écrivain 2020",
+        "prixVarennes": "Prix Varennes 2017",
+        "storytelling": "Narration",
+        "creativity": "Créativité",
+        "communication": "Communication",
+        "research": "Recherche"
+      },
+      "updates": {
+        "diplomas": {
+          "youngWriterPrize": "Prix du Jeune Écrivain 2020",
+          "prixVarennes": "Prix Varennes 2017"
+        },
+        "hardSkills": {
+          "storytelling": "Narration"
+        },
+        "softSkills": {
+          "research": "Recherche",
+          "communication": "Communication",
+          "creativity": "Créativité"
+        }
+      }
+    },
+
+    "bookseller-experience": {
+      "year": "2021",
+      "title": "Expérience en Librairie",
+      "description": "La librairie introduit la dimension opérationnelle : gestion d’équipe, stocks, logistique, événements et conseil client. Une expérience concrète qui renforce organisation, fiabilité et travail collectif.",
+      "tags": {
+        "management": "Management",
+        "reliability": "Fiabilité",
+        "teamwork": "Travail d’équipe",
+        "logistics": "Logistique"
+      },
+      "updates": {
+        "hardSkills": {
+          "management": "Management",
+          "logistics": "Logistique"
+        },
+        "softSkills": {
+          "reliability": "Fiabilité",
+          "teamwork": "Travail d’équipe"
+        }
+      }
+    },
+
+    "teaching-documentation": {
+      "year": "2024",
+      "title": "Enseignement et Documentation",
+      "description": "Une année d’enseignement du français et de la documentation à travers des projets interdisciplinaires. Une expérience qui renforce pédagogie, clarté et transmission.",
+      "tags": {
+        "pedagogy": "Pédagogie",
+        "documentation": "Documentation",
+        "communication": "Communication"
+      },
+      "updates": {
+        "hardSkills": {
+          "documentation": "Documentation"
+        },
+        "softSkills": {
+          "pedagogy": "Pédagogie",
+          "communication": "Communication"
+        }
+      }
+    },
+
+    "proud-dad": {
+      "year": "2024",
+      "title": "Jeune Papa",
+      "description": "Le rôle le plus important de tous. Il apporte patience et une nouvelle perspective sur le temps et l’avenir.",
+      "tags": {
+        "proudDad": "Jeune papa",
+        "nightManagement": "Gestion des nuits",
+        "patience": "Patience",
+        "empathy": "Empathie",
+        "multitasking": "Multitâche"
+      },
+      "updates": {
+        "hobbies": {
+          "proudDad": "Jeune papa"
+        }
+      }
+    },
+
+    "openclassrooms": {
+      "year": "2025",
+      "title": "Diplôme Développeur Web OpenClassrooms",
+      "description": "Un tournant : le développement web devient une voie professionnelle, avec des bases techniques solides et une approche par projets.",
+      "tags": {
+        "rncp": "Diplôme RNCP Développeur Web",
+        "html": "HTML",
+        "css": "CSS",
+        "javascript": "JavaScript",
+        "react": "React"
+      },
+      "updates": {
+        "diplomas": {
+          "rncp": "Diplôme RNCP Développeur Web"
+        },
+        "hardSkills": {
+          "html": "HTML",
+          "css": "CSS",
+          "javascript": "JavaScript",
+          "react": "React"
+        }
+      }
+    },
+
+    "hard-works": {
+      "year": "2026",
+      "title": "Projets en Conditions Réelles",
+      "description": "Des projets concrets permettent de transformer les connaissances en pratique : portfolio, application immobilière, API de livres, application sportive… Chaque réalisation renforce mes compétences techniques et mon approche UX.",
+      "tags": {
+        "apiIntegration": "Intégration d’API",
+        "agile": "Agile",
+        "design": "Design",
+        "backendBasics": "Bases back-end",
+        "security": "Sécurité"
+      },
+      "updates": {
+        "hardSkills": {
+          "apiIntegration": "Intégration d’API",
+          "backendBasics": "Bases back-end",
+          "security": "Sécurité"
+        },
+        "softSkills": {
+          "agile": "Agile"
+        },
+        "hobbies": {
+          "design": "Design"
+        }
+      }
+    },
+
+    "today": {
+      "year": "Aujourd’hui",
+      "title": "Développeur Front-End",
+      "description": "La version actuelle du personnage : un développeur qui allie technique, communication et créativité. La transition est complète : le développement web est désormais mon métier, avec une volonté constante de progresser.",
+      "tags": {
+        "adaptability": "Adaptabilité",
+        "problemSolving": "Résolution de problèmes",
+        "location": "Dax, France"
+      },
+      "updates": {
+        "location": "Dax, France",
+        "softSkills": {
+          "adaptability": "Adaptabilité",
+          "problemSolving": "Résolution de problèmes"
+        },
+        "hobbies": {
+          "continuousLearning": "Apprentissage continu"
+        }
+      }
+    }
+  }
+}

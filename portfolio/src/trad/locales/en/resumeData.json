@@ -1,0 +1,282 @@
+{
+  "characters": {
+    "bookseller": {
+      "label": "The Bookseller"
+    },
+    "journalist": {
+      "label": "The Journalist"
+    },
+    "writer": {
+      "label": "The Writer"
+    },
+    "developer": {
+      "label": "The Developer"
+    }
+  },
+  
+  "events": {
+    "birth": {
+      "year": "1993",
+      "title": "Born in 1993",
+      "description": "The journey begins in Bordeaux, France. I grew up surrounded by music, a constant influence that has stayed with me ever since.",
+      "tags": {
+        "birthdate": "April 6th, 1993",
+        "french": "French",
+        "music": "Music"
+      },
+      "updates": {
+        "birthdate": "April 6th, 93",
+        "languages": {
+          "french": "French"
+        },
+        "hobbies": {
+          "music": "Music"
+        }
+      }
+    },
+    "baccalaureate": {
+      "year": "2011",
+      "title": "Baccalaureate",
+      "description": "The baccalaureate diploma was obtained in 2011, with high honors and mathematics as a specialty. At that time, computers and video games were already shaping a strong curiosity for both creativity and logic.",
+      "tags": {
+        "diploma": "Baccalaureate",
+        "computerScience": "Computer Science",
+        "drivingLicence": "Driving Licence"
+      },
+      "updates": {
+        "drivingLicence": "Acquired",
+        "diplomas": {
+          "baccalaureate": "Baccalaureate"
+        },
+        "hobbies": {
+          "computerScience": "Computer Science"
+        }
+      }
+    },
+    "cpge": {
+      "year": "2013",
+      "title": "CPGE",
+      "description": "Hypokhâgne/Khâgne. Two years of intensive preparation for competitive exams in literature, philosophy, history and languages. The hard way to develop resilience, discipline and a strong work ethic.",
+      "tags": {
+        "english": "English",
+        "criticalThinking": "Critical Thinking",
+        "resilience": "Resilience",
+        "discipline": "Discipline",
+        "workEthic": "Work Ethic"
+      },
+      "updates": {
+        "languages": {
+          "english": "English"
+        },
+        "softSkills": {
+          "resilience": "Resilience",
+          "discipline": "Discipline",
+          "workEthic": "Work Ethic"
+        },
+        "hardSkills": {
+          "criticalThinking": "Critical Thinking"
+        }
+      }
+    },
+    "literature-degree": {
+      "year": "2014",
+      "title": "Bachelor's Degree in Literature",
+      "description": "A year spent in Montreal, Canada. A year of intense reading and cultural immersion where I discovered world literature and narrative techniques.",
+      "tags": {
+        "literature": "Literature",
+        "degree": "Bachelor's Degree in Literature",
+        "writing": "Writing"
+      },
+      "updates": {
+        "diplomas": {
+          "literatureDegree": "Bachelor's Degree in Literature"
+        },
+        "hobbies": {
+          "literature": "Literature"
+        },
+        "hardSkills": {
+          "writing": "Writing"
+        }
+      }
+    },
+    "journalism-degree": {
+      "year": "2017",
+      "title": "Master's Degree in Journalism",
+      "description": "I looked up from the books and described the world around me. This step sharpened communication, synthesis and storytelling abilities. Learned a lot about photography and editing.",
+      "tags": {
+        "degree": "Master's Degree in Journalism",
+        "photography": "Photography",
+        "editing": "Editing",
+        "synthesis": "Synthesis",
+        "curiosity": "Curiosity"
+      },
+      "updates": {
+        "hobbies": {
+          "photography": "Photography"
+        },
+        "diplomas": {
+          "journalismDegree": "Master's Degree in Journalism"
+        },
+        "hardSkills": {
+          "editing": "Editing",
+          "synthesis": "Synthesis"
+        },
+        "softSkills": {
+          "curiosity": "Curiosity"
+        }
+      }
+    },
+    "writerjournalist": {
+      "year": "2017",
+      "title": "Writer and Journalist",
+      "description": "Writing became both craft and profession: articles, scripts, editorial work and collaborations with media, theatres and production companies. Awards helped confirm a strong taste for words, structure and storytelling.",
+      "tags": {
+        "youngWriterPrize": "The Young Writer Prize 2020",
+        "prixVarennes": "Prix Varennes 2017",
+        "storytelling": "Storytelling",
+        "creativity": "Creativity",
+        "communication": "Communication",
+        "research": "Research"
+      },
+      "updates": {
+        "diplomas": {
+          "youngWriterPrize": "The Young Writer Prize 2020",
+          "prixVarennes": "Prix Varennes 2017"
+        },
+        "hardSkills": {
+          "storytelling": "Storytelling"
+        },
+        "softSkills": {
+          "research": "Research",
+          "communication": "Communication",
+          "creativity": "Creativity"
+        }
+      }
+    },
+    "bookseller-experience": {
+      "year": "2021",
+      "title": "Bookseller Experience",
+      "description": "Bookselling brought operations into the story: team coordination, stock management, logistics, events and customer guidance. A practical role that strengthened reliability, organisation and teamwork.",
+      "tags": {
+        "management": "Management",
+        "reliability": "Reliability",
+        "teamwork": "Teamwork",
+        "logistics": "Logistics"
+      },
+      "updates": {
+        "hardSkills": {
+          "management": "Management",
+          "logistics": "Logistics"
+        },
+        "softSkills": {
+          "reliability": "Reliability",
+          "teamwork": "Teamwork"
+        }
+      }
+    },
+    "teaching-documentation": {
+      "year": "2024",
+      "title": "Teaching, Documentation and Transmission",
+      "description": "A year teaching French and documentation through multidisciplinary projects. A role that strengthened pedagogy, structure, clarity and the ability to make complex ideas accessible.",
+      "tags": {
+        "pedagogy": "Pedagogy",
+        "documentation": "Documentation",
+        "communication": "Communication"
+      },
+      "updates": {
+        "hardSkills": {
+          "documentation": "Documentation"
+        },
+        "softSkills": {
+          "pedagogy": "Pedagogy",
+          "communication": "Communication"
+        }
+      }
+    },
+    "proud-dad": {
+      "year": "2024",
+      "title": "Proud Dad",
+      "description": "The most important role of all. It came with patience and new perspective of the future.",
+      "tags": {
+        "proudDad": "Proud Dad",
+        "nightManagement": "Night Management",
+        "patience": "Patience",
+        "empathy": "Empathy",
+        "multitasking": "Multitasking"
+      },
+      "updates": {
+        "hobbies": {
+          "proudDad": "Proud Dad"
+        }
+      }
+    },
+    "openclassrooms": {
+      "year": "2025",
+      "title": "OpenClassrooms Web Developer Diploma",
+      "description": "A turning point: web development became the new path, with strong technical foundations and project-based learning.",
+      "tags": {
+        "rncp": "RNCP Web Developer Diploma",
+        "html": "HTML",
+        "css": "CSS",
+        "javascript": "JavaScript",
+        "react": "React"
+      },
+      "updates": {
+        "diplomas": {
+          "rncp": "RNCP Web Developer Diploma"
+        },
+        "hardSkills": {
+          "html": "HTML",
+          "css": "CSS",
+          "javascript": "JavaScript",
+          "react": "React"
+        }
+      }
+    },
+    "hard-works": {
+      "year": "2026",
+      "title": "Projects in the Wild",
+      "description": "Responsive projects helped turn knowledge into practice: portfolios, real estate app, book API, sport app... Each one deepened my technical skills while strengthening problem-solving, clean code habits and interest in UX.",
+      "tags": {
+        "apiIntegration": "API Integration",
+        "agile": "Agile",
+        "design": "Design",
+        "backendBasics": "Back-end Basics",
+        "security": "Security"
+      },
+      "updates": {
+        "hardSkills": {
+          "apiIntegration": "API Integration",
+          "backendBasics": "Back-end Basics",
+          "security": "Security"
+        },
+        "softSkills": {
+          "agile": "Agile"
+        },
+        "hobbies": {
+          "design": "Design"
+        }
+      }
+    },
+    "today": {
+      "year": "Today",
+      "title": "Front-End Developer",
+      "description": "The current version of the character: a developer blending technical skills, communication and creativity. The transition is complete: web development is now my profession, with a strong focus on growing through real-world experience and continuous learning.",
+      "tags": {
+        "adaptability": "Adaptability",
+        "problemSolving": "Problem Solving",
+        "location": "Dax, France"
+      },
+      "updates": {
+        "location": "Dax, France",
+        "softSkills": {
+          "adaptability": "Adaptability",
+          "problemSolving": "Problem Solving"
+        },
+        "hobbies": {
+          "continuousLearning": "Continuous Learning"
+        }
+      }
+    }
+  }
+}

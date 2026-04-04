@@ -1,0 +1,44 @@
+{
+  "characterModal": {
+    "title": "Select your character",
+    "subtitle": "Choose an avatar to begin the journey through my interactive resume."
+  },
+  "timeline": {
+    "title": "Interactive Journey",
+    "subtitle": "Click through the milestones to unlock details and build the character sheet."
+  },
+  "characterCard": {
+    "completionBanner": {
+      "eyebrow": "You've completed the Journey",
+      "subtitle": "Be the next step of the path.",
+      "download": "Download PDF CV"
+    },
+    "selected": "Character selected",
+    "misc": "Misc",
+    "birthdate": "Birthdate",
+    "location": "Location",
+    "drivingLicence": "Driving licence",
+    "languages": "Languages",
+    "diplomas": "Diplomas",
+    "hobbies": "Hobbies",
+    "hardSkills": "Hard skills",
+    "softSkills": "Soft skills",
+    "empty": "—",
+    "emptyStates": {
+      "diplomas": "No diploma unlocked yet",
+      "hobbies": "No hobby unlocked yet",
+      "hardSkills": "No hard skill unlocked yet",
+      "softSkills": "No soft skill unlocked yet"
+    }
+  },
+  "completionModal": {
+    "aria": {
+      "close": "Close completion modal"
+    }
+  },
+  "timelineEvent": {
+    "aria": {
+      "openMilestone": "Open milestone {{year}}"
+    }
+  }
+}
