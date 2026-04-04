@@ -1,5 +1,5 @@
 import './Skills.scss'
-import Reveal from '../Reveal/Reveal'
+import useReveal from '../../hooks/useReveal'
 import {
     FaHtml5,
     FaJs,
@@ -9,9 +9,10 @@ import {
 import { SiSass } from 'react-icons/si'
 import { useTranslation } from 'react-i18next'
 
-
 function Skills() {
     const { t } = useTranslation('home')
+    const { ref, isVisible } = useReveal()
+
     const skills = [
         { name: t('skills.technical.items.html'), level: '90%', icon: <FaHtml5 />, color: '#e34c26' },
         { name: t('skills.technical.items.css'), level: '90%', icon: <SiSass />, color: '#cc6699' },
@@ -21,9 +22,13 @@ function Skills() {
         { name: t('skills.technical.items.accessibility'), level: '70%' },
         { name: t('skills.technical.items.responsive'), level: '85%' },
     ]
+
     return (
         <section className="skills" id="skills">
-            <Reveal className="skills__container">
+            <div
+                ref={ref}
+                className={`skills__container reveal ${isVisible ? 'reveal--visible' : ''}`}
+            >
                 <div className="skills__content">
                     <h2 className="section-heading">
                         <span className="section-heading__number">02.</span>
@@ -51,6 +56,7 @@ function Skills() {
                         </div>
                     </div>
                 </div>
+
                 <div className="skills__group">
                     <div className="skills__bars">
                         <h3 className="skills__group-title">{t('skills.technical.title')}</h3>
@@ -81,7 +87,7 @@ function Skills() {
                         ))}
                     </div>
                 </div>
-            </Reveal>
+            </div>
         </section>
     )
 }

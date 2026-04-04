@@ -6,15 +6,6 @@
     background: $bg;
     color: $text;
 
-    &__top-actions {
-        display: flex;
-        justify-content: flex-end;
-        position: sticky;
-        top: 2rem;
-        z-index: 20;
-        pointer-events: none;
-    }
-
     &__back {
         pointer-events: auto;
         display: inline-flex;
@@ -49,9 +40,13 @@
         align-items: start;
     }
 
+    &__timeline {
+        margin-top: 4rem;
+    }
+
     &__sidebar {
         position: sticky;
-        top: 1rem;
+        top: 6rem;
         align-self: start;
     }
 

@@ -2,7 +2,8 @@ import './Resume.scss'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import ScrollToTop from '../../components/ScrollToTop/ScrollToTop'
+import useScrollToTop from '../../hooks/useScrollToTop.js'
+import Header from '../../components/Header/Header'
 import CharacterModal from '../../components/Resume/CharacterModal/CharacterModal'
 import CharacterCard from '../../components/Resume/CharacterCard/CharacterCard'
 import Timeline from '../../components/Resume/Timeline/Timeline'
@@ -18,7 +19,9 @@ function Resume() {
         [t]
     )
 
-    const [selectedCharacter, setSelectedCharacter] = useState(null)
+    // ✅ ON STOCKE L’ID AU LIEU DE L’OBJET
+    const [selectedCharacterId, setSelectedCharacterId] = useState(null)
+
     const [isModalOpen, setIsModalOpen] = useState(true)
     const [activeEventId, setActiveEventId] = useState(timelineEvents[0]?.id || null)
     const [selectedEventIds, setSelectedEventIds] = useState([])
@@ -30,8 +33,9 @@ function Resume() {
     const sidebarRef = useRef(null)
     const hasCompletedOnceRef = useRef(false)
 
+    // ✅ ON NE STOCKE QUE L’ID
     const handleCharacterSelect = (character) => {
-        setSelectedCharacter(character)
+        setSelectedCharacterId(character.id)
         setIsModalOpen(false)
     }
 
@@ -121,13 +125,19 @@ function Resume() {
         return initialProfile
     }, [selectedEventIds, timelineEvents])
 
+    // ✅ ON RECONSTRUIT LE CHARACTER À CHAQUE RENDER
+    const selectedCharacter = characters.find(
+        (character) => character.id === selectedCharacterId
+    )
+
     const displayedCharacter = isJourneyComplete
         ? finalCharacter
         : selectedCharacter
 
     return (
+        useScrollToTop(),
         <main className="resume-page">
-            <ScrollToTop />
+            <Header variant="resume" />
 
             {isModalOpen && (
                 <CharacterModal

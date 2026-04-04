@@ -1,5 +1,5 @@
 import './Contact.scss'
-import Reveal from '../Reveal/Reveal'
+import useReveal from '../../hooks/useReveal'
 import { FaGithub, FaLinkedinIn, FaEnvelope, FaInstagram } from 'react-icons/fa'
 import { useForm, ValidationError } from '@formspree/react'
 import { useTranslation } from 'react-i18next'
@@ -7,11 +7,14 @@ import { useTranslation } from 'react-i18next'
 function Contact() {
     const [state, handleSubmit] = useForm('xvzvojza')
     const { t } = useTranslation('home')
-
+    const { ref, isVisible } = useReveal()
 
     return (
         <section className="contact" id="contact">
-            <Reveal className="contact__container">
+            <div
+                ref={ref}
+                className={`contact__container reveal ${isVisible ? 'reveal--visible' : ''}`}
+            >
                 <h2 className="section-heading">
                     <span className="section-heading__number">04.</span>
                     <span className="section-heading__text">{t('contact.title')}</span>
@@ -22,7 +25,7 @@ function Contact() {
                 </p>
 
                 {!state.succeeded ? (
-                    <form className="contact__form" autoComplete="on" onSubmit={handleSubmit} >
+                    <form className="contact__form" autoComplete="on" onSubmit={handleSubmit}>
                         <div className="contact__field">
                             <label htmlFor="name">{t('contact.form.nameLabel')}</label>
                             <input
@@ -141,7 +144,7 @@ function Contact() {
                         <span>Instagram</span>
                     </a>
                 </div>
-            </Reveal>
+            </div>
         </section>
     )
 }

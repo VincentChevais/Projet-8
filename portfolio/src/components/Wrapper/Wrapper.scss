@@ -3,10 +3,15 @@
 .wrapper {
 
     &__layout {
-        max-width: 1450px;
+        max-width: 1800px;
         margin: 60px auto;
         display: grid;
         grid-template-columns: minmax(0, 1fr) 420px;
+    }
+
+    &__visual {
+        position: relative;
+        right: 5rem;
     }
 
     &__visual-inner {
@@ -26,7 +31,7 @@
 
     &__line {
         position: absolute;
-        height: 1450px;
+        height: 1570px;
         top: -100px;
         left: 50%;
         width: 2px;

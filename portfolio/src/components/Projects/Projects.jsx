@@ -1,20 +1,26 @@
 import './Projects.scss'
-import Reveal from '../Reveal/Reveal'
+import useReveal from '../../hooks/useReveal'
 import { FaGithub } from 'react-icons/fa'
 import { getProjectsData } from '../../data/projectsData'
 import { useTranslation } from 'react-i18next'
 
 function Projects() {
     const { t } = useTranslation(['home', 'projectsData'])
+    const { ref, isVisible } = useReveal()
     const projectsData = getProjectsData(t)
 
     return (
         <section className="projects" id="projects">
-            <Reveal className="projects__container">
+            <div
+                ref={ref}
+                className={`projects__container reveal ${isVisible ? 'reveal--visible' : ''}`}
+            >
                 <div className="projects__header">
                     <h2 className="section-heading">
                         <span className="section-heading__number">03.</span>
-                        <span className="section-heading__text">{t('projects.title', { ns: 'home' })}</span>
+                        <span className="section-heading__text">
+                            {t('projects.title', { ns: 'home' })}
+                        </span>
                     </h2>
 
                     <p className="projects__description">
@@ -59,7 +65,7 @@ function Projects() {
                         </article>
                     ))}
                 </div>
-            </Reveal>
+            </div>
         </section>
     )
 }

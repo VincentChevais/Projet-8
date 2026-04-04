@@ -1,12 +1,13 @@
 import './About.scss'
-import Reveal from '../Reveal/Reveal'
+import useReveal from '../../hooks/useReveal'
 import { useTranslation, Trans } from 'react-i18next'
 
 function About({ inWrapper = false }) {
     const { t } = useTranslation('home')
+    const { ref, isVisible } = useReveal()
     return (
         <section className={`about ${inWrapper ? 'about--wrapper' : ''}`} id="about">
-            <Reveal className="about__container">
+            <div ref={ref} className={`about__container reveal ${isVisible ? 'reveal--visible' : ''}`}>
 
                 <div className="about__content">
                     <h2 className="section-heading">
@@ -48,7 +49,7 @@ function About({ inWrapper = false }) {
                         {t('about.cta')}
                     </a>
                 </div>
-            </Reveal>
+            </div>
         </section>
     )
 }

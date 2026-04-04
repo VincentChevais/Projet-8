@@ -1,35 +1,62 @@
 import { useState } from 'react'
 import './Header.scss'
 import { Menu, X } from 'lucide-react'
-import ScrollToTop from '../ScrollToTop/ScrollToTop'
+import { Link } from 'react-router-dom'
+import useScrollToTop from '../../hooks/useScrollToTop'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher'
 import { useTranslation } from 'react-i18next'
 
-function Header() {
+function Header({ variant = 'home' }) {
     const [isOpen, setIsOpen] = useState(false)
     const { t } = useTranslation('common')
     const closeMenu = () => setIsOpen(false)
+    const scrollToTop = useScrollToTop()
+
+    const isResume = variant === 'resume'
 
     return (
         <header className="header">
             <div className="header__container">
 
-                <div className="header__logo" onClick={ScrollToTop} role="button" tabIndex={0} aria-label={t('header.aria.logo')}>
+                <div
+                    className="header__logo"
+                    onClick={scrollToTop}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={t('header.aria.scrollTop')}
+                >
                     &lt;dev /&gt;
                 </div>
 
+                {/* DESKTOP NAV */}
                 <nav className="header__nav header__nav--desktop">
-                    <a href="#about">{t('header.nav.about')}</a>
-                    <a href="#skills">{t('header.nav.skills')}</a>
-                    <a href="#projects">{t('header.nav.projects')}</a>
-                    <a href="#contact">{t('header.nav.contact')}</a>
+                    {isResume ? (
+                        <>
+                            <Link to="/">
+                                {t('header.nav.backHome')}
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <a href="#about">{t('header.nav.about')}</a>
+                            <a href="#skills">{t('header.nav.skills')}</a>
+                            <a href="#projects">{t('header.nav.projects')}</a>
+                            <a href="#contact">{t('header.nav.contact')}</a>
+                        </>
+                    )}
+
                     <LanguageSwitcher />
                 </nav>
 
+                {/* BURGER */}
                 <button
                     className="header__burger"
                     type="button"
-                    aria-label={isOpen ? t('header.aria.closeMenu') : t('header.aria.openMenu')}
+                    aria-label={
+                        isOpen
+                            ? t('header.aria.closeMenu')
+                            : t('header.aria.openMenu')
+                    }
                     aria-expanded={isOpen}
                     onClick={() => setIsOpen((prev) => !prev)}
                 >
@@ -37,11 +64,23 @@ function Header() {
                 </button>
             </div>
 
+            {/* MOBILE NAV */}
             <nav className={`header__mobile ${isOpen ? 'header__mobile--open' : ''}`}>
-                <a href="#about" onClick={closeMenu}>{t('header.nav.about')}</a>
-                <a href="#skills" onClick={closeMenu}>{t('header.nav.skills')}</a>
-                <a href="#projects" onClick={closeMenu}>{t('header.nav.projects')}</a>
-                <a href="#contact" onClick={closeMenu}>{t('header.nav.contact')}</a>
+                {isResume ? (
+                    <>
+                        <Link to="/" onClick={closeMenu}>
+                            {t('header.nav.backHome')}
+                        </Link>
+                    </>
+                ) : (
+                    <>
+                        <a href="#about" onClick={closeMenu}>{t('header.nav.about')}</a>
+                        <a href="#skills" onClick={closeMenu}>{t('header.nav.skills')}</a>
+                        <a href="#projects" onClick={closeMenu}>{t('header.nav.projects')}</a>
+                        <a href="#contact" onClick={closeMenu}>{t('header.nav.contact')}</a>
+                    </>
+                )}
+
                 <LanguageSwitcher />
             </nav>
         </header>
