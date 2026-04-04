@@ -63,6 +63,16 @@
     "title": "Projets",
     "description": "Une sélection de projets qui m’ont permis de renforcer mes compétences front-end et back-end à travers des réalisations concrètes."
   },
+  
+  "modal": {
+    "close": "Fermer la fenêtre",
+    "previous": "Projet précédent",
+    "next": "Projet suivant",
+    "featuresTitle": "Points clés",
+    "stackTitle": "Technologies",
+    "github": "Voir le code",
+    "liveDemo": "Voir le site"
+  },
 
   "contact": {
     "title": "Contact",

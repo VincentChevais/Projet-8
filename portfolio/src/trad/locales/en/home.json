@@ -63,6 +63,16 @@
     "title": "Projects",
     "description": "A selection of projects that helped me strengthen my front-end and back-end skills through concrete, hands-on development challenges."
   },
+  
+  "modal": {
+    "close": "Close modal",
+    "previous": "Previous project",
+    "next": "Next project",
+    "featuresTitle": "Highlights",
+    "stackTitle": "Technologies",
+    "github": "View code",
+    "liveDemo": "Live demo"
+  },
 
   "contact": {
     "title": "Contact",
