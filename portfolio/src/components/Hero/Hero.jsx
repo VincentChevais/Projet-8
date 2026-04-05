@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 import profilePhoto from '../../assets/profile.webp'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { PATHS } from '../../router/paths'
 
 /*
   Le composant Hero reçoit une prop "inWrapper".
@@ -84,7 +85,7 @@ function Hero({ inWrapper = false }) {
                         {t('hero.downloadCv')}
                     </a>
 
-                    <Link to="/resume"
+                    <Link to={PATHS.resume}
                         className="hero__button hero__button--primary"
                         aria-label={t('hero.aria.viewWork')}
                     >

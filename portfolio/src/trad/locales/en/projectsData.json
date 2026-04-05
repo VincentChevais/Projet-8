@@ -8,16 +8,18 @@
     "items": {
       "sophie-bluel": {
         "title": "Sophie Bluel – Interior Architect",
+        "label": "Professional training project",
         "description": "Development of a dynamic portfolio in JavaScript with API integration, project filtering, and an admin interface. This project also introduced me to Agile working methods.",
         "tags": {
           "javascript": "JavaScript",
           "api": "API",
-          "agile": "Agile"
+          "security": "Security"
         }
     },
 
     "kasa": {
       "title": "Kasa",
+      "label": "Professional training project",
       "description": "Creation of a responsive real estate application with React and Sass, based on reusable components and a clean front-end architecture.",
       "tags": {
         "react": "React",
@@ -28,6 +30,7 @@
 
     "mon-vieux-grimoire": {
       "title": "Mon Vieux Grimoire",
+      "label": "Professional training project",
       "description": "Back-end development of a book rating API with Node.js, Express and MongoDB, including authentication, CRUD operations and secure data handling.",
       "tags": {
         "node": "Node.js",
@@ -38,6 +41,7 @@
 
     "booki": {
       "title": "Booki",
+      "label": "Professional training project",
       "description": "Front-end development of a responsive landing page with HTML and CSS, focusing on accessibility, semantic markup and performance optimization.",
       "tags": {
         "html": "HTML",
@@ -48,6 +52,7 @@
 
     "nina": {
       "title": "Nina Carducci",
+      "label": "Professional training project",
       "description": "Auditing, optimization and accessibility improvements of an existing website, with a focus on performance, SEO and user experience.",
       "tags": {
         "seo": "SEO",
@@ -58,7 +63,8 @@
 
     "menu": {
       "title": "Menu-Maker",
-      "description": "Development of a responsive restaurant website with HTML and CSS, including animations, a mobile-first approach and accessibility best practices.",
+      "label": "Professional training project",
+      "description": "Project development for a client, including specification writing, Agile methodology, and technical solutions tailored to the client’s needs.",
       "tags": {
         "management": "Management",
         "writing": "Writing",

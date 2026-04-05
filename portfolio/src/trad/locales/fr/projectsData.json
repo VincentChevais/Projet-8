@@ -8,15 +8,17 @@
   "items": {
     "sophie-bluel": {
       "title": "Sophie Bluel – Architecte d’intérieur",
+      "label": "Projet de formation professionnelle",
       "description": "Développement d’un portfolio dynamique en JavaScript avec intégration d’API, filtrage des projets et interface d’administration. Ce projet m’a également initié aux méthodes Agile.",
       "tags": {
         "javascript": "JavaScript",
         "api": "API",
-        "agile": "Agile"
+        "security": "Sécurité"
       }
     },
     "kasa": {
       "title": "Kasa",
+      "label": "Projet de formation professionnelle",
       "description": "Création d’une application immobilière responsive avec React et Sass, basée sur des composants réutilisables et une architecture front-end claire.",
       "tags": {
         "react": "React",
@@ -26,11 +28,45 @@
     },
     "mon-vieux-grimoire": {
       "title": "Mon Vieux Grimoire",
+      "label": "Projet de formation professionnelle",
       "description": "Développement du back-end d’une API de notation de livres avec Node.js, Express et MongoDB, incluant authentification, opérations CRUD et gestion sécurisée des données.",
       "tags": {
         "node": "Node.js",
         "express": "Express",
         "mongodb": "MongoDB"
+      }
+    },
+
+    "booki": {
+      "title": "Booki",
+      "label": "Projet de formation professionnelle",
+      "description": "Développement front-end d’une landing page responsive en HTML et CSS, avec un accent sur l’accessibilité, le balisage sémantique et l’optimisation des performances.",
+      "tags": {
+        "html": "HTML",
+        "css": "CSS",
+        "design": "Design"
+      }
+    },
+
+    "nina": {
+      "title": "Nina Carducci",
+      "label": "Projet de formation professionnelle",
+      "description": "Audit, optimisation et amélioration de l’accessibilité d’un site existant, avec un focus sur les performances, le SEO et l’expérience utilisateur.",
+      "tags": {
+        "seo": "SEO",
+        "accessibility": "Accessibilité",
+        "optimization": "Optimisation"
+      }
+    },
+
+    "menu": {
+      "title": "Menu-Maker",
+      "label": "Projet de formation professionnelle",
+      "description": "Développement de projet pour un client avec rédaction de spécifications, methodologie Agile et solutions techniques adaptées aux besoins du client.",
+      "tags": {
+        "management": "Management",
+        "writing": "Rédaction",
+        "product": "Solutions techniques"
       }
     }
   }

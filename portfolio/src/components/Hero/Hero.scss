@@ -100,7 +100,7 @@
 
     &__socials {
         position: absolute;
-        left: 1rem;
+        left: 3rem;
         bottom: 8rem;
         display: flex;
         flex-direction: column;
@@ -181,7 +181,7 @@
 @media (max-width: 1024px) {
     .hero {
         &__socials {
-            left: 0.75rem;
+            display: none;
         }
 
         &--wrapper {
@@ -277,10 +277,6 @@
 
         &__tagline {
             font-size: 1.5rem;
-        }
-
-        &__socials {
-            display: none;
         }
 
         &--wrapper {

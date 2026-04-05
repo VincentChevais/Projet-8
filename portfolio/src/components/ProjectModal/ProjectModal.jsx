@@ -173,6 +173,10 @@ function ProjectModal({
                                 <span>{t('modal.liveDemo')}</span>
                             </a>
                         )}
+
+                        <p className="project-modal__note project-modal__tag">
+                            {project.label}
+                        </p>
                     </div>
                 </div>
             </div>

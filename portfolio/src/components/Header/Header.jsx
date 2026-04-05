@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import useScrollToTop from '../../hooks/useScrollToTop'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher'
 import { useTranslation } from 'react-i18next'
+import { PATHS } from '../../router/paths'
 
 function Header({ variant = 'home' }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -32,7 +33,7 @@ function Header({ variant = 'home' }) {
                 <nav className="header__nav header__nav--desktop">
                     {isResume ? (
                         <>
-                            <Link to="/">
+                            <Link to={PATHS.home}>
                                 {t('header.nav.backHome')}
                             </Link>
                         </>
@@ -68,7 +69,7 @@ function Header({ variant = 'home' }) {
             <nav className={`header__mobile ${isOpen ? 'header__mobile--open' : ''}`}>
                 {isResume ? (
                     <>
-                        <Link to="/" onClick={closeMenu}>
+                        <Link to={PATHS.home} onClick={closeMenu}>
                             {t('header.nav.backHome')}
                         </Link>
                     </>

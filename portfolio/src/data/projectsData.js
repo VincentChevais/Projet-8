@@ -11,11 +11,12 @@ export function getProjectsData(t) {
             id: 'sophie-bluel',
             title: t('items.sophie-bluel.title', { ns: 'projectsData' }),
             image: sophieImg,
+            label: t('items.sophie-bluel.label', { ns: 'projectsData' }),
             description: t('items.sophie-bluel.description', { ns: 'projectsData' }),
             tags: [
                 t('items.sophie-bluel.tags.javascript', { ns: 'projectsData' }),
                 t('items.sophie-bluel.tags.api', { ns: 'projectsData' }),
-                t('items.sophie-bluel.tags.agile', { ns: 'projectsData' }),
+                t('items.sophie-bluel.tags.security', { ns: 'projectsData' }),
             ],
             github: 'https://github.com/VincentChevais/OC_Project_3.git',
             aria: {
@@ -33,6 +34,7 @@ export function getProjectsData(t) {
             id: 'kasa',
             title: t('items.kasa.title', { ns: 'projectsData' }),
             image: kasaImg,
+            label: t('items.kasa.label', { ns: 'projectsData' }),
             description: t('items.kasa.description', { ns: 'projectsData' }),
             tags: [
                 t('items.kasa.tags.react', { ns: 'projectsData' }),
@@ -55,6 +57,7 @@ export function getProjectsData(t) {
             id: 'mon-vieux-grimoire',
             title: t('items.mon-vieux-grimoire.title', { ns: 'projectsData' }),
             image: grimoireImg,
+            label: t('items.mon-vieux-grimoire.label', { ns: 'projectsData' }),
             description: t('items.mon-vieux-grimoire.description', { ns: 'projectsData' }),
             tags: [
                 t('items.mon-vieux-grimoire.tags.node', { ns: 'projectsData' }),
@@ -77,6 +80,7 @@ export function getProjectsData(t) {
             id: 'booki',
             title: t('items.booki.title', { ns: 'projectsData' }),
             image: bookiImg,
+            label: t('items.booki.label', { ns: 'projectsData' }),
             description: t('items.booki.description', { ns: 'projectsData' }),
             tags: [
                 t('items.booki.tags.html', { ns: 'projectsData' }),
@@ -99,6 +103,7 @@ export function getProjectsData(t) {
             id: 'nina-carducci',
             title: t('items.nina.title', { ns: 'projectsData' }),
             image: ninaImg,
+            label: t('items.nina.label', { ns: 'projectsData' }),
             description: t('items.nina.description', { ns: 'projectsData' }),
             tags: [
                 t('items.nina.tags.seo', { ns: 'projectsData' }),
@@ -121,6 +126,7 @@ export function getProjectsData(t) {
             id: 'menu-maker',
             title: t('items.menu.title', { ns: 'projectsData' }),
             image: menuImg,
+            label: t('items.menu.label', { ns: 'projectsData' }),
             description: t('items.menu.description', { ns: 'projectsData' }),
             tags: [
                 t('items.menu.tags.management', { ns: 'projectsData' }),

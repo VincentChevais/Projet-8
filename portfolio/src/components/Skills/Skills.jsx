@@ -14,12 +14,12 @@ function Skills() {
     const { ref, isVisible } = useReveal()
 
     const skills = [
-        { id: 'html', name: t('skills.technical.items.html'), level: '90%', icon: <FaHtml5 />, color: '#e34c26' },
-        { id: 'css', name: t('skills.technical.items.css'), level: '90%', icon: <SiSass />, color: '#cc6699' },
-        { id: 'javascript', name: t('skills.technical.items.javascript'), level: '80%', icon: <FaJs />, color: '#f7df1e' },
+        { id: 'html', name: t('skills.technical.items.html'), level: '95%', icon: <FaHtml5 />, color: '#e34c26' },
+        { id: 'css', name: t('skills.technical.items.css'), level: '85%', icon: <SiSass />, color: '#cc6699' },
+        { id: 'javascript', name: t('skills.technical.items.javascript'), level: '75%', icon: <FaJs />, color: '#f7df1e' },
         { id: 'react', name: t('skills.technical.items.react'), level: '75%', icon: <FaReact />, color: '#61dafb' },
         { id: 'git', name: t('skills.technical.items.git'), level: '80%', icon: <FaGitAlt />, color: '#f0f0f0' },
-        { id: 'accessibility', name: t('skills.technical.items.accessibility'), level: '70%' },
+        { id: 'accessibility', name: t('skills.technical.items.accessibility'), level: '90%' },
         { id: 'responsive', name: t('skills.technical.items.responsive'), level: '85%' },
     ]
 
