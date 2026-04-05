@@ -1,21 +1,24 @@
+// Styles
 import './Hero.scss'
+// SVG
 import { ArrowDown } from 'lucide-react'
+// Icônes des réseaux sociaux
 import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
+// Photo de profil
 import profilePhoto from '../../assets/profile.webp'
+// Hook de traduction i18n
 import { useTranslation } from 'react-i18next'
+// Composant de navigation interne React Router
 import { Link } from 'react-router-dom'
+// Constantes centralisant les routes de l'application
 import { PATHS } from '../../router/paths'
 
-/*
-  Le composant Hero reçoit une prop "inWrapper".
-  Permet d’ajouter une classe conditionnelle si Hero est utilisé
-  à l’intérieur d’un wrapper particulier.
-  - false → si aucune prop n’est envoyée, le Hero fonctionne normalement
-*/
-function Hero({ inWrapper = false }) {
+// Composant de la section "Hero"
+function Hero() {
     const { t } = useTranslation('home')
     return (
-        <section className={`hero ${inWrapper ? 'hero--wrapper' : ''}`} id="hero">
+        <section className="hero " id="hero">
+
             {/* Réseaux sociaux */}
             <div className="hero__socials">
                 <a

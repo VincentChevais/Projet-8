@@ -12,12 +12,15 @@
     "aria": {
       "scrollTop": "Remonter en haut de la page",
       "openMenu": "Ouvrir le menu",
-      "closeMenu": "Fermer le menu"
+      "closeMenu": "Fermer le menu",
+      "mainNav": "Navigation principale",
+      "mobileNav": "Navigation mobile"
     }
   },
   "footer": {
     "text": "Conçu et développé avec soin © {{year}}",
-    "repo": "Voir le dépôt du portfolio"
+    "repo": "Voir le dépôt du portfolio",
+    "aria": "Dépôt GitHub"
   },
   "languageSwitcher": {
     "fr": "Passer le site en français",

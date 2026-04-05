@@ -1,5 +1,6 @@
 @use "../../styles/base/variables" as *;
 
+// Corrige l'apparence de l'autocomplétion automatique
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -8,12 +9,9 @@ textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px #0f0f0f inset !important;
     box-shadow: 0 0 0px 1000px #0f0f0f inset !important;
-
     -webkit-text-fill-color: $text !important;
     caret-color: $text;
-
     border: 1px solid $border;
-
     transition: background-color 9999s ease-in-out 0s;
 }
 
@@ -128,7 +126,6 @@ textarea:-webkit-autofill:focus {
         border: 1px solid rgba(250, 204, 21, 0.35);
         border-radius: 16px;
         background: rgba(250, 204, 21, 0.05);
-        text-align: center;
 
         h3 {
             color: $text;
@@ -217,9 +214,6 @@ textarea:-webkit-autofill:focus {
 
         &__container {
             gap: 1.5rem;
-            margin: 0 10px;
-            max-width: 600px;
-            ;
         }
 
         &__intro {

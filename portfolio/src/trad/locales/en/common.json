@@ -11,12 +11,15 @@
     "aria": {
       "scrollTop": "Scroll to top",
       "openMenu": "Open menu",
-      "closeMenu": "Close menu"
+      "closeMenu": "Close menu",
+      "mainNav": "Main navigation",
+      "mobileNav": "Mobile navigation"
     }
   },
   "footer": {
     "text": "Designed and built with care © {{year}}",
-    "repo": "View portfolio repository"
+    "repo": "View portfolio repository",
+    "aria": "GitHub repository"
   },
   "languageSwitcher": {
     "fr": "Switch site language to French",

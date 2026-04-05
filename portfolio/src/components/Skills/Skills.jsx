@@ -25,20 +25,26 @@ function Skills() {
 
     return (
         <section className="skills" id="skills">
+
+            {/* Contenu principal du Skills avec animation de révélation */}
             <div
                 ref={ref}
                 className={`skills__container reveal ${isVisible ? 'reveal--visible' : ''}`}
             >
+                {/* Contenu textuel */}
                 <div className="skills__content">
+                    {/* Titre de la section avec numéro et texte */}
                     <h2 className="section-heading">
                         <span className="section-heading__number">02.</span>
                         <span className="section-heading__text">{t('skills.title')}</span>
                     </h2>
 
+                    {/* Description générale */}
                     <p className="skills__description">
                         {t('skills.description')}
                     </p>
 
+                    {/* Competences douces */}
                     <div className="skills__group">
                         <h3 className="skills__group-title">{t('skills.soft.title')}</h3>
                         <p className="skills__group-subtitle">{t('skills.soft.subtitle')}</p>
@@ -57,7 +63,9 @@ function Skills() {
                     </div>
                 </div>
 
+                {/* Contenu graphique */}
                 <div className="skills__group">
+                    {/* Competences techniques avec barres de niveau */}
                     <div className="skills__bars">
                         <h3 className="skills__group-title">{t('skills.technical.title')}</h3>
                         {skills.map((skill) => (
