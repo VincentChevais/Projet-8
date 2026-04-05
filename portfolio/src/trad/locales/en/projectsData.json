@@ -5,16 +5,17 @@
       "viewGithubCode": "View {{title}} code on GitHub"
     },
     
-  "items": {
-    "sophie-bluel": {
-      "title": "Sophie Bluel – Interior Architect",
-      "description": "Development of a dynamic portfolio in JavaScript with API integration, project filtering, and an admin interface. This project also introduced me to Agile working methods.",
-      "tags": {
-        "javascript": "JavaScript",
-        "api": "API",
-        "agile": "Agile"
-      }
+    "items": {
+      "sophie-bluel": {
+        "title": "Sophie Bluel – Interior Architect",
+        "description": "Development of a dynamic portfolio in JavaScript with API integration, project filtering, and an admin interface. This project also introduced me to Agile working methods.",
+        "tags": {
+          "javascript": "JavaScript",
+          "api": "API",
+          "agile": "Agile"
+        }
     },
+
     "kasa": {
       "title": "Kasa",
       "description": "Creation of a responsive real estate application with React and Sass, based on reusable components and a clean front-end architecture.",
@@ -24,6 +25,7 @@
         "reactRouter": "React Router"
       }
     },
+
     "mon-vieux-grimoire": {
       "title": "Mon Vieux Grimoire",
       "description": "Back-end development of a book rating API with Node.js, Express and MongoDB, including authentication, CRUD operations and secure data handling.",
@@ -31,6 +33,36 @@
         "node": "Node.js",
         "express": "Express",
         "mongodb": "MongoDB"
+      }
+    },
+
+    "booki": {
+      "title": "Booki",
+      "description": "Front-end development of a responsive landing page with HTML and CSS, focusing on accessibility, semantic markup and performance optimization.",
+      "tags": {
+        "html": "HTML",
+        "css": "CSS",
+        "design": "Design"
+      }
+    },
+
+    "nina": {
+      "title": "Nina Carducci",
+      "description": "Auditing, optimization and accessibility improvements of an existing website, with a focus on performance, SEO and user experience.",
+      "tags": {
+        "seo": "SEO",
+        "accessibility": "Accessibility",
+        "optimization": "Optimization"
+      }
+    },
+
+    "menu": {
+      "title": "Menu-Maker",
+      "description": "Development of a responsive restaurant website with HTML and CSS, including animations, a mobile-first approach and accessibility best practices.",
+      "tags": {
+        "management": "Management",
+        "writing": "Writing",
+        "product": "Technical solutions"
       }
     }
   }

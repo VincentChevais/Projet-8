@@ -14,13 +14,13 @@ function Skills() {
     const { ref, isVisible } = useReveal()
 
     const skills = [
-        { name: t('skills.technical.items.html'), level: '90%', icon: <FaHtml5 />, color: '#e34c26' },
-        { name: t('skills.technical.items.css'), level: '90%', icon: <SiSass />, color: '#cc6699' },
-        { name: t('skills.technical.items.javascript'), level: '80%', icon: <FaJs />, color: '#f7df1e' },
-        { name: t('skills.technical.items.react'), level: '75%', icon: <FaReact />, color: '#61dafb' },
-        { name: t('skills.technical.items.git'), level: '80%', icon: <FaGitAlt />, color: '#f0f0f0' },
-        { name: t('skills.technical.items.accessibility'), level: '70%' },
-        { name: t('skills.technical.items.responsive'), level: '85%' },
+        { id: 'html', name: t('skills.technical.items.html'), level: '90%', icon: <FaHtml5 />, color: '#e34c26' },
+        { id: 'css', name: t('skills.technical.items.css'), level: '90%', icon: <SiSass />, color: '#cc6699' },
+        { id: 'javascript', name: t('skills.technical.items.javascript'), level: '80%', icon: <FaJs />, color: '#f7df1e' },
+        { id: 'react', name: t('skills.technical.items.react'), level: '75%', icon: <FaReact />, color: '#61dafb' },
+        { id: 'git', name: t('skills.technical.items.git'), level: '80%', icon: <FaGitAlt />, color: '#f0f0f0' },
+        { id: 'accessibility', name: t('skills.technical.items.accessibility'), level: '70%' },
+        { id: 'responsive', name: t('skills.technical.items.responsive'), level: '85%' },
     ]
 
     return (
@@ -61,7 +61,7 @@ function Skills() {
                     <div className="skills__bars">
                         <h3 className="skills__group-title">{t('skills.technical.title')}</h3>
                         {skills.map((skill) => (
-                            <div className="skills__item" key={skill.name}>
+                            <div className="skills__item" key={skill.id}>
                                 <div className="skills__label">
                                     <div className="skills__info">
                                         <span>{skill.name}</span>
@@ -81,7 +81,7 @@ function Skills() {
                                     <div
                                         className="skills__fill"
                                         style={{ '--level': skill.level }}
-                                    ></div>
+                                    />
                                 </div>
                             </div>
                         ))}

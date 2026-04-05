@@ -127,7 +127,6 @@
         border-radius: 999px;
         transform: scaleX(0);
         transform-origin: left;
-        animation: skillsFill 1.1s ease forwards;
     }
 }
 
@@ -136,6 +135,17 @@
     transition: 0.3s ease;
 }
 
+.reveal--visible .skills__fill {
+    animation: skillsFill 1.1s ease forwards;
+}
+
+.reveal--visible .skills__item {
+    @for $i from 1 through 10 {
+        &:nth-child(#{$i}) .skills__fill {
+            animation-delay: #{0.1s * $i};
+        }
+    }
+}
 
 @keyframes skillsFill {
     from {
