@@ -115,7 +115,7 @@ export function getProjectsData(t) {
                 t('items.nina.tags.accessibility', { ns: 'projectsData' }),
                 t('items.nina.tags.optimization', { ns: 'projectsData' }),
             ],
-            github: 'https://github.com/VincentChevais/OC_Project_2.git',
+            github: 'https://github.com/VincentChevais/OC_Project_4.git',
             aria: {
                 imgAlt: t('aria.imgAltProject', {
                     ns: 'projectsData',
@@ -138,7 +138,7 @@ export function getProjectsData(t) {
                 t('items.menu.tags.writing', { ns: 'projectsData' }),
                 t('items.menu.tags.product', { ns: 'projectsData' }),
             ],
-            github: 'https://github.com/VincentChevais/OC_Project_2.git',
+            github: null,
             aria: {
                 imgAlt: t('aria.imgAltProject', {
                     ns: 'projectsData',
