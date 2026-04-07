@@ -1,5 +1,8 @@
+// Styles
 import './Skills.scss'
+// Hook personnalisé pour gérer les animations de révélation
 import useReveal from '../../hooks/useReveal'
+// Icônes des compétences techniques
 import {
     FaHtml5,
     FaJs,
@@ -7,12 +10,21 @@ import {
     FaGitAlt
 } from 'react-icons/fa'
 import { SiSass } from 'react-icons/si'
+// Hook de traduction i18n
 import { useTranslation } from 'react-i18next'
 
+// Composant de la section "Skills"
 function Skills() {
+
+    // Fonction de traduction du namespace "home"
     const { t } = useTranslation('home')
+
+    // Hook de révélation au scroll
+    // - ref : élément observé
+    // - isVisible : devient true quand l'élément entre dans le viewport
     const { ref, isVisible } = useReveal()
 
+    // Liste des compétences techniques avec leur niveau, icône et couleur associée
     const skills = [
         { id: 'html', name: t('skills.technical.items.html'), level: '95%', icon: <FaHtml5 />, color: '#e34c26' },
         { id: 'css', name: t('skills.technical.items.css'), level: '85%', icon: <SiSass />, color: '#cc6699' },
@@ -35,7 +47,7 @@ function Skills() {
                 <div className="skills__content">
                     {/* Titre de la section avec numéro et texte */}
                     <h2 className="section-heading">
-                        <span className="section-heading__number">02.</span>
+                        <span className="section-heading__number">03.</span>
                         <span className="section-heading__text">{t('skills.title')}</span>
                     </h2>
 
@@ -85,6 +97,7 @@ function Skills() {
                                     <span>{skill.level}</span>
                                 </div>
 
+                                {/* Barre de niveau avec remplissage dynamique selon le pourcentage de compétence */}
                                 <div className="skills__track">
                                     <div
                                         className="skills__fill"

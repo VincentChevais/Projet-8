@@ -5,6 +5,11 @@ import ninaImg from '../assets/projects/nina-carducci.webp'
 import bookiImg from '../assets/projects/booki.webp'
 import menuImg from '../assets/projects/menu-maker.webp'
 
+// Génère dynamiquement les données des projets.
+// On utilise une fonction plutôt qu'un JSON statique
+// pour pouvoir injecter la fonction de traduction `t`.
+// - Les textes sont traduits au moment de l'appel
+
 export function getProjectsData(t) {
     return [
         {

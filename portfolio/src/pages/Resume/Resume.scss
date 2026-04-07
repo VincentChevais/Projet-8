@@ -4,32 +4,7 @@
     min-height: 100vh;
     background: $bg;
     color: $text;
-
-    &__back {
-        pointer-events: auto;
-        display: inline-flex;
-        align-items: center;
-        padding: 0.4rem 0.78rem;
-        border-radius: 999px;
-        border: 1px solid $border;
-        background: rgba(10, 10, 10, 0.9);
-        backdrop-filter: blur(8px);
-        color: $primary;
-        text-decoration: none;
-        font-size: 1rem;
-        transition:
-            border-color 0.3s ease,
-            color 0.3s ease,
-            transform 0.3s ease,
-            background 0.3s ease;
-
-        &:hover {
-            border-color: $primary;
-            color: $primary;
-            background: rgba(250, 204, 21, 0.05);
-            transform: translateY(-2px);
-        }
-    }
+    padding-top: calc($header-height + 1rem);
 
     &__container {
         margin: 0 auto;
@@ -40,18 +15,10 @@
         align-items: start;
     }
 
-    &__timeline {
-        margin-top: 4rem;
-    }
-
     &__sidebar {
         position: sticky;
         top: 6rem;
         align-self: start;
-    }
-
-    &__content {
-        min-width: 0;
     }
 }
 
@@ -62,10 +29,6 @@
             gap: 1.25rem;
         }
 
-        &__top-actions {
-            top: 4.2rem;
-        }
-
         &__sidebar {
             top: 5.1rem;
         }
@@ -74,12 +37,6 @@
 
 @media (max-width: 900px) {
     .resume-page {
-        padding: 1rem;
-
-        &__top-actions {
-            position: static;
-            margin-bottom: 0.9rem;
-        }
 
         &__container {
             grid-template-columns: 1fr;
@@ -89,11 +46,5 @@
         &__sidebar {
             position: static;
         }
-    }
-}
-
-@media (max-width: 480px) {
-    .resume-page {
-        padding: 1rem;
     }
 }

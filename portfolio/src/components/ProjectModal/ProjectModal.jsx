@@ -1,9 +1,15 @@
+// Styles 
 import './ProjectModal.scss'
+// Hook React pour gérer les effets de cycle de vie
 import { useEffect } from 'react'
+// Icône GitHub
 import { FaGithub } from 'react-icons/fa'
+// Icônes de navigation et fermeture
 import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
+// Hook de traduction i18n
 import { useTranslation } from 'react-i18next'
 
+// Composant de modale affichant le détail d'un projet
 function ProjectModal({
     project,
     currentIndex,
@@ -12,11 +18,17 @@ function ProjectModal({
     onPrev,
     onNext,
 }) {
+    // Fonction de traduction du namespace "home"
     const { t } = useTranslation('home')
 
     useEffect(() => {
+        // Empêche le scroll de la page derrière la modale
         document.body.style.overflow = 'hidden'
 
+        // Gestion des raccourcis clavier :
+        // - Échap : fermer
+        // - Flèche gauche : projet précédent
+        // - Flèche droite : projet suivant
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') onClose()
             if (e.key === 'ArrowLeft') onPrev()
@@ -25,14 +37,18 @@ function ProjectModal({
 
         window.addEventListener('keydown', handleKeyDown)
 
+        // Nettoyage à la fermeture / au démontage
         return () => {
             document.body.style.overflow = ''
             window.removeEventListener('keydown', handleKeyDown)
         }
     }, [onClose, onPrev, onNext])
 
+    // Si aucun projet n'est fourni, on n'affiche rien
     if (!project) return null
 
+    // Ferme la modale uniquement si on clique sur l'overlay,
+    // et non sur le contenu interne
     const handleOverlayClick = (e) => {
         if (e.target === e.currentTarget) {
             onClose()
@@ -45,6 +61,7 @@ function ProjectModal({
             onClick={handleOverlayClick}
             role="presentation"
         >
+            {/* Bouton de navigation vers le projet précédent */}
             <button
                 type="button"
                 className="project-modal__nav project-modal__nav--prev"
@@ -54,6 +71,7 @@ function ProjectModal({
                 <ChevronLeft size={28} />
             </button>
 
+            {/* Bouton de navigation vers le projet suivant */}
             <button
                 type="button"
                 className="project-modal__nav project-modal__nav--next"
@@ -62,6 +80,8 @@ function ProjectModal({
             >
                 <ChevronRight size={28} />
             </button>
+
+            {/* Fenêtre principale de dialogue */}
             <div
                 className="project-modal__dialog"
                 role="dialog"
@@ -69,6 +89,7 @@ function ProjectModal({
                 aria-labelledby="project-modal-title"
                 aria-describedby="project-modal-description"
             >
+                {/* Bouton de fermeture */}
                 <button
                     type="button"
                     className="project-modal__close"
@@ -78,8 +99,7 @@ function ProjectModal({
                     <X size={22} />
                 </button>
 
-
-
+                {/* Zone média : image du projet */}
                 <div className="project-modal__media">
                     <img
                         src={project.image}
@@ -88,12 +108,15 @@ function ProjectModal({
                     />
                 </div>
 
+                {/* Contenu textuel de la modale */}
                 <div className="project-modal__content">
                     <div className="project-modal__header">
+                        {/* Compteur de position dans la liste des projets */}
                         <p className="project-modal__counter">
                             {currentIndex + 1} / {totalProjects}
                         </p>
 
+                        {/* Métadonnées : année et/ou rôle */}
                         {(project.year || project.role) && (
                             <p className="project-modal__meta">
                                 {project.year && <span>{project.year}</span>}
@@ -102,11 +125,13 @@ function ProjectModal({
                             </p>
                         )}
 
+                        {/* Titre principal du projet */}
                         <h3 id="project-modal-title" className="project-modal__title">
                             {project.title}
                         </h3>
                     </div>
 
+                    {/* Description longue du projet si disponible, sinon description courte */}
                     <p
                         id="project-modal-description"
                         className="project-modal__description"
@@ -114,6 +139,7 @@ function ProjectModal({
                         {project.longDescription || project.description}
                     </p>
 
+                    {/* Liste des fonctionnalités si elle existe */}
                     {project.features?.length > 0 && (
                         <div className="project-modal__section">
                             <h4 className="project-modal__section-title">
@@ -128,6 +154,7 @@ function ProjectModal({
                         </div>
                     )}
 
+                    {/* Liste des technologies / tags si elle existe */}
                     {project.tags?.length > 0 && (
                         <div className="project-modal__section">
                             <h4 className="project-modal__section-title">
@@ -144,6 +171,7 @@ function ProjectModal({
                         </div>
                     )}
 
+                    {/* Liens externes : code source, démo live, label éventuel */}
                     <div className="project-modal__links">
                         {project.github && (
                             <a
@@ -174,7 +202,8 @@ function ProjectModal({
                             </a>
                         )}
 
-                        <p className="project-modal__note project-modal__tag">
+                        {/* Label complémentaire du projet */}
+                        <p className="project-modal__tag">
                             {project.label}
                         </p>
                     </div>

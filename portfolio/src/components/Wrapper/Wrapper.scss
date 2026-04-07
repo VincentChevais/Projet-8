@@ -1,41 +1,49 @@
 @use "../../styles/base/variables" as *;
 
 .wrapper {
+    --header-offset: 100px;
+    --visual-shift-x: 5rem;
+    --photo-start-offset: 90px;
+    --photo-end-offset: 160px;
+    --photo-width: 280px;
+    --photo-height: 360px;
+    --line-width: 2px;
 
     &__layout {
         max-width: 1800px;
-        margin: 60px auto;
+        margin: 60px auto 0px;
         display: grid;
         grid-template-columns: minmax(0, 1fr) 420px;
         gap: 3rem;
+        align-items: stretch;
+    }
+
+    &__content {
+        min-width: 0;
     }
 
     &__visual {
         position: relative;
-        right: 5rem;
+        right: var(--visual-shift-x);
     }
 
     &__visual-inner {
         position: relative;
-        top: 100px;
-        height: 1200px;
+        height: 100%;
+        min-height: 100%;
         display: flex;
-        align-items: flex-start;
         justify-content: center;
-        padding-bottom: 100px;
-    }
-
-    &__photo-shell {
-        position: sticky;
-        top: 100px;
+        padding-top: var(--photo-start-offset);
+        padding-bottom: var(--photo-end-offset);
     }
 
     &__line {
         position: absolute;
-        height: 1570px;
-        top: -100px;
+        top: 0;
+        bottom: 0;
         left: 50%;
-        width: 2px;
+        width: var(--line-width);
+        transform: translateX(-50%);
         background: linear-gradient(to bottom,
                 rgba(250, 204, 21, 0.15),
                 rgba(250, 204, 21, 0.95),
@@ -43,11 +51,17 @@
         box-shadow: 0 0 16px rgba(250, 204, 21, 0.22);
     }
 
+    &__photo-shell {
+        position: sticky;
+        top: var(--header-offset);
+        align-self: start;
+    }
+
     &__photo-wrapper {
         position: relative;
-        top: 100px;
-        width: 280px;
-        height: 360px;
+        margin-top: var(--photo-start-offset);
+        width: var(--photo-width);
+        height: var(--photo-height);
 
         &::before {
             content: "";
@@ -66,11 +80,11 @@
     &__photo {
         position: relative;
         z-index: 2;
+        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 20px;
-        display: block;
         transform: rotate(-5deg);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
@@ -87,13 +101,13 @@
 
 @media (max-width: 1100px) {
     .wrapper {
+        --visual-shift-x: 2rem;
+        --photo-width: 230px;
+        --photo-height: 280px;
+        --photo-start-offset: 80px;
+
         &__layout {
             grid-template-columns: minmax(0, 1fr) 320px;
-        }
-
-        &__photo-wrapper {
-            width: 230px;
-            height: 280px;
         }
     }
 }

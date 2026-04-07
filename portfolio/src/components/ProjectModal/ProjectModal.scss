@@ -29,8 +29,6 @@
     }
 
     &__media {
-        position: relative;
-        min-height: 100%;
         border-right: 1px solid rgba(255, 255, 255, 0.08);
         background: rgba(255, 255, 255, 0.03);
     }
@@ -51,6 +49,7 @@
         background: linear-gradient(180deg,
                 rgba(255, 255, 255, 0.02) 0%,
                 rgba(255, 255, 255, 0.01) 100%);
+        overflow-y: auto;
     }
 
     &__header {
@@ -64,7 +63,7 @@
         font-weight: 600;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #facc15;
+        color: $primary;
     }
 
     &__meta {
@@ -77,7 +76,7 @@
         font-size: clamp(1.8rem, 3vw, 2.6rem);
         line-height: 1.15;
         font-weight: 700;
-        color: #ffffff;
+        color: $text;
     }
 
     &__description {
@@ -98,7 +97,7 @@
         font-weight: 700;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: #ffffff;
+        color: $text;
     }
 
     &__features {
@@ -138,7 +137,6 @@
         flex-wrap: wrap;
         gap: 1rem;
         margin-top: auto;
-        padding-top: 0.5rem;
     }
 
     &__link {
@@ -149,7 +147,7 @@
         border-radius: 999px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         background: rgba(255, 255, 255, 0.04);
-        color: #ffffff;
+        color: $text;
         text-decoration: none;
         font-weight: 600;
         transition:
@@ -163,7 +161,7 @@
             transform: translateY(-2px);
             border-color: rgba(250, 204, 21, 0.45);
             background: rgba(250, 204, 21, 0.09);
-            color: #facc15;
+            color: $primary;
         }
     }
 
@@ -176,7 +174,7 @@
         justify-content: center;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background: rgba(20, 20, 20, 0.7);
-        color: #ffffff;
+        color: $text;
         cursor: pointer;
         transition:
             transform 0.25s ease,
@@ -277,14 +275,6 @@
             bottom: 1rem;
             transform: none;
 
-            &--prev {
-                left: 1rem;
-            }
-
-            &--next {
-                right: 1rem;
-            }
-
             &:hover,
             &:focus-visible {
                 transform: scale(1.05);
@@ -308,11 +298,6 @@
 
         &__title {
             font-size: 1.65rem;
-        }
-
-        &__description,
-        &__features li {
-            line-height: 1.7;
         }
 
         &__close {

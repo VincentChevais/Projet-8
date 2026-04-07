@@ -15,6 +15,7 @@ import { PATHS } from '../../router/paths'
 
 // Composant de la section "Hero"
 function Hero() {
+    // Fonction de traduction du namespace "home"
     const { t } = useTranslation('home')
     return (
         <section className="hero " id="hero">

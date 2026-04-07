@@ -7,12 +7,8 @@
     align-items: center;
     min-height: 110px;
 
-    &__content {
-        width: 100%;
-    }
-
     &__marker {
-        grid-column: 2 / 3; // 👈 essentiel
+        grid-column: 2 / 3;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -55,14 +51,11 @@
         background: rgba(255, 255, 255, 0.02);
         color: inherit;
         cursor: pointer;
-        appearance: none;
-        -webkit-appearance: none;
         font: inherit;
         transition:
             border-color 0.3s ease,
             box-shadow 0.3s ease,
             background 0.3s ease,
-            min-height 0.3s ease,
             transform 0.3s ease;
 
         &:hover {

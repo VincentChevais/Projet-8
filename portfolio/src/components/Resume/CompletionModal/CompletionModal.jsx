@@ -1,7 +1,13 @@
+// Styles
 import './CompletionModal.scss'
+
+// Hook React pour gérer les effets de cycle de vie
 import { useEffect } from 'react'
+
+// Icône de fermeture
 import { X } from 'lucide-react'
 
+// Composant de modal de complétion
 function CompletionModal({
     isOpen,
     onClose,
@@ -10,8 +16,10 @@ function CompletionModal({
     event,
 }) {
     useEffect(() => {
+        // Si la modale n'est pas ouverte, on ne fait rien
         if (!isOpen) return
 
+        // Ferme la modale avec la touche Échap
         const handleEscape = (event) => {
             if (event.key === 'Escape') {
                 onClose()
@@ -20,9 +28,12 @@ function CompletionModal({
 
         window.addEventListener('keydown', handleEscape)
 
+        // Nettoyage à la fermeture ou au démontage du composant
         return () => window.removeEventListener('keydown', handleEscape)
     }, [isOpen, onClose])
 
+    // Si les données nécessaires ne sont pas disponibles,
+    // la modale ne s'affiche pas
     if (!isOpen || !event || !character || !finalCharacter) return null
 
     return (
@@ -32,13 +43,16 @@ function CompletionModal({
             aria-modal="true"
             aria-labelledby="completion-modal-title"
         >
+            {/* Overlay cliquable pour fermer la modale */}
             <div
                 className="completion-modal__overlay"
                 onClick={onClose}
                 aria-hidden="true"
             />
 
+            {/* Fenêtre de contenu */}
             <div className="completion-modal__content">
+                {/* Bouton de fermeture dans le coin supérieur droit */}
                 <button
                     type="button"
                     className="completion-modal__close"
@@ -48,8 +62,10 @@ function CompletionModal({
                     <X size={20} />
                 </button>
 
+                {/* En-tête visuel avec transition du personnage actuel vers la version finale */}
                 <div className="completion-modal__header">
                     <div className="completion-modal__character-stage">
+                        {/* Personnage actuel */}
                         <div className="completion-modal__character completion-modal__character--current">
                             <div className="completion-modal__avatar-wrapper">
                                 <img
@@ -64,6 +80,7 @@ function CompletionModal({
                             </p>
                         </div>
 
+                        {/* Personnage final / transformé */}
                         <div className="completion-modal__character completion-modal__character--developer">
                             <div className="completion-modal__avatar-wrapper completion-modal__avatar-wrapper--glow">
                                 <img
@@ -80,9 +97,11 @@ function CompletionModal({
                     </div>
                 </div>
 
+                {/* Corps de la modale */}
                 <div className="completion-modal__body">
                     <p className="completion-modal__year">{event.year}</p>
 
+                    {/* Titre principal */}
                     <h2
                         id="completion-modal-title"
                         className="completion-modal__title"
@@ -90,10 +109,12 @@ function CompletionModal({
                         {event.title}
                     </h2>
 
+                    {/* Description de l'événement */}
                     <p className="completion-modal__description">
                         {event.description}
                     </p>
 
+                    {/* Liste des tags associés à l'événement */}
                     <div className="completion-modal__tags">
                         {event.tags?.map((tag) => (
                             <span

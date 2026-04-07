@@ -11,12 +11,6 @@ html {
     scroll-behavior: smooth;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 .reveal {
     opacity: 0;
     transform: translateY(32px);
@@ -76,5 +70,17 @@ html {
         animation: none !important;
         transition: none !important;
         scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        &__text {
+            font-size: 1.5rem;
+        }
     }
 }

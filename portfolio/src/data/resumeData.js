@@ -3,6 +3,12 @@ import journalistImg from '../assets/resume/journalist.webp'
 import writerImg from '../assets/resume/writer.webp'
 import developerImg from '../assets/resume/developer.webp'
 
+// Génère dynamiquement les données du CV intéractif.
+// On utilise une fonction plutôt qu'un JSON statique
+// pour pouvoir injecter la fonction de traduction `t`.
+// - Les textes sont traduits au moment de l'appel
+// - update permet de faire évoluer dynamiquement les infos affichées
+
 export function getResumeData(t) {
     const characters = [
         {

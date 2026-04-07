@@ -1,8 +1,16 @@
+// Styles du composant
 import './CharacterCard.scss'
+
+// Hooks React
 import { useEffect, useRef, useState } from 'react'
+
+// Icône du bouton de téléchargement
 import { Download } from 'lucide-react'
+
+// Hook de traduction i18n
 import { useTranslation } from 'react-i18next'
 
+// Composant de fiche personnage / profil
 function CharacterCard({
     character,
     fullName,
@@ -10,6 +18,7 @@ function CharacterCard({
     isJourneyComplete = false,
     showCompletionBanner = false,
 }) {
+    // Déstructure les données du profil pour simplifier la lecture du composant
     const {
         birthdate,
         location,
@@ -21,37 +30,62 @@ function CharacterCard({
         softSkills,
     } = profileData
 
+    // Tableau contenant les IDs des tags récemment ajoutés
+    // Il permet d'appliquer une animation temporaire aux nouveaux éléments
     const [newTags, setNewTags] = useState([])
+
+    // Référence contenant la liste précédente des IDs affichés
+    // useRef conserve la valeur entre les renders sans déclencher de rerender
     const prevTagsRef = useRef([])
+
+    // Fonction de traduction du namespace "resume"
     const { t } = useTranslation('resume')
 
+    // Transforme une valeur simple ou un tableau en tableau exploitable
+    const toArray = (value) => {
+        if (!value) return []
+        return Array.isArray(value) ? value : [value]
+    }
+
+    // Construit un ID unique pour chaque tag
+    const buildTagId = (group, field, value) => `${group}-${field}-${value}`
+
     useEffect(() => {
+        // Liste complète des IDs actuellement visibles dans la carte
         const currentTagIds = [
-            ...(birthdate ? [`misc-birthdate-${birthdate}`] : []),
-            ...(location ? [`misc-location-${location}`] : []),
-            ...(drivingLicence ? [`misc-driving-${drivingLicence}`] : []),
-            ...(languages || []).map((item) => `misc-language-${item}`),
-            ...(diplomas || []).map((item) => `diploma-${item}`),
-            ...(hobbies || []).map((item) => `hobby-${item}`),
-            ...(hardSkills || []).map((item) => `skill-${item}`),
-            ...(softSkills || []).map((item) => `skill-${item}`),
+            ...toArray(birthdate).map((item) => buildTagId('misc', 'birthdate', item)),
+            ...toArray(location).map((item) => buildTagId('misc', 'location', item)),
+            ...toArray(drivingLicence).map((item) => buildTagId('misc', 'drivingLicence', item)),
+            ...toArray(languages).map((item) => buildTagId('misc', 'language', item)),
+            ...toArray(diplomas).map((item) => buildTagId('diploma', 'item', item)),
+            ...toArray(hobbies).map((item) => buildTagId('hobby', 'item', item)),
+            ...toArray(hardSkills).map((item) => buildTagId('hard-skill', 'item', item)),
+            ...toArray(softSkills).map((item) => buildTagId('soft-skill', 'item', item)),
         ]
 
+        // IDs affichés au render précédent
         const prevTagIds = prevTagsRef.current
-        const addedTagIds = currentTagIds.filter((tag) => !prevTagIds.includes(tag))
+
+        // Garde uniquement les IDs qui viennent d'apparaître
+        const addedTagIds = currentTagIds.filter((tagId) => !prevTagIds.includes(tagId))
 
         if (addedTagIds.length > 0) {
+            // Active l'état "nouveau" pour ces tags
             setNewTags(addedTagIds)
 
+            // Retire cet état après un court délai
             const timeout = setTimeout(() => {
                 setNewTags([])
             }, 1400)
 
+            // Met à jour la référence avec l'état actuel
             prevTagsRef.current = currentTagIds
 
+            // Nettoyage du timer si le composant se met à jour avant la fin
             return () => clearTimeout(timeout)
         }
 
+        // Met à jour la référence même s'il n'y a pas de nouveaux tags
         prevTagsRef.current = currentTagIds
     }, [
         birthdate,
@@ -64,23 +98,41 @@ function CharacterCard({
         softSkills,
     ])
 
-    const renderTags = (items, emptyLabel, category, extraClass = '') => {
-        if (!items || items.length === 0) {
+    // Fonction unique pour afficher des tags
+    // Elle fonctionne aussi bien pour :
+    // - une valeur simple
+    // - un tableau
+    // - un état vide
+    //
+    // Paramètres :
+    // - items : valeur simple ou tableau
+    // - emptyLabel : texte affiché si vide
+    // - tone : variante visuelle du tag (misc, diploma, hobby, skill...)
+    // - group / field : servent à construire un ID unique
+    // - extraClass : classe CSS supplémentaire optionnelle
+    const renderTags = ({
+        items,
+        emptyLabel,
+        tone,
+        group,
+        field,
+        extraClass = '',
+    }) => {
+        const normalizedItems = toArray(items)
+
+        // Si aucun élément, on affiche l'état vide
+        if (normalizedItems.length === 0) {
             return <span className="character-card__empty">{emptyLabel}</span>
         }
 
-        return items.map((item) => {
-            const tagId =
-                category === 'misc'
-                    ? `misc-language-${item}`
-                    : `${category}-${item}`
-
+        return normalizedItems.map((item) => {
+            const tagId = buildTagId(group, field, item)
             const isNew = newTags.includes(tagId)
 
             return (
                 <span
-                    key={`${category}-${item}`}
-                    className={`character-card__tag character-card__tag--${category} ${extraClass} ${isNew ? 'character-card__tag--new' : ''
+                    key={tagId}
+                    className={`character-card__tag character-card__tag--${tone} ${extraClass} ${isNew ? 'character-card__tag--new' : ''
                         }`}
                 >
                     {item}
@@ -90,11 +142,13 @@ function CharacterCard({
     }
 
     return (
+        // Section principale de la carte
+        // La classe --completed permet d'adapter le style quand le parcours est terminé
         <section
-            className={`character-card ${isJourneyComplete ? 'character-card--completed' : ''
-                }`}
+            className={`character-card ${isJourneyComplete ? 'character-card--completed' : ''}`}
             aria-labelledby="character-card-title"
         >
+            {/* Bannière optionnelle de fin de parcours */}
             {showCompletionBanner && (
                 <div className="character-card__completion-banner">
                     <div className="character-card__completion-text">
@@ -117,7 +171,9 @@ function CharacterCard({
                 </div>
             )}
 
+            {/* Grille principale des panneaux */}
             <div className="character-card__grid">
+                {/* Panneau identité */}
                 <div className="character-card__panel character-card__panel--identity">
                     <p className="character-card__eyebrow">{t('characterCard.selected')}</p>
 
@@ -135,6 +191,7 @@ function CharacterCard({
                                 {fullName}
                             </h1>
 
+                            {/* Le label de la classe change de style si le parcours est terminé */}
                             <p
                                 className={`character-card__class ${isJourneyComplete
                                     ? 'character-card__class--developer'
@@ -147,103 +204,134 @@ function CharacterCard({
                     </div>
                 </div>
 
+                {/* Panneau Misc */}
                 <div className="character-card__panel">
                     <h2 className="character-card__panel-title">{t('characterCard.misc')}</h2>
 
                     <div className="character-card__misc-grid">
                         <div className="character-card__misc-item">
-                            <span className="character-card__misc-label">{t('characterCard.birthdate')}</span>
+                            <span className="character-card__misc-label">
+                                {t('characterCard.birthdate')}
+                            </span>
                             <div className="character-card__tags character-card__tags--misc">
-                                {birthdate ? (
-                                    <span
-                                        className={`character-card__tag character-card__tag--misc character-card__tag--small ${newTags.includes(`misc-birthdate-${birthdate}`)
-                                            ? 'character-card__tag--new'
-                                            : ''
-                                            }`}
-                                    >
-                                        {birthdate}
-                                    </span>
-                                ) : (
-                                    <span className="character-card__empty">—</span>
-                                )}
+                                {renderTags({
+                                    items: birthdate,
+                                    emptyLabel: '—',
+                                    tone: 'misc',
+                                    group: 'misc',
+                                    field: 'birthdate',
+                                    extraClass: 'character-card__tag--small',
+                                })}
                             </div>
                         </div>
 
                         <div className="character-card__misc-item">
-                            <span className="character-card__misc-label">{t('characterCard.location')}</span>
+                            <span className="character-card__misc-label">
+                                {t('characterCard.location')}
+                            </span>
                             <div className="character-card__tags character-card__tags--misc">
-                                {location ? (
-                                    <span
-                                        className={`character-card__tag character-card__tag--misc character-card__tag--small ${newTags.includes(`misc-location-${location}`)
-                                            ? 'character-card__tag--new'
-                                            : ''
-                                            }`}
-                                    >
-                                        {location}
-                                    </span>
-                                ) : (
-                                    <span className="character-card__empty">—</span>
-                                )}
+                                {renderTags({
+                                    items: location,
+                                    emptyLabel: '—',
+                                    tone: 'misc',
+                                    group: 'misc',
+                                    field: 'location',
+                                    extraClass: 'character-card__tag--small',
+                                })}
                             </div>
                         </div>
 
                         <div className="character-card__misc-item">
-                            <span className="character-card__misc-label">{t('characterCard.drivingLicence')}</span>
+                            <span className="character-card__misc-label">
+                                {t('characterCard.drivingLicence')}
+                            </span>
                             <div className="character-card__tags character-card__tags--misc">
-                                {drivingLicence ? (
-                                    <span
-                                        className={`character-card__tag character-card__tag--misc character-card__tag--small ${newTags.includes(`misc-driving-${drivingLicence}`)
-                                            ? 'character-card__tag--new'
-                                            : ''
-                                            }`}
-                                    >
-                                        {drivingLicence}
-                                    </span>
-                                ) : (
-                                    <span className="character-card__empty">—</span>
-                                )}
+                                {renderTags({
+                                    items: drivingLicence,
+                                    emptyLabel: '—',
+                                    tone: 'misc',
+                                    group: 'misc',
+                                    field: 'drivingLicence',
+                                    extraClass: 'character-card__tag--small',
+                                })}
                             </div>
                         </div>
 
                         <div className="character-card__misc-item">
-                            <span className="character-card__misc-label">{t('characterCard.languages')}</span>
+                            <span className="character-card__misc-label">
+                                {t('characterCard.languages')}
+                            </span>
                             <div className="character-card__tags character-card__tags--misc">
-                                {renderTags(
-                                    languages,
-                                    '—',
-                                    'misc',
-                                    'character-card__tag--small'
-                                )}
+                                {renderTags({
+                                    items: languages,
+                                    emptyLabel: '—',
+                                    tone: 'misc',
+                                    group: 'misc',
+                                    field: 'language',
+                                    extraClass: 'character-card__tag--small',
+                                })}
                             </div>
                         </div>
                     </div>
                 </div>
 
+                {/* Panneau diplômes */}
                 <div className="character-card__panel">
                     <h2 className="character-card__panel-title">{t('characterCard.diplomas')}</h2>
                     <div className="character-card__tags">
-                        {renderTags(diplomas, t('characterCard.emptyStates.diplomas'), 'diploma')}
+                        {renderTags({
+                            items: diplomas,
+                            emptyLabel: t('characterCard.emptyStates.diplomas'),
+                            tone: 'diploma',
+                            group: 'diploma',
+                            field: 'item',
+                        })}
                     </div>
                 </div>
 
+                {/* Panneau hobbies */}
                 <div className="character-card__panel">
                     <h2 className="character-card__panel-title">{t('characterCard.hobbies')}</h2>
                     <div className="character-card__tags">
-                        {renderTags(hobbies, t('characterCard.emptyStates.hobbies'), 'hobby')}
+                        {renderTags({
+                            items: hobbies,
+                            emptyLabel: t('characterCard.emptyStates.hobbies'),
+                            tone: 'hobby',
+                            group: 'hobby',
+                            field: 'item',
+                        })}
                     </div>
                 </div>
 
+                {/* Panneau compétences techniques */}
                 <div className="character-card__panel">
-                    <h2 className="character-card__panel-title">{t('characterCard.hardSkills')}</h2>
+                    <h2 className="character-card__panel-title">
+                        {t('characterCard.hardSkills')}
+                    </h2>
                     <div className="character-card__tags">
-                        {renderTags(hardSkills, t('characterCard.emptyStates.hardSkills'), 'skill')}
+                        {renderTags({
+                            items: hardSkills,
+                            emptyLabel: t('characterCard.emptyStates.hardSkills'),
+                            tone: 'skill',
+                            group: 'hard-skill',
+                            field: 'item',
+                        })}
                     </div>
                 </div>
 
+                {/* Panneau compétences douces */}
                 <div className="character-card__panel">
-                    <h2 className="character-card__panel-title">{t('characterCard.softSkills')}</h2>
+                    <h2 className="character-card__panel-title">
+                        {t('characterCard.softSkills')}
+                    </h2>
                     <div className="character-card__tags">
-                        {renderTags(softSkills, t('characterCard.emptyStates.softSkills'), 'skill')}
+                        {renderTags({
+                            items: softSkills,
+                            emptyLabel: t('characterCard.emptyStates.softSkills'),
+                            tone: 'skill',
+                            group: 'soft-skill',
+                            field: 'item',
+                        })}
                     </div>
                 </div>
             </div>
