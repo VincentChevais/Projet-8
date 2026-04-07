@@ -18,11 +18,13 @@
     "title": "About Me",
     "paragraph1": "I’m a front-end developer who loves turning complex problems into simple, elegant interfaces. My toolkit centers around React, Sass, modern JavaScript frameworks, and a deep appreciation for design systems.",
     "paragraph2": "As a former bookseller, I discovered web development through an <strong><ocLink>OpenClassrooms course</ocLink></strong>, where I realized that my artistic eye and logical technique formed a powerful duo.",
-    "paragraph3": "When I’m not coding, you’ll find me exploring new design trends, contributing to open-source projects, or refining my workflow to stay sharp and efficient.",
+    "paragraph3": "When I’m not coding, you’ll find me exploring new code trends, contributing to open-source projects, or refining my workflow to stay sharp and efficient.",
     "paragraph4": "My background in <0>literature and journalism</0> also shaped the way I work: with curiosity, attention to detail, and a strong focus on clarity and communication.",
     "cta": "Let’s Talk",
+    "cta2": "See my projects",
     "aria": {
         "button": "Scroll to Contact section",
+        "button2": "Scroll to Projects section",
         "link1": "OpenClassrooms course link"
     }
   },

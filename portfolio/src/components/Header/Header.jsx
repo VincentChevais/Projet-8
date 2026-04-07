@@ -36,8 +36,8 @@ function Header({ variant = 'home' }) {
     // Liste centralisée des liens d'ancrage de la page d'accueil
     const navItems = [
         { href: '#about', label: t('header.nav.about') },
-        { href: '#skills', label: t('header.nav.skills') },
         { href: '#projects', label: t('header.nav.projects') },
+        { href: '#skills', label: t('header.nav.skills') },
         { href: '#contact', label: t('header.nav.contact') },
     ]
 

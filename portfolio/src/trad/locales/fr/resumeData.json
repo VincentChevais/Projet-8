@@ -38,7 +38,7 @@
     "baccalaureate": {
       "year": "2011",
       "title": "Baccalauréat",
-      "description": "Baccalauréat obtenu en 2011 avec mention très bien, spécialité mathématiques. Déjà à cette époque, l’informatique et les jeux vidéo nourrissaient une forte curiosité pour la logique et la création.",
+      "description": "Baccalauréat obtenu en 2011 avec mention très bien, spécialité mathématiques. Déjà à cette époque, l’informatique et les jeux vidéo alimentaient une forte curiosité pour la logique et la création.",
       "tags": {
         "diploma": "Baccalauréat",
         "computerScience": "Informatique",
@@ -58,7 +58,7 @@
     "cpge": {
       "year": "2013",
       "title": "CPGE",
-      "description": "Hypokhâgne / Khâgne. Deux années de préparation intensive aux concours en littérature, philosophie, histoire et langues. Une expérience exigeante qui forge rigueur, résilience et discipline.",
+      "description": "Hypokhâgne / Khâgne. Deux années de classes préparatoires intensives aux concours en littérature, philosophie, histoire et langues. Une expérience exigeante qui forge rigueur, résilience et discipline.",
       "tags": {
         "english": "Anglais",
         "criticalThinking": "Esprit critique",
@@ -106,7 +106,7 @@
     "journalism-degree": {
       "year": "2017",
       "title": "Master de Journalisme",
-      "description": "Je relève les yeux des livres pour raconter le monde. Cette étape affine mes capacités de synthèse, d’analyse et de narration. J’y développe aussi des compétences en photographie et en montage.",
+      "description": "Je lève le nez des livres pour observer le monde. Cette étape affine mes capacités de synthèse, d’analyse et de narration. J’y développe aussi des compétences en photographie et en montage.",
       "tags": {
         "degree": "Master de Journalisme",
         "photography": "Photographie",
@@ -162,7 +162,7 @@
     "bookseller-experience": {
       "year": "2021",
       "title": "Expérience en Librairie",
-      "description": "La librairie introduit la dimension opérationnelle : gestion d’équipe, stocks, logistique, événements et conseil client. Une expérience concrète qui renforce organisation, fiabilité et travail collectif.",
+      "description": "Mon travail de manager en librairie introduit la dimension opérationnelle : gestion d’équipe, stocks, logistique, événements et conseil client. Une expérience concrète qui renforce organisation, fiabilité et travail collectif.",
       "tags": {
         "management": "Management",
         "reliability": "Fiabilité",

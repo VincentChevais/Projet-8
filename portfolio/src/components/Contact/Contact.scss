@@ -16,7 +16,7 @@ textarea:-webkit-autofill:focus {
 }
 
 .contact {
-    padding: 6rem 2rem;
+    padding: 6rem 3rem;
     border-top: 1px solid $border;
     background-color: #161616;
 
@@ -210,8 +210,6 @@ textarea:-webkit-autofill:focus {
 
 @media (max-width: 768px) {
     .contact {
-        padding: 3rem 2rem;
-
         &__container {
             gap: 1.5rem;
         }

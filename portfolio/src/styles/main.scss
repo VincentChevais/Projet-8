@@ -73,6 +73,17 @@ html {
     }
 }
 
+@media (max-width: 780px) {
+
+    .about,
+    .projects,
+    .skills,
+    .contact {
+        padding: 6rem 2rem;
+
+    }
+}
+
 @media (max-width: 600px) {
     .section-heading {
         flex-direction: column;

@@ -63,9 +63,14 @@ function About() {
                 </p>
 
                 {/* Bouton d'appel à l'action */}
-                <a href="#contact" className="about__cta" aria-label={t('about.aria.button')}>
-                    {t('about.cta')}
-                </a>
+                <div className="about__ctas" >
+                    <a href="#contact" className="about__cta" aria-label={t('about.aria.button')}>
+                        {t('about.cta')}
+                    </a>
+                    <a href="#projects" className="about__cta" aria-label={t('about.aria.button2')}>
+                        {t('about.cta2')}
+                    </a>
+                </div>
             </div>
         </section>
     )
