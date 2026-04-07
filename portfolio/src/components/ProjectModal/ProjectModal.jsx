@@ -59,7 +59,7 @@ function ProjectModal({
         <div
             className="project-modal"
             onClick={handleOverlayClick}
-            role="presentation"
+            aria-hidden="true"
         >
             {/* Bouton de navigation vers le projet précédent */}
             <button
