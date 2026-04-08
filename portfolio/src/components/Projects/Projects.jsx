@@ -4,6 +4,7 @@ import './Projects.scss'
 import { useState } from 'react'
 // Hook personnalisé pour gérer les animations de révélation
 import useReveal from '../../hooks/useReveal'
+import useIsMobile from '../../hooks/useIsMobile.js'
 // Icône GitHub
 import { FaGithub } from 'react-icons/fa'
 // Fonction pour récupérer les données des projets
@@ -18,8 +19,19 @@ function Projects() {
     // Fonction de traduction du namespace "home" et "projectsData"
     const { t } = useTranslation(['home', 'projectsData'])
 
+    // Gestion d'animation au scroll en fonction du media query
+    const isMobile = useIsMobile()
+    const revealOptions = isMobile
+        ? {
+            threshold: 0.01,
+            rootMargin: '0px 0px -10% 0px',
+        }
+        : {
+            threshold: 0.15,
+            rootMargin: '0px',
+        }
     // Hook d'animation au scroll 
-    const { ref, isVisible } = useReveal()
+    const { ref, isVisible } = useReveal(revealOptions)
 
     // Récupération des données des projets avec traduction
     const projectsData = getProjectsData(t)

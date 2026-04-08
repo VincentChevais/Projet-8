@@ -1,11 +1,15 @@
 // Styles de la page Resume
 import './Resume.scss'
+
 // Hooks React
 import { useEffect, useMemo, useRef, useState } from 'react'
+
 // Hook de traduction i18n
 import { useTranslation } from 'react-i18next'
+
 // Hook de scroll automatique en haut de page
 import useScrollToTop from '../../hooks/useScrollToTop.js'
+
 // Composants de la page
 import Header from '../../components/Header/Header'
 import CharacterModal from '../../components/Resume/CharacterModal/CharacterModal'
@@ -13,6 +17,7 @@ import CharacterCard from '../../components/Resume/CharacterCard/CharacterCard'
 import Timeline from '../../components/Resume/Timeline/Timeline'
 import CompletionModal from '../../components/Resume/CompletionModal/CompletionModal'
 import Footer from '../../components/Footer/Footer'
+
 // Données de la page Resume
 import { getResumeData } from '../../data/resumeData'
 
@@ -71,6 +76,7 @@ function Resume() {
 
     // Gère le clic sur un événement de la timeline
     const handleEventClick = (eventId) => {
+
         // Met à jour l'événement actif
         setActiveEventId(eventId)
 

@@ -2,7 +2,7 @@
 import './Timeline.scss'
 
 // Hook React pour gérer les références et les effets de cycle de vie
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 // Composant de la timeline du CV
 import TimelineEvent from '../TimelineEvent/TimelineEvent'
@@ -23,19 +23,20 @@ function Timeline({
     // Fonction de traduction du namespace "resume"
     const { t } = useTranslation('resume')
 
-    useEffect(() => {
-        // Récupère le nœud correspondant à l'événement actif
-        const activeNode = eventRefs.current[activeEventId]
+    // Fonction appelée au clic sur un event
+    const handleClick = (eventId) => {
+        // Met à jour l'état côté parent
+        onEventClick(eventId)
 
-        // Si aucun nœud n'est trouvé, on ne fait rien
-        if (!activeNode) return
+        // Scroll 
+        const node = eventRefs.current[eventId]
+        if (!node) return
 
-        // Fait défiler la timeline pour centrer l'événement actif à l'écran
-        activeNode.scrollIntoView({
+        node.scrollIntoView({
             behavior: 'smooth',
             block: 'center',
         })
-    }, [activeEventId])
+    }
 
     return (
         <section className="timeline" aria-labelledby="timeline-title">
@@ -70,7 +71,7 @@ function Timeline({
                             // Indique si l'événement a déjà été débloqué / sélectionné
                             isUnlocked={selectedEventIds.includes(event.id)}
                             // Gestion du clic sur un événement
-                            onClick={() => onEventClick(event.id)}
+                            onClick={() => handleClick(event.id)}
                         />
                     ))}
                 </div>

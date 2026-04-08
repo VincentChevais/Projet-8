@@ -37,7 +37,17 @@ function CompletionModal({
     if (!isOpen || !event || !character || !finalCharacter) return null
 
     return (
-        <FocusTrap>
+        <FocusTrap
+            active={isOpen}
+            focusTrapOptions={{
+                returnFocusOnDeactivate: false,
+                onDeactivate: () => {
+                    if (document.activeElement instanceof HTMLElement) {
+                        document.activeElement.blur()
+                    }
+                }
+            }}
+        >
             <div
                 className={`completion-modal ${isOpen ? 'completion-modal--open' : ''}`}
                 role="dialog"
@@ -129,7 +139,7 @@ function CompletionModal({
                     </div>
                 </div>
             </div>
-        </FocusTrap>
+        </FocusTrap >
     )
 }
 
